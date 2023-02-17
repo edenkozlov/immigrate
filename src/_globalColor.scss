@@ -3,9 +3,9 @@ Certain colors are used for different and multiply types of elements.
 For greater control over colors visit each components .scss file. */
 
 // button colors
-$buttonColor: #55198b;
-$buttonHover: #8c43ce;
-$topButtonHover: #000;
+$buttonColor: #7D85C7;
+$buttonHover: #514C98;
+$topButtonHover: #514C98;
 
 // text colors light theme
 $titleColor: #000000;
@@ -31,7 +31,7 @@ $githubProfileCardLocationTS: #ffebcd;
 $githubProfileCardBorder: #6c63ff;
 
 // light background colors
-$lightBackground1: #fff;
+$lightBackground1: rgb(255, 255, 255);
 $lightBackground2: rgb(255, 255, 255);
 $lightBackground3: #f5f2f4;
 $blogCardContainerColor: #586069;
@@ -60,7 +60,7 @@ $experienceCardBannerLG: linear-gradient(
 // borders
 $progressBarBackground: rgb(243, 239, 239);
 $lightBorder1: rgba(211, 211, 211, 0.397);
-$educationCardBorder: #a9a7f9;
+$educationCardBorder: #7D85C7;
 
 // hovers
 $achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.2);
@@ -69,12 +69,12 @@ $headerHoverBG: #f4f4f4;
 $contactDetailHoverTS: #b5b5b5;
 
 // misc backgrounds
-$progressBarSpanBG: #aaa5ff;
+$progressBarSpanBG: #7D85C7;
 $iconBackground: #333;
 $appHeaderBG: #282c34;
 
 // misc colors
-$skillsColor: #645beb;
+$skillsColor: #7D85C7;
 $appLink: #09d3ac;
 
 // social media icons

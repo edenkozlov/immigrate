@@ -9,6 +9,7 @@ import Button from "../../components/button/Button";
 
 import {illustration, greeting} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
+import { Link } from "react-router-dom"
 
 export default function Greeting() {
   const {isDark} = useContext(StyleContext);
@@ -26,7 +27,7 @@ export default function Greeting() {
               >
                 {" "}
                 {greeting.title}{" "}
-                <span className="wave-emoji">{emoji("👋")}</span>
+                <span className="wave-emoji">{emoji("🇨🇦")}</span>
               </h1>
               <p
                 className={
@@ -39,13 +40,15 @@ export default function Greeting() {
               </p>
               <SocialMedia />
               <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
+                <Button text="Contact Us" href="#contact" />
                 {greeting.resumeLink && (
+                  
+                  <Link to="/Signup">
                   <Button
-                    text="See my resume"
+                    text="Get Started"
                     newTab={true}
                     href={greeting.resumeLink}
-                  />
+                  /></Link>
                 )}
               </div>
             </div>
@@ -56,7 +59,7 @@ export default function Greeting() {
             ) : (
               <img
                 alt="man sitting on table"
-                src={require("../../assets/images/manOnTable.svg")}
+                src={require("../../assets/images/mygreeting.png")}
               ></img>
             )}
           </div>
