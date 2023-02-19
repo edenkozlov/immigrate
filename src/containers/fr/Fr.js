@@ -5,6 +5,7 @@ import {splashScreen} from "../../portfolio";
 import {StyleProvider} from "../../contexts/StyleContext";
 import {useLocalStorage} from "../../hooks/useLocalStorage";
 import SplashScreen from "../splashScreen/SplashScreen";
+import GreetingFr from "../fr-greeting/fr-greeting";
 
 const MainFr = () => {
     const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -37,6 +38,7 @@ const MainFr = () => {
           ) : (
             <>
               <HeaderFr />
+              <GreetingFr />
             </>
           )}
         </StyleProvider>
