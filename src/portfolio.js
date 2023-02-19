@@ -174,6 +174,22 @@ const educationInfo = {
       duration: "Update Status: Up To Date",
       desc: "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
     }
+  ],
+  schoolsFr: [
+    {
+      schoolName: "Fichiers Locaux",
+      logo: require("./assets/images/local-files.png"),
+      subHeader: "En anglais et en français",
+      duration: "État de la mise à jour: À jour",
+      desc: "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      schoolName: "Portails (CICC et l'autre)",
+      logo: require("./assets/images/portals.png"),
+      subHeader: "En anglais et en français",
+      duration: "État de la mise à jour: À jour",
+      desc: "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    }
   ]
 };
 
@@ -192,6 +208,20 @@ const techStack = {
     },
     {
       Stack: "A case with Immigrate Pro - 3 minutes",
+      progressPercentage: "40%"
+    }
+  ],
+  experienceFr: [
+    {
+      Stack: "Un cas normal (sans immigrer) - 4 heures", //Insert stack or technology you have experience in
+      progressPercentage: "90%" //Insert relative proficiency in percentage
+    },
+    {
+      Stack: "Un cas avec Immigrate - 15 minutes",
+      progressPercentage: "60%"
+    },
+    {
+      Stack: "Un cas avec Immigrate Pro - 3 minutes",
       progressPercentage: "40%"
     }
   ],
@@ -278,7 +308,7 @@ const bigProjects = {
 const achievementSection = {
   title: emoji("Pricing"),
   subtitle:
-    "Get ahead with a subscription today!",
+    "Get ahead with a subscription today!!",
 
   achievementsCards: [
     {
@@ -316,6 +346,47 @@ const achievementSection = {
       footerLink: [
         {
           name: "Subscribe",
+          url: "https://www.google.com/"
+        }
+      ]
+    }
+  ],
+  achievementsCardsFr: [
+    {
+      title: "Immigrate",
+      subtitle:
+        "Paquet de base",
+      image: require("./assets/images/immigrate.png"),
+      imageAlt: "Google Code-In Logo",
+      footerLink: [
+        {
+          name: "S'abonner",
+          url: "https://www.google.com/"
+        }
+      ]
+    },
+    {
+      title: "Immigrate Pro",
+      subtitle:
+        "Similaire au package de base mais avec des portails",
+      image: require("./assets/images/immigratepro.png"),
+      imageAlt: "Google Assistant Action Logo",
+      footerLink: [
+        {
+          name: "S'abonner",
+          url: "https://www.google.com/"
+        }
+      ]
+    },
+
+    {
+      title: "Immigrate Plus",
+      subtitle: "Similaire à Immigrate Pro mais avec remplissage automatique",
+      image: require("./assets/images/immigrateplus.png"),
+      imageAlt: "PWA Logo",
+      footerLink: [
+        {
+          name: "S'abonner",
           url: "https://www.google.com/"
         }
       ]

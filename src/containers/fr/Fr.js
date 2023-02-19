@@ -7,6 +7,12 @@ import {useLocalStorage} from "../../hooks/useLocalStorage";
 import SplashScreen from "../splashScreen/SplashScreen";
 import GreetingFr from "../fr-greeting/fr-greeting";
 import SkillsFr from "../fr-skills/fr-skills";
+import StackProgressFr from "../skillProgress-fr/skillProgress-fr";
+import ScrollToTopButton from "./../topbutton/Top";
+import EducationFr from "../education-fr/Education-fr";
+import AchievementFr from "../achievement-fr/Achievement-fr";
+import ContactFr from "../contact-fr/Contact-fr";
+import FooterFr from "../../components/footer-fr/Footer-fr";
 
 const MainFr = () => {
     const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -41,6 +47,12 @@ const MainFr = () => {
               <HeaderFr />
               <GreetingFr />
               <SkillsFr />
+              <StackProgressFr />
+              <EducationFr />
+              <AchievementFr />
+              <ContactFr />
+              <FooterFr />
+              <ScrollToTopButton />
             </>
           )}
         </StyleProvider>
