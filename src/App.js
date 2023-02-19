@@ -8,6 +8,8 @@ import Signedin from "./components/signedin/Signedin";
 import SponsorshipSpousal from "./components/sponsorship-spousal/sponsorship-spousal";
 import SponsorshipParental from "./components/sponsorship-parental/sponsorship-parental";
 import Fr from "./containers/fr/Fr";
+import SigninFr from "./components/signin-fr/Signin-fr";
+import BlogsFr from "./components/signedin-fr/Signedin-fr";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />}/>
           <Route path="/Fr" element={<Fr />}/>
+          <Route path="/Fr/s'identifier" element={<SigninFr />}/>
+          <Route path="/Fr/s'identifier/connecté" element={<BlogsFr />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path="/signin" element={<Signin />}/>
           <Route path="/signin/signedin" element={<Signedin />}/>

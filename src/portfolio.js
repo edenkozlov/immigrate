@@ -73,6 +73,29 @@ const skillsSection = {
       "-Work on the go with the mobile version"
     )
   ],
+  skillsFr: [
+    emoji(
+      "-Remplissez une seule fois et recevez votre dossier entièrement rempli"
+    ),
+    emoji("-Utiliser le remplissage automatique pour accéder aux données saisies précédemment"),
+    emoji(
+      "-Valider automatiquement tous les formulaires "
+    ),
+    emoji(
+      "-Diminuer les risques d'erreurs"
+    ),
+    emoji("-Vous seul pouvez accéder aux informations sensibles enregistrées"),
+
+    emoji(
+      "-Nos serveurs sont entretenus régulièrement, mettant à jour les nouveaux fichiers dès leur sortie"
+    ),
+    emoji(
+      "-Support client exceptionnel"
+    ),
+    emoji(
+      "-Travaillez en déplacement avec la version mobile"
+    )
+  ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
@@ -100,6 +123,32 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "Mobile Friendly",
+      fontAwesomeClassname: "fas fa-mobile-alt"
+    }
+  ],
+  softwareSkillsFr: [
+    {
+      skillName: "Sécurisé",
+      fontAwesomeClassname: "fas fa-user-shield" 
+    },
+    {
+      skillName: "rapide",
+      fontAwesomeClassname: "fas fa-bolt"
+    },
+    {
+      skillName: "réduction des erreurs",
+      fontAwesomeClassname: "fas fa-exclamation-triangle"
+    },
+    {
+      skillName: "Mise à jour du fichier",
+      fontAwesomeClassname: "fas fa-file"
+    },
+    {
+      skillName: "Soutien",
+      fontAwesomeClassname: "fas fa-hard-hat"
+    },
+    {
+      skillName: "Mobile", 
       fontAwesomeClassname: "fas fa-mobile-alt"
     }
   ],
@@ -292,6 +341,80 @@ const blogSection = {
     {
       url: "http://localhost:3000/Signin/signedin/sponsorship-parental",
       title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: The other one",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
+      title: "Sponsorship: Spousal",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: The other one",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
+      title: "Sponsorship: Spousal",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: The other one",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
+      title: "Sponsorship: Spousal",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: The other one",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    }
+  ],
+  blogsFr: [
+    {
+      url: "http://localhost:3000/Signin/signedin/sponsorship-spousal",
+      title: "Parrainage: Conjoint",
+      description:
+        "IMM1344, IMM5532, IMM5475, IMM5476, IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
+    },
+    {
+      url: "http://localhost:3000/Signin/signedin/sponsorship-parental",
+      title: "Parrainage: Parental",
       description:
         "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
     },
