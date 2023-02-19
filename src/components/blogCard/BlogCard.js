@@ -18,7 +18,7 @@ export default function BlogCard({blog, isDark}) {
           className={
             isDark ? "dark-mode blog-card blog-card-shadow" : "blog-card"
           }
-          href="#blog"
+          href="signedin"
         >
           <h3 className={isDark ? "small-dark blog-title" : "blog-title"}>
             {blog.title}

@@ -68,6 +68,9 @@ const skillsSection = {
     ),
     emoji(
       "-Exceptional customer support"
+    ),
+    emoji(
+      "-Work on the go with the mobile version"
     )
   ],
 
@@ -94,6 +97,10 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "Support",
       fontAwesomeClassname: "fas fa-hard-hat"
+    },
+    {
+      skillName: "Mobile Friendly",
+      fontAwesomeClassname: "fas fa-mobile-alt"
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -277,19 +284,79 @@ const blogSection = {
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
-      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
-      title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
+      url: "http://localhost:3000/Signin/signedin/sponsorship-spousal",
+      title: "Sponsorship: Spousal",
       description:
-        "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
+        "IMM1344, IMM5532, IMM5475, IMM5476, IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
+    },
+    {
+      url: "http://localhost:3000/Signin/signedin/sponsorship-parental",
+      title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
     },
     {
       url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Why REACT is The Best?",
+      title: "Sponsorship: The other one",
       description:
-        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
+      title: "Sponsorship: Spousal",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: The other one",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
+      title: "Sponsorship: Spousal",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: The other one",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
+      title: "Sponsorship: Spousal",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: Parental",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+    },
+    {
+      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
+      title: "Sponsorship: The other one",
+      description:
+        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
     }
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: true // Set false to hide this section, defaults to true
 };
 
 // Talks Sections

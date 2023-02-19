@@ -58,7 +58,7 @@ export default function Contact() {
             ) : (
               <img
                 alt="Man working"
-                src={require("../../assets/images/contact.png")}
+                src={require("../../assets/images/contact.gif")}
               ></img>
             )}
           </div>
