@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import Headroom from "react-headroom";
-import "./Header.scss";
+import "./fr-header.scss";
 //import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
 import { Link } from "react-router-dom"
@@ -16,7 +16,7 @@ import {
 
 
 
-function Header() {
+function HeaderFr() {
   
   
   const {isDark} = useContext(StyleContext);
@@ -48,7 +48,7 @@ function Header() {
         <ul className={isDark ? "dark-menu menu" : "menu"}>
           {viewSkills && (
             <li>
-              <a href="#skills">About</a>
+              <a href="#skills">À Propos</a>
             </li>
           )}
           {viewExperience && (
@@ -58,31 +58,31 @@ function Header() {
           )}
           {viewOpenSource && (
             <li>
-              <a href="#opensource">Automization</a>
+              <a href="#opensource">Automatisation</a>
             </li>
           )}
           {viewAchievement && (
             <li>
-              <a href="#achievements">Pricing</a>
+              <a href="#achievements">Tarification</a>
             </li>
           )}
             <li>
-              <a href="#contact">Contact Us</a>
+              <a href="#contact">Contactez-nous</a>
             </li>
             
             <Link to="/Signup">
               <li>
-                <a>Sign Up</a>
+                <a>S'inscrire</a>
               </li>
             </Link>
             <Link to="/Signin">
           <li>
-            <a>Sign in</a>
+            <a>S'identifier</a>
           </li>
           </Link>
-          <Link to="/Fr">
+          <Link to="/">
           <li>
-            <a>Fr</a>
+            <a>En</a>
           </li>
           </Link>
           <li>
@@ -98,4 +98,4 @@ function Header() {
     </Headroom>
   );
 }
-export default Header;
+export default HeaderFr;

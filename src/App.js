@@ -7,6 +7,7 @@ import Signin from "./components/signin/Signin";
 import Signedin from "./components/signedin/Signedin";
 import SponsorshipSpousal from "./components/sponsorship-spousal/sponsorship-spousal";
 import SponsorshipParental from "./components/sponsorship-parental/sponsorship-parental";
+import Fr from "./containers/fr/Fr";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Main />}/>
+          <Route path="/Fr" element={<Fr />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path="/signin" element={<Signin />}/>
           <Route path="/signin/signedin" element={<Signedin />}/>
