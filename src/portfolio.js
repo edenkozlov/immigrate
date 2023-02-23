@@ -34,13 +34,9 @@ const greeting = {
 // Social Media Links
 
 const socialMediaLinks = {
-  twitter: "https://twitter.com/home?lang=en",
-  linkedin: "https://www.linkedin.com/in/saadpasta/",
-  gmail: "saadpasta70@gmail.com",
-  facebook: "https://www.facebook.com/saad.pasta7",
-  medium: "https://medium.com/@saadpasta",
-  stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
-  instagram: "https://www.instagram.com",
+  twitter: "https://twitter.com/0x_luna_studios",
+  gmail: "0xlunastudios@gmail.com",
+  instagram: "https://www.instagram.com/0x_luna_studios/",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -165,14 +161,14 @@ const educationInfo = {
       logo: require("./assets/images/local-files.png"),
       subHeader: "In english and in french",
       duration: "Update Status: Up To Date",
-      desc: "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+      desc: "IMM1344, IMM5532, IMM5475, IMM5476, IMM5748, IMM5768"
     },
     {
       schoolName: "Portals (CICC and the other one)",
       logo: require("./assets/images/portals.png"),
       subHeader: "In english and in french",
       duration: "Update Status: Up To Date",
-      desc: "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+      desc: "IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
     }
   ],
   schoolsFr: [
@@ -181,14 +177,14 @@ const educationInfo = {
       logo: require("./assets/images/local-files.png"),
       subHeader: "En anglais et en français",
       duration: "État de la mise à jour: À jour",
-      desc: "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+      desc: "IMM1344, IMM5532, IMM5475, IMM5476, IMM5748, IMM5768"
     },
     {
       schoolName: "Portails (CICC et l'autre)",
       logo: require("./assets/images/portals.png"),
       subHeader: "En anglais et en français",
       duration: "État de la mise à jour: À jour",
-      desc: "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+      desc: "IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
     }
   ]
 };
@@ -320,7 +316,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "Subscribe",
-          url: "https://www.google.com/"
+          url: "http://localhost:3000/Signup"
         }
       ]
     },
@@ -333,7 +329,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "Subscribe",
-          url: "https://www.google.com/"
+          url: "http://localhost:3000/Signup"
         }
       ]
     },
@@ -346,7 +342,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "Subscribe",
-          url: "https://www.google.com/"
+          url: "http://localhost:3000/Signup"
         }
       ]
     }
@@ -413,29 +409,29 @@ const blogSection = {
       url: "http://localhost:3000/Signin/signedin/sponsorship-parental",
       title: "Sponsorship: Parental",
       description:
-        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
+        "IMM1344, IMM5532, IMM5475, IMM5476, IMM5748, IMM5768, IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
     },
     {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Sponsorship: The other one",
+      url: "http://localhost:3000/Signin/signedin/sponsorship-Child",
+      title: "Sponsorship: Child",
+      description:
+        "IMM1344, IMM5532, IMM5475, IMM5476, IMM5748, IMM5768, IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
+    },
+    {
+      url: "http://localhost:3000/Signin/signedin/work-permit-inside",
+      title: "Work Permit: Inside Canada",
       description:
         "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
     },
     {
-      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
-      title: "Sponsorship: Spousal",
+      url: "http://localhost:3000/Signin/signedin/work-permit-outside",
+      title: "Work Permit: Outisde Canada",
       description:
         "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
     },
     {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Sponsorship: Parental",
-      description:
-        "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
-    },
-    {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Sponsorship: The other one",
+      url: "http://localhost:3000/Signin/signedin/study-permit",
+      title: "Study Permit",
       description:
         "IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344, IMM1344"
     },
@@ -596,8 +592,8 @@ const contactInfo = {
 // Twitter Section
 
 const twitterDetails = {
-  userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: false // Set true to display this section, defaults to false
+  userName: "garyvee", //Replace "twitter" with your twitter username without @
+  display: true // Set true to display this section, defaults to false
 };
 
 const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer

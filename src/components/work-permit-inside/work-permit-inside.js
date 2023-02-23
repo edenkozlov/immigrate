@@ -1,34 +1,15 @@
 import React from "react";
-import './sponsorship-spousal.scss'
-import { Link } from "react-router-dom"
+import './work-permit-inside.scss'
 
 
 
-function SponsorshipSpousal() {
+
+function WorkPermitInside() {
     
-    function handleClick() {
-        const answer = prompt("Do you want to automize portal? (yes/no)");
-      
-        if (answer === "yes") {
-          // do something if the user answers "yes"
-          console.log("User wants to proceed.");
-          window.location.href = "/Signin/signedin/sponsorship-spousal/portal1";
-
-        } else if (answer === "no") {
-               
-          console.log("User does not want to proceed.");
-          window.location.href = "/signin/signedin"; 
-        } else {
-          // handle unexpected user input
-          console.log("Please answer with either 'yes' or 'no'.");
-        }
-      }
-
-
         return (
             <div class="form">
                 <div class="header">
-                    <h1>Sponsorship: Spousal</h1>
+                    <h1>Work Permit: Inside of Canada</h1>
                 </div>
                 <div class="small-margin">
                 <button class="mybtn">Saved Clients</button>
@@ -67,12 +48,10 @@ function SponsorshipSpousal() {
   <input type="text" id="input29" placeholder="Input 29"/>
   <input type="text" id="input30" placeholder="Input 30"/>
   <h6>Please make sure to double check your work, empty fields will be displayed blank on completed PDFs</h6>
-
-
-  <button onClick={handleClick} class="mybtn">Submit</button><br></br>
+  <button class="mybtn">Submit</button><br></br>
 </div>
         )
     }
 
 
-export default SponsorshipSpousal;
+export default WorkPermitInside;

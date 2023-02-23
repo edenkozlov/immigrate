@@ -66,6 +66,9 @@ function HeaderFr() {
               <a href="#achievements">Tarification</a>
             </li>
           )}
+          <li>
+              <a href="#twitter">Mises à jour</a>
+            </li>
             <li>
               <a href="#contact">Contactez-nous</a>
             </li>

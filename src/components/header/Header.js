@@ -66,6 +66,11 @@ function Header() {
               <a href="#achievements">Pricing</a>
             </li>
           )}
+          
+            <li>
+              <a href="#twitter">Updates</a>
+            </li>
+          
             <li>
               <a href="#contact">Contact Us</a>
             </li>

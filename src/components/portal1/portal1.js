@@ -1,45 +1,30 @@
 import React from "react";
-import './sponsorship-spousal.scss'
-import { Link } from "react-router-dom"
+import './portal1.scss'
 
 
 
-function SponsorshipSpousal() {
-    
+
+function Portal1() {
+
     function handleClick() {
-        const answer = prompt("Do you want to automize portal? (yes/no)");
-      
-        if (answer === "yes") {
-          // do something if the user answers "yes"
-          console.log("User wants to proceed.");
-          window.location.href = "/Signin/signedin/sponsorship-spousal/portal1";
-
-        } else if (answer === "no") {
-               
-          console.log("User does not want to proceed.");
-          window.location.href = "/signin/signedin"; 
-        } else {
-          // handle unexpected user input
-          console.log("Please answer with either 'yes' or 'no'.");
-        }
+        const answer = alert("Case completed! Check out your pr rep portal.");
       }
 
 
+    
         return (
             <div class="form">
                 <div class="header">
-                    <h1>Sponsorship: Spousal</h1>
+                    <h1>Sponsorship: Spousal (CICC)</h1>
                 </div>
                 <div class="small-margin">
                 <button class="mybtn">Saved Clients</button>
                 
                 </div>
-<h6>Please type today's date below</h6>
-  <input type="date" value="date" placeholder="date" id="input 1" onclick="this.value = new Date().toISOString().slice(0,10)" onkeydown="if(event.keyCode === 13) this.blur()"/>
-  <input type="text" id="email" placeholder="The case will be sent to...(your email)"/>
-  <input type="text" id="input1" placeholder="First Name (Client)"/>
-  <input type="text" id="input2" placeholder="last Name (Client)"/>
-  <input type="text" id="input3" placeholder="DOB (Client): YYYY-MM-DD"/>
+  <input type="text" id="email" placeholder="Enter CICC Usernme"/>
+  <input type="text" id="input1" placeholder="Enter CICC Password"/>
+  <input type="text" id="input2" placeholder="input"/>
+  <input type="text" id="input3" placeholder="input"/>
   <input type="text" id="input5" placeholder="Input 5"/>
   <input type="text" id="input6" placeholder="Input 6"/>
   <input type="text" id="input7" placeholder="Input 7"/>
@@ -75,4 +60,5 @@ function SponsorshipSpousal() {
     }
 
 
-export default SponsorshipSpousal;
+export default Portal1;
+

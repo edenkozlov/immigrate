@@ -6,6 +6,7 @@ import {Fade} from "react-reveal";
 import email from "../../assets/lottie/email";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
+import Button from "../../components/button/Button";
 
 export default function ContactFr() {
   const {isDark} = useContext(StyleContext);
@@ -50,6 +51,10 @@ export default function ContactFr() {
               </a>
               <br />
               <br />
+              <div class="cen">
+              <Button text="Prendre rendez-vous" href="https://calendly.com/0xlunastudios/30min?month=2023-02" newTab={true}/>
+              </div>
+              <br></br>
               <SocialMedia />
             </div>
           </div>

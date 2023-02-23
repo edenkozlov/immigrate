@@ -15,7 +15,7 @@ function SponsorshipParental() {
                 <button class="mybtn">Saved Clients</button>
                 
                 </div>
-<h6>Please type todays date below</h6>
+<h6>Please type today's date below</h6>
   <input type="date" value="date" placeholder="date" id="input 1" onclick="this.value = new Date().toISOString().slice(0,10)" onkeydown="if(event.keyCode === 13) this.blur()"/>
   <input type="text" id="email" placeholder="The case will be sent to...(your email)"/>
   <input type="text" id="input1" placeholder="First Name (Client)"/>
