@@ -101,7 +101,7 @@ export default function Skills() {
             {illustration.animated ? (
               <DisplayLottie animationData={codingPerson} />
             ) : (
-              <img
+              <img 
                 alt="Man Working"
                 src={require("../../assets/images/mygif.gif")}
               ></img>
