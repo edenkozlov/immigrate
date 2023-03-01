@@ -12,10 +12,7 @@ import StyleContext from "../../contexts/StyleContext";
 import { Link } from "react-router-dom"
 
 export default function Greeting() {
-  const {isDark} = useContext(StyleContext);
-  if (!greeting.displayGreeting) {
-    return null;
-  }
+  
   return (
     <Fade bottom duration={1000} distance="40px">
       <div className="greet-main" id="greeting">
@@ -23,7 +20,7 @@ export default function Greeting() {
           <div className="greeting-text-div">
             <div>
               <h1
-                className={isDark ? "dark-mode greeting-text" : "greeting-text"}
+                className={"greeting-text"}
               >
                 {" "}
                 {greeting.title}{" "}
@@ -31,9 +28,7 @@ export default function Greeting() {
               </h1>
               <p
                 className={
-                  isDark
-                    ? "dark-mode greeting-text-p"
-                    : "greeting-text-p subTitle"
+                  "greeting-text-p subTitle"
                 }
               >
                 {greeting.subTitle}

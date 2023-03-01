@@ -10,7 +10,7 @@ import Button from "../../components/button/Button";
 
 
 export default function Contact() {
-  const {isDark} = useContext(StyleContext);
+  
   return (
     <Fade bottom duration={1000} distance="20px">
       <div className="main contact-margin-top" id="contact">
@@ -19,16 +19,14 @@ export default function Contact() {
             <h1 className="heading contact-title">{contactInfo.title}</h1>
             <p
               className={
-                isDark
-                  ? "dark-mode contact-subtitle"
-                  : "subTitle contact-subtitle"
+                "subTitle contact-subtitle"
               }
             >
               {contactInfo.subtitle}
             </p>
             <div
               className={
-                isDark ? "dark-mode contact-text-div" : "contact-text-div"
+                "contact-text-div"
               }
             >
               {contactInfo.number && (

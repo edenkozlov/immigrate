@@ -6,6 +6,7 @@ import Signup from "./components/signup/sign-up";
 import Signin from "./components/signin/Signin";
 import Signedin from "./components/signedin/Signedin";
 import SponsorshipSpousal from "./components/sponsorship-spousal/sponsorship-spousal";
+import Portal1 from "./components/sponsorship-spousal/portal1/portal1";
 import SponsorshipParental from "./components/sponsorship-parental/sponsorship-parental";
 import Fr from "./containers/fr/Fr";
 import SigninFr from "./components/signin-fr/Signin-fr";
@@ -14,7 +15,8 @@ import SponsorshipChild from "./components/sponsorship-child/sponsorship-child";
 import WorkPermitInside from "./components/work-permit-inside/work-permit-inside";
 import WorkPermitOutside from "./components/work-permit-outside/work-permit-outside";
 import StudyPermit from "./components/study-permit/study-permit";
-import Portal1 from "./components/portal1/portal1";
+import Review from "./components/review/review";
+import Portal2 from "./components/sponsorship-parental/portal2/portal2";
 
 function App() {
   return (
@@ -28,13 +30,16 @@ function App() {
           <Route path="/signup" element={<Signup />}/>
           <Route path="/signin" element={<Signin />}/>
           <Route path="/signin/signedin" element={<Signedin />}/>
+          <Route path="/signin/signedin/review" element={<Review />}/>
           <Route path="/Signin/signedin/sponsorship-spousal" element={<SponsorshipSpousal />}/>
+          <Route path="/Signin/signedin/sponsorship-spousal/portal1" element={<Portal1 />}/>
           <Route path="/Signin/signedin/sponsorship-parental" element={<SponsorshipParental />}/>
+          <Route path="/Signin/signedin/sponsorship-parental/portal2" element={<Portal2 />}/>
           <Route path="/Signin/signedin/sponsorship-child" element={<SponsorshipChild />}/>
           <Route path="/Signin/signedin/work-permit-inside" element={<WorkPermitInside />}/>
           <Route path="/Signin/signedin/work-permit-outside" element={<WorkPermitOutside />}/>
           <Route path="/Signin/signedin/study-permit" element={<StudyPermit />}/>
-          <Route path="/Signin/signedin/sponsorship-spousal/portal1" element={<Portal1 />}/>
+
         </Routes>
       </Router>
       

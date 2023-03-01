@@ -31,7 +31,7 @@ function Header() {
   
   return (
     <Headroom>
-      <header className={isDark ? "dark-menu header" : "header"}>
+      <header className={"header"}>
         <a href="/" className="logo">
           
           <span className="logo-name">{greeting.username}</span>
@@ -43,9 +43,9 @@ function Header() {
           htmlFor="menu-btn"
           style={{color: "white"}}
         >
-          <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
+          <span className={"navicon"}></span>
         </label>
-        <ul className={isDark ? "dark-menu menu" : "menu"}>
+        <ul className={"menu"}>
           {viewSkills && (
             <li>
               <a href="#skills">About</a>

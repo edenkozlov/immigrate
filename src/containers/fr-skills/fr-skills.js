@@ -8,12 +8,9 @@ import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function SkillsFr() {
-  const {isDark} = useContext(StyleContext);
-  if (!skillsSection.display) {
-    return null;
-  }
+  
   return (
-    <div className={isDark ? "dark-mode main" : "main"} id="skills">
+    <div className={"main"} id="skills">
       <div className="skills-main-div">
         <Fade left duration={2000}>
           <div className="skills-image-div">
@@ -30,15 +27,13 @@ export default function SkillsFr() {
         <Fade right duration={2000}>
           <div className="skills-text-div">
             <h1
-              className={isDark ? "dark-mode skills-heading" : "skills-heading"}
+              className={"skills-heading"}
             >
               Ce que nous faisons{" "}
             </h1>
             <p
               className={
-                isDark
-                  ? "dark-mode subTitle skills-text-subtitle"
-                  : "subTitle skills-text-subtitle"
+                "subTitle skills-text-subtitle"
               }
             >
               Automatisez tous les cas, à la fois les fichiers locaux et les portails
@@ -51,9 +46,7 @@ export default function SkillsFr() {
                   <p
                     key={i}
                     className={
-                      isDark
-                        ? "dark-mode subTitle skills-text"
-                        : "subTitle skills-text"
+                      "subTitle skills-text"
                     }
                   >
                     {skillsFr}

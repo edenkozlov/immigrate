@@ -39,7 +39,7 @@ const MainFr = () => {
   
     return (
       
-      <div className={isDark ? "dark-mode" : null}>
+      <div className={null}>
         <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
           {isShowingSplashAnimation && splashScreen.enabled ? (
             <SplashScreen />

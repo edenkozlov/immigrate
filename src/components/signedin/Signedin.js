@@ -4,6 +4,8 @@ import BlogCard from "../../components/blogCard/BlogCard";
 import {blogSection} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Button from "../../components/button/Button";
+import { Link } from "react-router-dom"
 
 
 
@@ -53,6 +55,12 @@ export default function Blogs() {
   
   return (
     <Fade bottom duration={1000} distance="20px">
+                
+                <Link to="/signin/signedin/review">
+                <div>
+                <button class="mybtn">Leave a review</button><br></br>
+                </div>
+                </Link>
       <div className="main">
         <div className="blog-header">
           <h1 className="blog-header-text">Select A Case</h1>
@@ -94,9 +102,14 @@ export default function Blogs() {
                   );
                 })}
           </div>
+          
         </div>
+
+                
       </div>
+                
     </Fade>
+    
   );
 }
 

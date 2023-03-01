@@ -19,7 +19,7 @@ function timeOut() {
 var widthScreen = window.screen.width;
 
 export default function TwitterFr() {
-  const {isDark} = useContext(StyleContext);
+  
 
   if (!twitterDetails.display) {
     return null;
@@ -39,8 +39,8 @@ export default function TwitterFr() {
               placeholder={renderLoader()}
               autoHeight={false}
               borderColor="#fff"
-              key={isDark ? "1" : "2"}
-              theme={isDark ? "dark" : "light"}
+              key={"2"}
+              theme={"light"}
               noFooter={true}
               onload={timeOut()}
             />

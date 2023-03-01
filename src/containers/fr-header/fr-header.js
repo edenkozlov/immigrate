@@ -19,7 +19,7 @@ import {
 function HeaderFr() {
   
   
-  const {isDark} = useContext(StyleContext);
+ 
   const viewExperience = workExperiences.display;
   const viewOpenSource = openSource.display;
   const viewSkills = skillsSection.display;
@@ -31,7 +31,7 @@ function HeaderFr() {
   
   return (
     <Headroom>
-      <header className={isDark ? "dark-menu header" : "header"}>
+      <header className={"header"}>
         <a href="/" className="logo">
           
           <span className="logo-name">{greeting.username}</span>
@@ -43,9 +43,9 @@ function HeaderFr() {
           htmlFor="menu-btn"
           style={{color: "white"}}
         >
-          <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
+          <span className={"navicon"}></span>
         </label>
-        <ul className={isDark ? "dark-menu menu" : "menu"}>
+        <ul className={"menu"}>
           {viewSkills && (
             <li>
               <a href="#skills">À Propos</a>

@@ -5,14 +5,13 @@ import emoji from "react-easy-emoji";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function FooterFr() {
-  const {isDark} = useContext(StyleContext);
+  
   return (
     <Fade bottom duration={1000} distance="5px">
       <div className="footer-div">
-        <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
+        <p className={"footer-text"}>
           {emoji("Copyright © 2023 Immigrate. All rights reserved.")}
         </p>
-        
       </div>
     </Fade>
   );

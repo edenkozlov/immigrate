@@ -1,25 +1,7 @@
-import React, { useState } from "react";
-import './sponsorship-spousal.scss'
+import React from "react";
+import './portal1.scss'
 import { Link } from "react-router-dom"
 
-function handleClick() {
-  alert("Completed PDFs will be sent to the specified email in about 5 minutes!");
-  const answer = prompt("Do you want to automize portal? (y/n)");
-
-  if (answer === "y") {
-    // do something if the user answers "yes"
-    console.log("User wants to proceed.");
-    window.location.href = "/Signin/signedin/sponsorship-spousal/portal1";
-
-  } else if (answer === "n") {
-         
-    console.log("User does not want to proceed.");
-    window.location.href = "/signin/signedin"; 
-  } else {
-    // handle unexpected user input
-    console.log("Please answer with either 'yes' or 'no'.");
-  }
-}
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -42,7 +24,7 @@ window.onclick = function(event) {
 }
 
 
-function SponsorshipSpousal() {
+function Portal1() {
         return (
             <div class="form">
               
@@ -68,15 +50,13 @@ function SponsorshipSpousal() {
   </div>
 </div>
 
-
-
-<Link to="/Signin/signedin/sponsorship-spousal/portal1">
-<div class="mydiv"><button onClick="" class="dropbtn"> Skip To Portal <i class="fa fa-arrow-right" aria-hidden="true"></i></button></div>
+<Link to="/Signin/signedin/sponsorship-spousal">
+<div class="mydiv"><button onClick="" class="dropbtn"> Go Back To Local <i class="fa fa-arrow-left" aria-hidden="true"></i></button></div>
 </Link>
 <br></br>
               
                 <div class="header">
-                    <h1>Sponsorship: Spousal</h1>
+                    <h1>Sponsorship: Spousal (Portal)</h1>
                 </div>
                 
 <h6>Please type today's date below</h6>
@@ -114,10 +94,12 @@ function SponsorshipSpousal() {
   <h6>Please make sure to double check your work, empty fields will be displayed blank on completed PDFs</h6>
 
 
-  <button>Submit</button><br></br>
+  <button onClick={""} class="">Submit</button><br></br>
 </div>
         )
     }
 
 
-export default SponsorshipSpousal;
+    
+
+export default Portal1;
