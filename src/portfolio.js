@@ -69,6 +69,28 @@ const skillsSection = {
       "-Work on the go with the mobile version"
     )
   ],
+  skills2: [
+    emoji(
+      "-Step 1: BLABLABLABLABLABLABLABLABLABLABLABLA"
+    ),
+    emoji("-Step 2: BLABLABLABLABLABLABLABLABLABLABLABLA"),
+    emoji(
+      "-Step 3: BLABLABLABLABLABLABLABLABLABLABLABLA"
+    ),
+    emoji(
+      "-Step 4: BLABLABLABLABLABLABLABLABLABLABLABLA"
+    ),
+    emoji("-Step 5: BLABLABLABLABLABLABLABLABLABLABLABLA"),
+    emoji(
+      "-Step 6: BLABLABLABLABLABLABLABLABLABLABLABLA"
+    ),
+    emoji(
+      "-Step 7: BLABLABLABLABLABLABLABLABLABLABLABLA"
+    ),
+    emoji(
+      "-Step 8: BLABLABLABLABLABLABLABLABLABLABLABLA"
+    )
+  ],
   skillsFr: [
     emoji(
       "-Remplissez une seule fois et recevez votre dossier entièrement rempli"
