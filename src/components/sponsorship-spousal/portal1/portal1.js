@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import './portal1.scss'
 import { Link } from "react-router-dom"
+import axios from 'axios';
 
+
+
+
+function Test() {
+  axios.post('https://us-central1-immigrationpro-6b3b5.cloudfunctions.net/app/addRequest', {
+    documentName: 'SponsorshipSpousal',
+    firstName: document.getElementById("input1").value,
+    lastName: document.getElementById("input2").value,
+    portal: 'true'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  alert("Completed PDFs will be sent to the specified email in about 3 minutes!");
+  const answer = prompt("Do you want to automize portal? (y/n)");
+
+  if (answer === "y") {
+    // do something if the user answers "yes"
+    console.log("User wants to proceed.");
+    window.location.href = "/Signin/signedin/sponsorship-spousal/portal1";
+
+  } else if (answer === "n") {
+         
+    console.log("User does not want to proceed.");
+    window.location.href = "/signin/signedin"; 
+  } else {
+    // handle unexpected user input
+    console.log("Please answer with either 'yes' or 'no'.");
+  }
+}
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -60,13 +95,15 @@ function Portal1() {
                 </div>
                 
 <h6>Please type today's date below</h6>
-  <input type="date" value="date" placeholder="date" id="input 1" onclick="this.value = new Date().toISOString().slice(0,10)" onkeydown="if(event.keyCode === 13) this.blur()"/>
-  <input type="text" id="email" placeholder="The case will be sent to...(your email)"/>
-  <input type="text" id="input1" placeholder="First Name (Client)"/>
-  <input type="text" id="input2" placeholder="last Name (Client)"/>
-  <input type="text" id="input3" placeholder="DOB (Client): YYYY-MM-DD"/>
-  <input type="text" id="input5" placeholder="Input 5"/>
-  <input type="text" id="input6" placeholder="Input 6"/>
+  <input type="date" value="<script>document.write(new Date().toISOString().slice(0, 10))</script>" placeholder="date" id="input 1" onclick="this.value = new Date().toISOString().slice(0,10)" onkeydown="if(event.keyCode === 13) this.blur()"/>
+  <input type="password" id="email" placeholder="password"/>
+
+  <input type="text" id="input1" onchange= {Test} placeholder="First Name (Client)"/>
+  
+  <input type="text" id="input2" onchange= {Test} placeholder="last Name (Client)"/>
+  <input type="text" id="input3" onchange= {Test} placeholder="DOB (Client): YYYY-MM-DD"/>
+  <input type="text" id="input5" onchange= {Test} placeholder="Input 5"/>
+  <input type="text" id="input6" onchange= {Test} placeholder="Input 6"/>
   <input type="text" id="input7" placeholder="Input 7"/>
   <input type="text" id="input8" placeholder="Input 8"/>
   <input type="text" id="input9" placeholder="Input 9"/>
@@ -94,12 +131,15 @@ function Portal1() {
   <h6>Please make sure to double check your work, empty fields will be displayed blank on completed PDFs</h6>
 
 
-  <button onClick={""} class="">Submit</button><br></br>
+  <button onClick={Test} id="sbmt" class="button">Submit</button><br></br>
+
+
+
 </div>
         )
     }
 
-
+console.log(Test);
     
 
 export default Portal1;

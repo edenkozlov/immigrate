@@ -13,7 +13,7 @@ export default function SplashScreen() {
       </div>
       <div className="splash-title-container">
         
-        <span >Immigrate</span>
+        
         
       </div>
     </div>

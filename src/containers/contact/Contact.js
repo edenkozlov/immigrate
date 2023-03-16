@@ -5,7 +5,6 @@ import {illustration, contactInfo} from "../../portfolio";
 import {Fade} from "react-reveal";
 import email from "../../assets/lottie/email";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import StyleContext from "../../contexts/StyleContext";
 import Button from "../../components/button/Button";
 
 
@@ -49,7 +48,7 @@ export default function Contact() {
               </a>
               <br />
               <br />
-                
+            
               <div class="cen">
               <Button text="Make an appointment" href="https://calendly.com/0xlunastudios/30min?month=2023-02" newTab={true}/>
               </div>

@@ -4,6 +4,8 @@ import {illustration, techStack} from "../../portfolio";
 import {Fade} from "react-reveal";
 import Build from "../../assets/lottie/build";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
+import Button from "../../components/button/Button";
+import { Link } from "react-router-dom"
 
 export default function StackProgress() {
   if (techStack.viewSkillBars) {
@@ -37,9 +39,20 @@ export default function StackProgress() {
               />
             )}
           </div>
+          
+        </div>
+        <div>
+        <div class="centerit">
+        <Link to="/Signin/TryItYourself">
+                  <Button
+                    text="Try it yourself!"
+                  /></Link>
+        </div>
         </div>
       </Fade>
     );
+    
   }
+  
   return null;
 }

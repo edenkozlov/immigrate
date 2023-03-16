@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './sponsorship-parental.scss'
+import './try-it-yourself.scss'
 import { Link } from "react-router-dom"
 
 
@@ -44,7 +44,7 @@ window.onclick = function(event) {
 
 
 
-function SponsorshipParental() {
+function TryItYourself() {
         return (
             <div class="form">
               
@@ -60,7 +60,7 @@ function SponsorshipParental() {
 
 
 
-<Link to="/Signin/signedin/sponsorship-parental/portal2">
+<Link to="/Signin/TryItYourself">
 <div class="mydiv"><button onClick="" class="dropbtn"> Skip To Portal <i class="fa fa-arrow-right" aria-hidden="true"></i></button></div>
 </Link>
 <br></br>
@@ -104,4 +104,4 @@ function SponsorshipParental() {
     }
 
 
-export default SponsorshipParental;
+export default TryItYourself;

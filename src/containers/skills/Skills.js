@@ -6,6 +6,7 @@ import {Fade} from "react-reveal";
 import codingPerson from "../../assets/lottie/codingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
+import Button from "../../components/button/Button";
 
 export default function Skills() {
   
@@ -49,9 +50,13 @@ export default function Skills() {
                     }
                   >
                     {skills}
+                    
                   </p>
+                  
                 );
+                
               })}
+              
             </div>
           </div>
         </Fade>

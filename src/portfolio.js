@@ -11,7 +11,7 @@ import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your
 const splashScreen = {
   enabled: true, // set false to disable splash screen
   animation: splashAnimation,
-  duration: 2000 // Set animation duration as per your animation
+  duration: 900 // Set animation duration as per your animation
 };
 
 // Summary And Greeting Section
@@ -21,8 +21,8 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Immigrate",
-  title: "Immigrate",
+  username: "Fillify",
+  title: "Fillify",
   subTitle: 
     "Immigration made easy - the best way to get all your cases done!"
   ,
@@ -34,7 +34,7 @@ const greeting = {
 // Social Media Links
 
 const socialMediaLinks = {
-  twitter: "https://twitter.com/0x_luna_studios",
+  twitter: "https://twitter.com/fillify_canada",
   gmail: "0xlunastudios@gmail.com",
   instagram: "https://www.instagram.com/0x_luna_studios/",
   // Instagram, Twitter and Kaggle are also supported in the links!
@@ -614,7 +614,7 @@ const contactInfo = {
 // Twitter Section
 
 const twitterDetails = {
-  userName: "garyvee", //Replace "twitter" with your twitter username without @
+  userName: "fillify_canada", //Replace "twitter" with your twitter username without @
   display: true // Set true to display this section, defaults to false
 };
 

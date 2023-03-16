@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import Headroom from "react-headroom";
 import "./Header.scss";
-//import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
 import { Link } from "react-router-dom"
 import {
@@ -34,7 +33,7 @@ function Header() {
       <header className={"header"}>
         <a href="/" className="logo">
           
-          <span className="logo-name">{greeting.username}</span>
+          <span className="logo-name1">{greeting.username}</span>
           
         </a>
         <input className="menu-btn" type="checkbox" id="menu-btn" />

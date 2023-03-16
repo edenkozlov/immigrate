@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import {Fade} from "react-reveal";
 import emoji from "react-easy-emoji";
 import "./Greeting.scss";
@@ -8,7 +8,6 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 
 import {illustration, greeting} from "../../portfolio";
-import StyleContext from "../../contexts/StyleContext";
 import { Link } from "react-router-dom"
 
 export default function Greeting() {
@@ -44,7 +43,9 @@ export default function Greeting() {
                     newTab={true}
                     href={greeting.resumeLink}
                   /></Link>
+                  
                 )}
+                
               </div>
             </div>
           </div>

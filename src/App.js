@@ -17,6 +17,7 @@ import WorkPermitOutside from "./components/work-permit-outside/work-permit-outs
 import StudyPermit from "./components/study-permit/study-permit";
 import Review from "./components/review/review";
 import Portal2 from "./components/sponsorship-parental/portal2/portal2";
+import TryItYourself from "./containers/try-it-yourself/try-it-yourself";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/Fr/s'identifier/connecté" element={<BlogsFr />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path="/signin" element={<Signin />}/>
+          <Route path="/signin/TryItYourself" element={<TryItYourself />}/>
           <Route path="/signin/signedin" element={<Signedin />}/>
           <Route path="/signin/signedin/review" element={<Review />}/>
           <Route path="/Signin/signedin/sponsorship-spousal" element={<SponsorshipSpousal />}/>
