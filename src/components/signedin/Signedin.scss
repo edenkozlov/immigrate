@@ -80,3 +80,17 @@
   top:0;
   right:0;
 }
+
+.myClients {
+  align-items: center;
+  text-align: center;
+  line-height: 25px;
+  font-size: 12pt;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: absolute;
+}
+
+.myClients:hover {
+  background-color: #514C98;
+}

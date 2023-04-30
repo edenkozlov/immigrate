@@ -56,6 +56,13 @@ export default function Blogs() {
   return (
     <Fade bottom duration={1000} distance="20px">
                 
+                <Link to="/signin/signedin/myClients">
+                <div>
+                <button class="myClients">My Clients</button>
+                </div>
+                </Link>
+
+
                 <Link to="/signin/signedin/review">
                 <div>
                 <button class="mybtn">Leave a review</button><br></br>

@@ -18,6 +18,7 @@ import StudyPermit from "./components/study-permit/study-permit";
 import Review from "./components/review/review";
 import Portal2 from "./components/sponsorship-parental/portal2/portal2";
 import TryItYourself from "./containers/try-it-yourself/try-it-yourself";
+import MyClients from "./components/myClients/myClients";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/signin" element={<Signin />}/>
           <Route path="/signin/TryItYourself" element={<TryItYourself />}/>
           <Route path="/signin/signedin" element={<Signedin />}/>
+          <Route path="/signin/signedin/myClients" element={<MyClients />}/>
           <Route path="/signin/signedin/review" element={<Review />}/>
           <Route path="/Signin/signedin/sponsorship-spousal" element={<SponsorshipSpousal />}/>
           <Route path="/Signin/signedin/sponsorship-spousal/portal1" element={<Portal1 />}/>
