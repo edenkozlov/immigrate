@@ -1,50 +1,71 @@
-import React from "react";
-import './review.scss'
+import React, { useState } from 'react';
+import './review.scss';
 
+function LeaveReview() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [rating, setRating] = useState('');
+  const [review, setReview] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
-function Review() {
-    return(
-        <div class="myclass">
-            <h1>Enter your review below</h1>
-  
-  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO: Submit review to server
+    setName('');
+    setEmail('');
+    setRating('');
+    setReview('');
+    setSubmitted(true);
+  }
 
-  <div>
+  const handleReturn = () => {
+    // TODO: Navigate to previous page
+  }
 
-    <label for="rating">Rating:</label>
-    <div class="rating">
-      
-      <label for="star5" title="5 stars">5 stars</label>
-      <input type="radio" id="star5" name="rating" value="5"/>
-
-      <label for="star4" title="4 stars">4 stars</label>
-      <input type="radio" id="star4" name="rating" value="4"/>
-      
-      <label for="star3" title="3 stars">3 stars</label>
-      <input type="radio" id="star3" name="rating" value="3"/>
-      
-      <label for="star2" title="2 stars">2 stars</label>
-      <input type="radio" id="star2" name="rating" value="2"/>
-
-      <label for="star1" title="1 star">1 star</label>
-      <input type="radio" id="star1" name="rating" value="1"/>
-      
+  return (
+    <div>
+      <header class="cen">
+        <h1>Leave a Review</h1>
+        <p>Share your experience with us!</p>
+      </header>
+      <main>
+        {submitted ? (
+          <div className="message">
+            Thank you for leaving a review!
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" name="name" value={name} onChange={(event) => setName(event.target.value)} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="rating">Rating:</label>
+              <select id="rating" name="rating" value={rating} onChange={(event) => setRating(event.target.value)} required>
+                <option value="">Select a rating</option>
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Star</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="review">Review:</label>
+              <textarea id="review" name="review" rows="5" value={review} onChange={(event) => setReview(event.target.value)} required></textarea>
+            </div>
+            <div className="button-group">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        )}
+      </main>
     </div>
-
-    <input class="input" type="text" id="comment" placeholder="Comment"/>
-  <h6>Please note that your review may be publicly shared</h6>
-
-    <input type="submit" value="Submit"/>
-  </div>
-
-
-
-        </div>
-
-
-
-    )
+  );
 }
 
-export default Review;
-
+export default LeaveReview;

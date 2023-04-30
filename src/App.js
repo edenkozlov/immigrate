@@ -19,6 +19,9 @@ import Review from "./components/review/review";
 import Portal2 from "./components/sponsorship-parental/portal2/portal2";
 import TryItYourself from "./containers/try-it-yourself/try-it-yourself";
 import MyClients from "./components/myClients/myClients";
+import RefCode from "./components/refCode/refCode";
+import Client from "./components/client/client";
+import WorkAlone from "./components/workAlone/workAlone";
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
           <Route path="/Fr/s'identifier/connecté" element={<BlogsFr />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path="/signin" element={<Signin />}/>
+          <Route path="/Signin/RefCode" element={<RefCode />}/>
+          <Route path="/Signin/workAlone" element={<WorkAlone />}/>
+          <Route path="/Signin/RefCode/Client" element={<Client />}/>
           <Route path="/signin/TryItYourself" element={<TryItYourself />}/>
           <Route path="/signin/signedin" element={<Signedin />}/>
           <Route path="/signin/signedin/myClients" element={<MyClients />}/>

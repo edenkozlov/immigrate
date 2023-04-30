@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.main-button {
+.mymain-button {
   background-color: $buttonColor;
   border: solid 1px $buttonColor;
   color: $textColorDark;
@@ -23,7 +23,7 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out 0s;
 }
-.main-button:hover {
+.mymain-button:hover {
   background-color: $darkBoxShadow2;
   color: $buttonColor;
   transition: all 0.3s ease 0s;
@@ -97,8 +97,6 @@
     gap: 50px;
     padding-bottom: 10px;
   }
-
-
   
   .button-row button {
     width: 100px;
@@ -126,7 +124,7 @@
 
 .myMargin2 {
   position: absolute;
-  right: 10px;
+  right: 0px;
 }
 
 .myMargin2:hover {

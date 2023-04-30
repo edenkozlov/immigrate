@@ -79,6 +79,7 @@
   position: absolute;
   top:0;
   right:0;
+
 }
 
 .myClients {
@@ -89,8 +90,27 @@
   margin-top: 10px;
   margin-left: 10px;
   position: absolute;
+  top:0;
+  left:0;
 }
 
 .myClients:hover {
   background-color: #514C98;
+}
+
+.line-up {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 50px; /* adjust the height as needed */
+  padding: 0 10px; /* add padding to the container if needed */
+}
+
+.left-item {
+  order: 1; /* by default, this item will appear first */
+}
+
+.right-item {
+  order: 2; /* by default, this item will appear second */
 }

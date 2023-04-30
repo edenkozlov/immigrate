@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import "./myClients.scss";
-
+import {Fade} from "react-reveal";
 
 function MyClients() {
   const [clients, setClients] = useState([]);
@@ -21,6 +21,7 @@ function MyClients() {
   }
 
 
+  
   function handleClientClick(client) {
     setSelectedClientName(client.name);
     setSelectedClientCode(client.code);
@@ -41,6 +42,7 @@ function MyClients() {
 
 
   return (
+    <Fade bottom duration={1000} distance="40px">
     <div>
       <div>
         <button className="myMargin" onClick={handleAddClient}>
@@ -55,11 +57,11 @@ function MyClients() {
       <Modal isOpen={isHowItWorksModalOpen} onRequestClose={() => setIsHowItWorksModalOpen(false)}>
   <h2>How It Works</h2>
   <ol>
-    <li>Step 1: Create a new client by clicking the "Add a new client" button.</li>
-    <li>Step 2: Enter the client's name and select the case type from the options provided.</li>
-    <li>Step 3: A referral code will be generated for the client. Share this code with the client to allow them to work on the case with your supervision.</li>
-    <li>Step 4: Click on the client's name to view their details and progress.</li>
-    <li>Step 5: Once the case progress is at 100% you will be able to "Automate Case!".</li>
+    <li>Create a new client by clicking the "Add a new client" button.</li>
+    <li>Enter the client's name and select the case type from the options provided.</li>
+    <li>A referral code will be generated for the client. Share this code with the client to allow them to work on the case with your supervision.</li>
+    <li>Click on the client's name to view their details and progress.</li>
+    <li>Once the case progress is at 100% you will be able to "Automate Case!".</li>
   </ol>
   <button onClick={() => setIsHowItWorksModalOpen(false)}>Close</button>
 </Modal>
@@ -150,6 +152,7 @@ function MyClients() {
         </div>
       </Modal>
     </div>
+    </Fade>
   );
 }
 
