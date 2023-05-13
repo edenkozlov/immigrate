@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import "./myClients.scss";
 import {Fade} from "react-reveal";
 
+
 function MyClients() {
   const [clients, setClients] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,15 +13,17 @@ function MyClients() {
   const [isProgress, setIsProgress] =useState(false);
 
 
+
   function handleAddClient() {
-    const clientName = prompt("Enter client name:");
-    if (clientName) {
+    const firstName = prompt("Enter client's first name:");
+    const lastName = prompt("Enter client's last name:");
+    if (firstName && lastName) {
+      const caseType = prompt("Enter case type:");
       const code = Math.random().toString(36).substr(2, 6).toUpperCase();
-      setClients([...clients, { name: clientName, code, cases: []}]);
+      setClients([...clients, { firstName, lastName, code, cases: [{ type: caseType }] }]);
     }
   }
-
-
+  
   
   function handleClientClick(client) {
     setSelectedClientName(client.name);
@@ -45,12 +48,13 @@ function MyClients() {
     <Fade bottom duration={1000} distance="40px">
     <div>
       <div>
-        <button className="myMargin" onClick={handleAddClient}>
-        <i class="fas fa-user"></i> Add a new client
+        <button className="button2 myMargin2" onClick={handleAddClient}>
+        <i class="fas fa-user"></i> Add a client
         </button>
-        <button className="myMargin2" onClick={() => setIsHowItWorksModalOpen(true)}>
-          How it works <i class="fas fa-question"></i>
-        </button>
+        <button className="myMargin topRight button2" onClick={() => setIsHowItWorksModalOpen(true)}>
+  How it works <i class="fas fa-question"></i>
+</button>
+
         </div>
 
 
@@ -63,75 +67,88 @@ function MyClients() {
     <li>Click on the client's name to view their details and progress.</li>
     <li>Once the case progress is at 100% you will be able to "Automate Case!".</li>
   </ol>
-  <button onClick={() => setIsHowItWorksModalOpen(false)}>Close</button>
+  <button className="button2"onClick={() => setIsHowItWorksModalOpen(false)}>Close</button>
 </Modal>
 
 
-      <div className="cen">
-        {clients.length === 0 ? (
-          <p>No Current Clients...</p>
-        ) : (
-          <table>
-            <thead class="table-header">
-              <tr>
-                <th>Client Name</th>
-                <th>Code</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {clients.map((client, index) => (
-                <tr key={index}>
-                  <td>
-                    <button class="myMargin"onClick={() => handleClientClick(client)}>
-                      {client.name}
-                    </button>
-                  </td>
-                  <td>{client.code}</td>
-                  <td class="center-button">
-                    <button class="myMargin" onClick={() => confirmDeleteClient(index)}>
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
-      <Modal class="cen" isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
-      <button className="myMargin2" onClick={() => setIsProgress(true)}>
-          Progress <i class="fas fa-tasks"></i>
+<div className="cen">
+  {clients.length === 0 ? (
+    <p>No Current Clients...</p>
+  ) : (
+    <table>
+      <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Code</th>
+    <th>Case Type</th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+  {clients.map((client, index) => (
+    <tr key={index}>
+      <td>{client.firstName}</td>
+      <td>{client.lastName}</td>
+      <td>{client.code}</td>
+      <td>{client.cases[0]?.type ?? "-"}</td>
+      <td>
+        <button className="button2 myMargin" onClick={() => handleClientClick(client)}>
+          View Details
         </button>
-        <Modal
-  isOpen={isProgress}
-  onRequestClose={() => setIsProgress(false)}
-  style={{
-    content: {
-      width: '50%',
-      height: '25%',
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-    }
-  }}
->
- 
-  <h2 class="cen">Progress:</h2>
-  
-  <div class="cen2">
-        <button class="fade" onClick={() => setIsProgress(false)}>Close</button>
-        </div>
-</Modal>
-        <h3>Client Name: {selectedClientName}</h3>
-        <h4>Client Referral Code: {selectedClientCode}</h4>
-        <h4>Case:</h4>
+        <button className="button2 myMargin" onClick={() => handleClientClick(client)}>
+          Update Client
+        </button>
+        <button className="button2 myMargin" onClick={() => confirmDeleteClient(index)}>
+          Delete
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
 
-        <h4 class="cen">Check up on {selectedClientName}'s progress:</h4>
 
-        <div class="button-row">
-        <button class="fade">Step 1</button>
+    </table>
+  )}
+</div>
+
+<Modal class="cen" isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+  <button className="button2 myMargin2 topRight" onClick={() => setIsProgress(true)}>
+    Progress <i className="fas fa-tasks"></i>
+  </button>
+  <Modal
+    isOpen={isProgress}
+    onRequestClose={() => setIsProgress(false)}
+    style={{
+      content: {
+        width: "50%",
+        height: "25%",
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      },
+    }}
+  >
+    <div>
+      <h2 className="cen">Progress:</h2>
+      <button className="button2 fade2">
+        Update Client <i className="fas fa-sync-alt"></i>
+      </button>
+    </div>
+    <div className="cen2">
+      <button className="button2 fade" onClick={() => setIsProgress(false)}>
+        Close
+      </button>
+    </div>
+  </Modal>
+  <h3>Client Name: {selectedClientName}</h3>
+  <h4>Client Referral Code: {selectedClientCode}</h4>
+  <h4>Case Type: {clients.find((c) => c.name === selectedClientName)?.cases[0]?.type ?? "-"}</h4>
+  <h4 className="cen">Check up on {selectedClientName}'s progress:</h4>
+  <div className="button-row">
+    <button className="fade">Step 1</button>
+
         <button class="fade">Step 2</button>
         </div>
         <div class="button-row">
@@ -146,8 +163,8 @@ function MyClients() {
         <div class="cen">
         <button class="fade">Automate Case!</button>
         </div>
-        <br></br>
-        <div class="cen2">
+        
+        <div class="cen">
         <button class="fade" onClick={() => setIsModalOpen(false)}>Close</button>
         </div>
       </Modal>

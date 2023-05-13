@@ -1,96 +1,56 @@
-@import "../../_globalColor";
-
-.myycen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-button1 {
-  background-color: $buttonColor;
-  border: solid 1px $buttonColor;
-  color: $textColorDark;
-  font-weight: 700;
-  width: max-content;
-  padding: 13px 22px;
-  margin-right: 0px;
-  margin-left: 0px; 
-  border-radius: 6px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  margin-top: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out 0s;
-  margin-left: 25px;
-}
-.main-button1:hover {
-  background-color: $darkBoxShadow2;
-  color: $buttonColor;
-  transition: all 0.3s ease 0s;
-  transform: translateY(-3px);
-}
-.project-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.project-button > .main-button {
-  margin-right: 0 !important;
-}
-/* Media Query */
-@media (max-width: 768px) {
-  .main-button {
-    font-size: 0.938rem;
-    padding: 12px 18px;
-    margin-right: 0px;
-  }
-}
-@media (max-width: 320px) {
-  .main-button {
-    font-size: 0.75rem;
-  }
-}
-
-input {
-
-  margin: 10px;
-  padding: 8px;
-  border: 2px solid #7D85C7; /* Change the border color to match the button color */
-  border-radius: 5px;
-  display: block;
-  font-size: 16px;
-  width: 300px; /* Increase the input width */
-  text-align: center;
-}
-
-.mrgtp {
-  margin-top: 15px;
-}
-
-.cen2 {
-  width: 300px;
-  position: absolute;
-  
-}
-
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
-h1, h5, input, button {
-  margin: 10px;
-  align-items: center;
+.referral-code-page {
+  text-align: center;
+
+  .form-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    .inputfrfr[type='text'] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+
+    .buttonfrfr[type='submit'] {
+      padding: 10px 20px;
+      margin-top: 0px;
+      font-size: 16px;
+      border-radius: 4px;
+      background-color: #7D85C7;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
 }
 
+
 @media (max-width: 768px) {
-  /* styles for mobile devices */
-  h5 {
-    text-align: center;
+  form {
+    .form-row {
+      flex-direction: column;
+
+      .inputfrfr[type='text'],
+      .buttonfrfr[type='submit'] {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   }
 }

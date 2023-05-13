@@ -330,9 +330,9 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "Immigrate",
+      title: "Rep. Package",
       subtitle:
-        "Basic package",
+        "Autofill cases, track clients, etc.",
       image: require("./assets/images/immigrate.png"),
       imageAlt: "Google Code-In Logo",
       footerLink: [
@@ -367,7 +367,7 @@ const achievementSection = {
           url: "http://localhost:3000/Signup"
         }
       ]
-    }
+    },
   ],
   achievementsCardsFr: [
     {
@@ -422,7 +422,7 @@ const blogSection = {
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
-      url: "http://localhost:3000/Signin/signedin/sponsorship-spousal",
+      url: "http://localhost:3000/Signin/signedin/sponsorshipSpousal",
       title: "Sponsorship: Spousal",
       description:
         "IMM1344, IMM5532, IMM5475, IMM5476, IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"

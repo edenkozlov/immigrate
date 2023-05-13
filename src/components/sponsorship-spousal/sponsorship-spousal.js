@@ -1,301 +1,608 @@
-import React from "react";
+import React, { useState } from 'react';
 import './sponsorship-spousal.scss';
-import { Link } from "react-router-dom";
-import axios from 'axios';
-import fillifybg from '../../assets/images/fillify-bg.png';
-import Loading from "../../containers/loading/Loading";
+import { getInputIcon } from '../iconInputs/iconInputs.js';
+import { getInputIcon30 } from '../iconInputs/iconInputs.js';
 
-//Axios link
-
-function Sumbit() {
-  axios.post('https://us-central1-immigrationpro-6b3b5.cloudfunctions.net/app/addRequest', {
-    caseName: 'SponsorshipSpousal',
-    date: document.getElementById("date").value,
-    email: document.getElementById("email").value,
-    firstName: document.getElementById("firstName").value,
-    lastName: document.getElementById("lastName").value,
-    DOB1: document.getElementById("DOB1").value,
-    RFN: document.getElementById("RFN").value,
-    RN: document.getElementById("RN").value,
-    firmName: document.getElementById("firmName").value,
-    portal: 'true'
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
+const SponsorshipSpousal = () => {
+  const [inputValues, setInputValues] = useState({
+    input1: '',
+    input2: '',
+    input3: '',
+    input4: '',
+    input5: '',
+    input6: '',
+    input7: '',
+    input8: '',
+    input9: '',
+    input10: '',
+    input11: '',
+    input12: '',
+    input13: '',
+    input14: '',
+    input15: '',
+    input16: '',
+    input17: '',
+    input18: '',
+    input19: '',
+    input20: '',
+    input21: '',
+    input22: '',
+    input23: '',
+    input24: '',
+    input25: '',
+    input26: '',
+    input27: '',
+    input28: '',
+    input29: '',
+    input30: '',
+    input31: '',
+    input32: '',
+    input33: '',
+    input34: '',
+    input35: '',
+    input36: '',
+    input37: '',
+    input38: '',
+    input39: '',
+    input40: '',
+    input41: '',
+    input42: '',
+    input43: '',
+    input44: '',
+    input45: '',
+    input46: '',
+    input47: '',
+    input48: '',
+    input49: '',
+    input50: '',
   });
 
-  alert("Completed PDFs will be sent to the specified email in about 5 minutes!");
-  prompt("do you wish to save clients info? (y/n)") 
-  
-  const answer = prompt("Do you want to automize portal? (y/n)");
-
-  if (answer === "y") {
-    // do something if the user answers "yes"
-    console.log("User wants to proceed.");
-    window.location.href = "/Signin/signedin/sponsorship-spousal/portal1";
-
-  } else if (answer === "n") {
-         
-    console.log("User does not want to proceed.");
-    window.location.href = "/signin/signedin"; 
-  } else {
-    // handle unexpected user input
-    console.log("Please answer with either 'yes' or 'no'.");
-  }
-}
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function Dropdown() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
-function getTodayDate() {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const day = String(today.getDate()).padStart(2, '0');
-  const formattedDate = `${year}-${month}-${day}`;
-  return formattedDate;
-}
-
-const todayDate = getTodayDate();
-
-
-function createFields() {
-  // check if input fields already exist
-  var container = document.getElementById("input-container");
-			
-			// check if input fields already exist
-			if(container.children.length === 0) {
-				// create input fields
-				var input1 = document.createElement("input");
-				input1.setAttribute("type", "text");
-				input1.setAttribute("name", "field1");
-        input1.setAttribute("placeholder", "Enter name of office");
-        input1.setAttribute("onchange", {Sumbit});
-				var input2 = document.createElement("input");
-				input2.setAttribute("type", "text");
-				input2.setAttribute("name", "field2");
-        input2.setAttribute("placeholder", "Enter type of application");
-        input2.setAttribute("onchange", {Sumbit});
-				var input3 = document.createElement("input");
-				input3.setAttribute("type", "text");
-				input3.setAttribute("name", "field3");
-        input3.setAttribute("placeholder", "Enter location of office");
-        input3.setAttribute("onchange", {Sumbit});
-				
-				// append input fields to container
-				container.appendChild(input1);
-				container.appendChild(input2);
-				container.appendChild(input3);
-			} else {
-				// remove input fields
-				container.innerHTML = "";
-      }
-}
-
-function createFields2() {
-  // check if input fields already exist
-  var container = document.getElementById("input-container2");
-			
-			// check if input fields already exist
-			if(container.children.length === 0) {
-				// create input fields
-				var input1 = document.createElement("input");
-				input1.setAttribute("type", "text");
-				input1.setAttribute("name", "field1");
-        input1.setAttribute("placeholder", "Enter street no (Client)");
-        input1.setAttribute("onchange", "Submit()");
-				var input2 = document.createElement("input");
-				input2.setAttribute("type", "text");
-				input2.setAttribute("name", "field2");
-        input2.setAttribute("placeholder", "Enter street name (client)");
-        input2.setAttribute("onchange", "Submit()");
-				var input3 = document.createElement("input");
-				input3.setAttribute("type", "text");
-				input3.setAttribute("name", "field3");
-        input3.setAttribute("placeholder", "Enter Apt number (blank for N/A)");
-        input3.setAttribute("onchange", "Submit()");
-        var input4 = document.createElement("input");
-				input4.setAttribute("type", "text");
-				input4.setAttribute("name", "field4");
-        input4.setAttribute("placeholder", "Enter city (Client)");
-        input4.setAttribute("onchange", "Submit()");
-				var input5 = document.createElement("input");
-				input5.setAttribute("type", "text");
-				input5.setAttribute("name", "field5");
-        input5.setAttribute("placeholder", "Enter province (Client)");
-        input5.setAttribute("onchange", "Submit()");
-				var input6 = document.createElement("input");
-				input6.setAttribute("type", "text");
-				input6.setAttribute("name", "field6");
-        input6.setAttribute("placeholder", "Enter country (Client)");
-        input6.setAttribute("onchange", "Submit()");
-        var input7 = document.createElement("input");
-				input7.setAttribute("type", "text");
-				input7.setAttribute("name", "field7");
-        input7.setAttribute("placeholder", "Enter Postal/Zip (Client)");
-        input7.setAttribute("onchange", "Submit()");
-				var input8 = document.createElement("input");
-				input8.setAttribute("type", "text");
-				input8.setAttribute("name", "field8");
-        input8.setAttribute("placeholder", "Enter telephone number (Client)");
-        input8.setAttribute("onchange", "Submit()");
-				var input9 = document.createElement("input");
-				input9.setAttribute("type", "text");
-				input9.setAttribute("name", "field9");
-        input9.setAttribute("placeholder", "second phone number (blank for N/A)");
-        input9.setAttribute("onchange", "Submit()");
-        var input10 = document.createElement("input");
-				input10.setAttribute("type", "text");
-				input10.setAttribute("name", "field10");
-        input10.setAttribute("placeholder", "Enter Fax number (Client)");
-        input10.setAttribute("onchange", "Submit()");
-        var input11 = document.createElement("input");
-				input11.setAttribute("type", "text");
-				input11.setAttribute("name", "field11");
-        input11.setAttribute("placeholder", "email address (blank for N/A)");
-        input11.setAttribute("onchange", "Submit()");
-				
-				// append input fields to container
-				container.appendChild(input1);
-				container.appendChild(input2);
-				container.appendChild(input3);
-        container.appendChild(input4);
-				container.appendChild(input5);
-				container.appendChild(input6);
-        container.appendChild(input7);
-				container.appendChild(input8);
-				container.appendChild(input9);
-        container.appendChild(input10);
-				container.appendChild(input11);
-			} else {
-				// remove input fields
-				container.innerHTML = "";
-      }
-}
-
-
-
-function SponsorshipSpousal() {
-
-
-  //function for BG image
-  const backgroundStyle = {
-    backgroundImage: `url(${fillifybg})`,
-    backgroundRepeat: 'repeat',
-    backgroundPosition: 'center',
-    backgroundSize: 'contain',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
+  const handleInputChange = (event, inputName) => {
+    setInputValues({
+      ...inputValues,
+      [inputName]: event.target.value,
+    });
   };
-  
 
-        return (
-          
-            <div class="form">
-              <div class="dropdown">
-  <button onClick={() => {
-  Dropdown();
-  //add SUbmit function here if needed during the same client stage
-}} class="dropbtn"><i class="fa fa-users" aria-hidden="true"></i> Saved Clients </button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Client 1</a>
-    <a href="#">Client 2</a>
-    <a href="#">Client 3</a>
-    <a href="#">Client 4</a>
-    <a href="#">Client 5</a>
-    <a href="#">Client 6</a>
-    <a href="#">Client 7</a>
-    <a href="#">Client 8</a>
-    <a href="#">Client 9</a>
-    <a href="#">Client 10</a>
-    <a href="#">Client 11</a>
-    <a href="#">Client 12</a>
-    <a href="#">Client 13</a>
-    <a href="#">Client 14</a>
-    <a href="#">Client 15</a>
+  return (
+    <div>
+      <div className="legend-container">
+        <div className="legend">
+          <div className="legend-item">
+            <div className="input-icon">
+              <i className="fas fa-exclamation-circle" style={{ color: '#7D85C7' }}></i>
+            </div>
+            <span>Mandatory</span>
+          </div>
+          <div className="legend-item">
+            <div className="input-icon">
+              <i className="fas fa-times-circle" style={{ color: '#7D85C7' }}></i>
+            </div>
+            <span>Incomplete</span>
+          </div>
+          <div className="legend-item">
+            <div className="input-icon">
+              <i className="fas fa-check-circle" style={{ color: '#7D85C7' }}></i>
+            </div>
+            <span>Complete</span>
+          </div>
+        </div>
+      </div>
+      <h1 className="plzcen">Sponsorship Spousal</h1>
+      <br />
+      <div className="containerfr">
+        <div className="input-row">
+          <div className="input-container">
+            <div className="input-icon">
+              {getInputIcon(inputValues.input1, '#7D85C7')}
+            </div>
+            <input
+              type="text"
+              name="input1"
+              placeholder="Input 1"
+              value={inputValues.input1}
+              onChange={(event) => handleInputChange(event, 'input1')}
+            />
+          </div>
+          <div className="input-container">
+            <div className="input-icon">
+              {getInputIcon(inputValues.input2, '#7D85C7')}
+            </div>
+            <input
+              type="text"
+              name="input2"
+              placeholder="Input 2"
+              value={inputValues.input2}
+              onChange={(event) => handleInputChange(event, 'input2')}
+            />
+          </div>
+          <div className="input-container">
+            <div className="input-icon">
+              {getInputIcon(inputValues.input3, '#7D85C7')}
+            </div>
+            <input
+              type="text"
+              name="input3"
+              placeholder="Input 3"
+              value={inputValues.input3}
+              onChange={(event) => handleInputChange(event, 'input3')}
+            />
+          </div>
+        </div>
+        <div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon30(inputValues.input4, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input4"
+      placeholder="Input 4"
+      value={inputValues.input4}
+      onChange={(event) => handleInputChange(event, 'input4')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input5, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input5"
+      placeholder="Input 5"
+      value={inputValues.input5}
+      onChange={(event) => handleInputChange(event, 'input5')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input6, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input6"
+      placeholder="Input 6"
+      value={inputValues.input6}
+      onChange={(event) => handleInputChange(event, 'input6')}
+    />
+  </div>
+</div>
+
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input7, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input7"
+      placeholder="Input 7"
+      value={inputValues.input7}
+      onChange={(event) => handleInputChange(event, 'input7')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input8, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input8"
+      placeholder="Input 8"
+      value={inputValues.input8}
+      onChange={(event) => handleInputChange(event, 'input8')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input9, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input9"
+      placeholder="Input 9"
+      value={inputValues.input9}
+      onChange={(event) => handleInputChange(event, 'input9')}
+    />
+  </div>
+</div>
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input10, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input10"
+      placeholder="Input 10"
+      value={inputValues.input10}
+      onChange={(event) => handleInputChange(event, 'input10')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input11, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input11"
+      placeholder="Input 11"
+      value={inputValues.input11}
+      onChange={(event) => handleInputChange(event, 'input11')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input12, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input12"
+      placeholder="Input 12"
+      value={inputValues.input12}
+      onChange={(event) => handleInputChange(event, 'input12')}
+    />
+  </div>
+</div>
+
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input13, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input13"
+      placeholder="Input 13"
+      value={inputValues.input13}
+      onChange={(event) => handleInputChange(event, 'input13')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input14, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input14"
+      placeholder="Input 14"
+      value={inputValues.input14}
+      onChange={(event) => handleInputChange(event, 'input14')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input15, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input15"
+      placeholder="Input 15"
+      value={inputValues.input15}
+      onChange={(event) => handleInputChange(event, 'input15')}
+    />
+  </div>
+</div>
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input16, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input16"
+      placeholder="Input 16"
+      value={inputValues.input16}
+      onChange={(event) => handleInputChange(event, 'input16')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input17, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input17"
+      placeholder="Input 17"
+      value={inputValues.input17}
+      onChange={(event) => handleInputChange(event, 'input17')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input18, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input18"
+      placeholder="Input 18"
+      value={inputValues.input18}
+      onChange={(event) => handleInputChange(event, 'input18')}
+    />
+  </div>
+</div>
+
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input19, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input19"
+      placeholder="Input 19"
+      value={inputValues.input19}
+      onChange={(event) => handleInputChange(event, 'input19')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input20, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input20"
+      placeholder="Input 20"
+      value={inputValues.input20}
+      onChange={(event) => handleInputChange(event, 'input20')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input21, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input21"
+      placeholder="Input 21"
+      value={inputValues.input21}
+      onChange={(event) => handleInputChange(event, 'input21')}
+    />
+  </div>
+</div>
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input21, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input21"
+      placeholder="Input 21"
+      value={inputValues.input21}
+      onChange={(event) => handleInputChange(event, 'input21')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input22, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input22"
+      placeholder="Input 22"
+      value={inputValues.input22}
+      onChange={(event) => handleInputChange(event, 'input22')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input23, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input23"
+      placeholder="Input 23"
+      value={inputValues.input23}
+      onChange={(event) => handleInputChange(event, 'input23')}
+    />
+  </div>
+</div>
+
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input24, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input24"
+      placeholder="Input 24"
+      value={inputValues.input24}
+      onChange={(event) => handleInputChange(event, 'input24')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input25, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input25"
+      placeholder="Input 25"
+      value={inputValues.input25}
+      onChange={(event) => handleInputChange(event, 'input25')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input26, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input26"
+      placeholder="Input 26"
+      value={inputValues.input26}
+      onChange={(event) => handleInputChange(event, 'input26')}
+    />
+  </div>
+</div>
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input27, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input27"
+      placeholder="Input 27"
+      value={inputValues.input27}
+      onChange={(event) => handleInputChange(event, 'input27')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input28, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input28"
+      placeholder="Input 28"
+      value={inputValues.input28}
+      onChange={(event) => handleInputChange(event, 'input28')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input29, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input29"
+      placeholder="Input 29"
+      value={inputValues.input29}
+      onChange={(event) => handleInputChange(event, 'input29')}
+    />
+  </div>
+</div>
+
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input30, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input30"
+      placeholder="Input 30"
+      value={inputValues.input30}
+      onChange={(event) => handleInputChange(event, 'input30')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input31, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input31"
+      placeholder="Input 31"
+      value={inputValues.input31}
+      onChange={(event) => handleInputChange(event, 'input31')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input32, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input32"
+      placeholder="Input 32"
+      value={inputValues.input32}
+      onChange={(event) => handleInputChange(event, 'input32')}
+    />
+  </div>
+</div>
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input33, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input33"
+      placeholder="Input 33"
+      value={inputValues.input33}
+      onChange={(event) => handleInputChange(event, 'input33')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input34, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input34"
+      placeholder="Input 34"
+      value={inputValues.input34}
+      onChange={(event) => handleInputChange(event, 'input34')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input35, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input35"
+      placeholder="Input 35"
+      value={inputValues.input35}
+      onChange={(event) => handleInputChange(event, 'input35')}
+    />
+  </div>
+</div>
+
+<div className="input-row">
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input36, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input36"
+      placeholder="Input 36"
+      value={inputValues.input36}
+      onChange={(event) => handleInputChange(event, 'input36')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input37, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input37"
+      placeholder="Input 37"
+      value={inputValues.input37}
+      onChange={(event) => handleInputChange(event, 'input37')}
+    />
+  </div>
+  <div className="input-container">
+    <div className="input-icon">
+      {getInputIcon(inputValues.input38, '#7D85C7')}
+    </div>
+    <input
+      type="text"
+      name="input38"
+      placeholder="Input 38"
+      value={inputValues.input38}
+      onChange={(event) => handleInputChange(event, 'input38')}
+    />
   </div>
 </div>
 
 
 
-<Link to="/Signin/signedin/sponsorship-spousal/portal1">
-<div class="mydiv"><button onClick="" class="dropbtn"> Skip To Portal <i class="fa fa-arrow-right" aria-hidden="true"></i></button></div>
-</Link>
-<br></br>
-              
-                <div class="header">
-                    <h1>Sponsorship: Spousal</h1>
-                </div>
-                
-<h6>Please type today's date below</h6>
-  <input type="text" onchange= {Sumbit} placeholder={"Date: " + todayDate} id="date"/>
-  <input type="text" id="email" onchange= {Sumbit} placeholder="The case will be sent to...(your email)"/>
-  <input type="text" id="firstName" onchange= {Sumbit} placeholder="First Name (Sponsor)"/>
-  <input type="text" id="lastName" onchange= {Sumbit} placeholder="last Name (Sponsor)"/>
-  <input type="text" id="DOB1" onchange= {Sumbit} placeholder="DOB (Sponsor): YYYY-MM-DD"/>
-  <input type="text" id="RFN" onchange= {Sumbit} placeholder="Rep Family Name"/>
-  <input type="text" id="RN" onchange= {Sumbit} placeholder="Rep Given Name"/>
-  <input type="text" id="firmName" onchange= {Sumbit} placeholder="Your Firm Name (leave blank if N/A)"/>
-  <div class="paddiv">
-  <button class="mybtn2" onClick={createFields}>Already Submitted Your Application?</button>
-  <div id="input-container"></div>
-  </div>
-  <input type="text" id="UCI" onchange= {Sumbit} placeholder="UCI Number"/>
-  <div class="paddiv">
-  <button class="mybtn2" onClick={createFields2}>Appointing a Rep?</button>
-  <div id="input-container2"></div>
-  </div>
-  <input type="text" id="input9" onchange= {Sumbit} placeholder="Input 9"/>
-  <input type="text" id="input10" onchange= {Sumbit} placeholder="Input 10"/>
-  <input type="text" id="input11" onchange= {Sumbit} placeholder="Input 11"/>
-  <input type="text" id="input12" onchange= {Sumbit} placeholder="Input 12"/>
-  <input type="text" id="input13" onchange= {Sumbit} placeholder="Input 13"/>
-  <input type="text" id="input14" onchange= {Sumbit} placeholder="Input 14"/>
-  <input type="text" id="input15" onchange= {Sumbit} placeholder="Input 15"/>
-  <input type="text" id="input16" onchange= {Sumbit} placeholder="Input 16"/>
-  <input type="text" id="input17" onchange= {Sumbit} placeholder="Input 17"/>
-  <input type="text" id="input18" onchange= {Sumbit} placeholder="Input 18"/>
-  <input type="text" id="input19" onchange= {Sumbit} placeholder="Input 19"/>
-  <input type="text" id="input20" onchange= {Sumbit} placeholder="Input 20"/>
-  <input type="text" id="input21" onchange= {Sumbit} placeholder="Input 21"/>
-  <input type="text" id="input22" onchange= {Sumbit} placeholder="Input 22"/>
-  <input type="text" id="input23" onchange= {Sumbit} placeholder="Input 23"/>
-  <input type="text" id="input24" onchange= {Sumbit} placeholder="Input 24"/>
-  <input type="text" id="input25" onchange= {Sumbit} placeholder="Input 25"/>
-  <input type="text" id="input26" onchange= {Sumbit} placeholder="Input 26"/>
-  <input type="text" id="input27" onchange= {Sumbit} placeholder="Input 27"/>
-  <input type="text" id="input28" onchange= {Sumbit} placeholder="Input 28"/>
-  <input type="text" id="input29" onchange= {Sumbit} placeholder="Input 29"/>
-  <input type="text" id="input30" onchange= {Sumbit} placeholder="Input 30"/>
-  <h6>Please make sure to double check your work, empty fields will be displayed blank on completed PDFs</h6>
+        {/* Rest of your input rows */}
+        <div className="plzcen">
+          <button className="submit-buttonfr">Save</button>
+        </div>
+        
+        <br />
+      </div>
+    </div>
+  );
+};
 
-
-<button onClick={Sumbit} id="sbmt" class="button">Submit</button><br></br>
-</div>
-
-        )
-    }
 export default SponsorshipSpousal;

@@ -1,165 +1,117 @@
 @import "../../_globalColor";
 
-.cen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.myMargin {
+  margin-right: 10px;
 }
 
-.mymain-button {
-  background-color: $buttonColor;
-  border: solid 1px $buttonColor;
-  color: $textColorDark;
-  font-weight: 700;
-  width: max-content;
-  padding: 13px 22px;
-  margin-right: 0px;
-  border-radius: 6px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  margin-top: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out 0s;
+.myMargin2 {
+  margin-left: 10px;
 }
-.mymain-button:hover {
-  background-color: $darkBoxShadow2;
-  color: $buttonColor;
-  transition: all 0.3s ease 0s;
-  transform: translateY(-3px);
-}
-.project-button {
+
+.cen {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-.project-button > .main-button {
-  margin-right: 0 !important;
-}
-/* Media Query */
-@media (max-width: 768px) {
-  .main-button {
-    font-size: 0.938rem;
-    padding: 12px 18px;
-    margin-right: 0px;
-  }
-}
-@media (max-width: 320px) {
-  .main-button {
-    font-size: 0.75rem;
-  }
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 80%;
 }
 
-.myMargin {
-    margin-left: 10px;
-    margin-top: 10px
+thead tr {
+  background-color: #ddd;
+  font-weight: bold;
 }
 
-.myMargin:hover {
-    background-color: $darkBoxShadow2;
-    color: $buttonColor;
-    transition: all 0.3s ease 0s;
-    transform: translateY(-3px);
-  }
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
 
-.table-header {
-    margin-bottom: 10px;
-  }
-  
-  .table-header th {
-    padding: 8px 16px;
-    text-align: left;
-  }
-  
-  .table-header th:first-child {
-    width: 50%;
-  }
-  
-  .table-header th:nth-child(2) {
-    width: 20%;
-  }
-  
-  .table-header th:last-child {
-    width: 30%;
-  }
-  
-  .center-button {
-    display: flex;
-    justify-content: center;
-  }
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-  .button-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    padding-bottom: 10px;
-  }
-  
-  .button-row button {
-    width: 100px;
-    height: 50px;
-  }
+.center-button {
+  text-align: center;
+}
 
-  .button-row .row1 {
-    order: 1;
-  }
-  
-  .button-row .row2 {
-    order: 2;
-  }
+.center-button button {
+  margin: 0 auto;
+}
 
-  .cen2 {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.fade {
+  background-color: #7D85C7;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 6px;
+}
 
+.fade:hover {
+  background-color: $darkBoxShadow2;
+  color: $buttonColor;
+  transform: translateY(-3px);
+}
 
-.myMargin2 {
+.fade2 {
+  background-color: #2196F3;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+}
+
+.fade2:hover {
+  background-color: $darkBoxShadow2;
+  color: $buttonColor;
+  transform: translateY(-3px);
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.topRight {
   position: absolute;
-  right: 0px;
+  top: 0;
+  right: 0;
 }
 
-.myMargin2:hover {
-    background-color: $darkBoxShadow2;
-    color: $buttonColor;
-    transition: all 0.3s ease 0s;
-    transform: translateY(-3px);
-  }
+/*affects all buttons!!!!*/
 
-  .fade {
-    margin-top: 0px;
-  }
-  
-  .fade:hover {
-      background-color: $darkBoxShadow2;
-      color: $buttonColor;
-      transition: all 0.3s ease 0s;
-      transform: translateY(-3px);
-    }
-    .modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        max-width: 600px;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      }
+.button2 {
+  transition: all 0.3s ease 0s;
+}
 
-      .cen3 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 200px;
-      }
+.button2:hover {
+  background-color: $darkBoxShadow2;
+  color: $buttonColor;
+  transform: translateY(-3px);
+}
+
+.cen2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

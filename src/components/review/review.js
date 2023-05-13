@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './review.scss';
 
+
 function LeaveReview() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,7 +25,7 @@ function LeaveReview() {
 
   return (
     <div>
-      <header class="cen">
+      <header className="cen">
         <h1>Leave a Review</h1>
         <p>Share your experience with us!</p>
       </header>
@@ -34,18 +35,18 @@ function LeaveReview() {
             Thank you for leaving a review!
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form className="myformmmm" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" value={name} onChange={(event) => setName(event.target.value)} required />
+              <input type="text" id="name" name="name" className="input-field" value={name} onChange={(event) => setName(event.target.value)} required />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
+              <input type="email" id="email" name="email" className="input-field" value={email} onChange={(event) => setEmail(event.target.value)} required />
             </div>
             <div className="form-group">
               <label htmlFor="rating">Rating:</label>
-              <select id="rating" name="rating" value={rating} onChange={(event) => setRating(event.target.value)} required>
+              <select id="rating" name="rating" className="input-field" value={rating} onChange={(event) => setRating(event.target.value)} required>
                 <option value="">Select a rating</option>
                 <option value="5">5 Stars</option>
                 <option value="4">4 Stars</option>
@@ -56,11 +57,13 @@ function LeaveReview() {
             </div>
             <div className="form-group">
               <label htmlFor="review">Review:</label>
-              <textarea id="review" name="review" rows="5" value={review} onChange={(event) => setReview(event.target.value)} required></textarea>
+              <textarea id="review" name="review" className="input-field" rows="5" value={review} onChange={(event) => setReview(event.target.value)} required></textarea>
             </div>
             <div className="button-group">
-              <button type="submit">Submit</button>
+              <button className="thebutton"type="submit">Submit</button>
             </div>
+
+      
           </form>
         )}
       </main>

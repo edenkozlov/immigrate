@@ -60,7 +60,7 @@ export default function Blogs() {
     <div class="left-item">
                 <Link to="/signin/signedin/myClients">
                 <div>
-                <button class="myClients">My Clients</button>
+                <button class="myClients"><i class="fas fa-users"></i> My Clients</button>
                 </div>
                 </Link>
     </div>
@@ -69,7 +69,7 @@ export default function Blogs() {
 
                 <Link to="/signin/signedin/review">
                 <div>
-                <button class="mybtn">Leave a review</button><br></br>
+                <button class="mybtn">Leave a review <i class="fas fa-comment"></i></button><br></br>
                 </div>
                 </Link>
       </div>
