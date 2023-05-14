@@ -34,7 +34,12 @@ export default function Greeting() {
               </p>
               <SocialMedia />
               <div className="button-greeting-div">
+                <div>
                 <Button text="Contact Us" href="#contact" />
+                </div>
+
+                <div class="mygap"></div>
+                <div>
                 {greeting.resumeLink && (
                   
                   <Link to="/Signup">
@@ -44,7 +49,7 @@ export default function Greeting() {
                     href={greeting.resumeLink}
                   /></Link>
                   
-                )}
+                )}</div>
                 
               </div>
             </div>

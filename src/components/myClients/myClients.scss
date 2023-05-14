@@ -115,3 +115,40 @@ tr:nth-child(even) {
   justify-content: center;
   margin-top: 10px;
 }
+
+
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 90%;
+  width: 800px; /* Adjust the width as desired */
+  max-height: 90%;
+  overflow: auto;
+  text-align: center;
+}
+
+.edit-icon {
+  color: #7D85C7;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.edit-icon:hover {
+  color: #514C98;
+}
+

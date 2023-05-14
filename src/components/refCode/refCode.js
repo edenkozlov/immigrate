@@ -46,6 +46,7 @@ const RefCode = () => {
             />
             <button className="buttonfrfr" type="submit">Submit</button>
           </div>
+          <h6>Do Not Share This Code With Anyone</h6>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
         </form>
       </div>

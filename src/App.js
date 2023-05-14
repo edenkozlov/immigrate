@@ -18,7 +18,7 @@ import RepSignIn from "./components/repSignIn/repSignIn";
 import NewPage from "./components/locationTest/locationTest";
 import SponsorshipSpousal from "./components/sponsorship-spousal/sponsorship-spousal";
 import SponsorshipParental from "./components/sponsorship-parental/sponsorship-parental";
-
+import SponsorshipChild from "./components/sponsorship-child/sponsorship-child";
 
 function App() {
   return (
@@ -34,6 +34,7 @@ function App() {
           <Route path="/signin/signedIn" element={<Signedin />}/>
           <Route path="/signin/signedIn/sponsorshipSpousal" element={<SponsorshipSpousal/>}/>
           <Route path="/signin/signedIn/sponsorshipParental" element={<SponsorshipParental/>}/>
+          <Route path="/signin/signedIn/sponsorshipChild" element={<SponsorshipChild/>}/>
           <Route path="/Signin/RefCode" element={<RefCode />}/>
           <Route path="/Signin/workAlone" element={<WorkAlone />}/>
           <Route path="/Signin/RefCode/Client" element={<Client />}/>

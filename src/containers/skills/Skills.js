@@ -5,8 +5,6 @@ import {illustration, skillsSection} from "../../portfolio";
 import {Fade} from "react-reveal";
 import codingPerson from "../../assets/lottie/codingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import StyleContext from "../../contexts/StyleContext";
-import Button from "../../components/button/Button";
 
 export default function Skills() {
   
@@ -30,7 +28,8 @@ export default function Skills() {
             <h1
               className={"skills-heading"}
             >
-              {skillsSection.title}{" "}
+              .
+              <div>{skillsSection.title}{" "}</div>
             </h1>
             <p
               className={
@@ -74,7 +73,10 @@ export default function Skills() {
             <h1
               className={"skills-heading"}
             >
+              .
+              <div>
               Example
+              </div>
             </h1>
             <p
               className={

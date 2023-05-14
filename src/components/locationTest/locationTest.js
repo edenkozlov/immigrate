@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import LeaveReview from '../review/review';
 import './locationTest.scss'
 import SponsorshipSpousal from '../sponsorship-spousal/sponsorship-spousal';
 import SponsorshipParental from '../sponsorship-parental/sponsorship-parental';
+import SponsorshipChild from '../sponsorship-child/sponsorship-child';
 
 const NewPage = () => {
   const { referralCode } = useParams();
@@ -16,6 +16,8 @@ const NewPage = () => {
         return <SponsorshipSpousal />;
       case 'SPA':
         return <SponsorshipParental />;
+      case 'SCH':
+        return <SponsorshipChild />;
       default:
         return <p>Invalid referral code.</p>;
     }
