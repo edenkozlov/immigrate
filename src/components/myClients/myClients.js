@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import "./myClients.scss";
 import { Fade } from "react-reveal";
+import SponsorshipParental from "../sponsorship-parental/sponsorship-parental";
 
 function MyClients() {
   const [clients, setClients] = useState([]);
@@ -9,7 +10,6 @@ function MyClients() {
   const [selectedClientName, setSelectedClientName] = useState("");
   const [selectedClientCode, setSelectedClientCode] = useState("");
   const [isHowItWorksModalOpen, setIsHowItWorksModalOpen] = useState(false);
-  const [isProgress, setIsProgress] = useState(false);
 
   function handleAddClient() {
     const firstName = prompt("Enter client's first name:");
@@ -150,18 +150,7 @@ function MyClients() {
     {clients.find((c) => c.firstName === selectedClientName)?.cases[0]?.type ?? "-"}
   </h4>
   <h4 className="cen">Check up on {selectedClientName}'s progress:</h4>
-  <div className="button-row">
-    <button className="fade">Step 1</button>
-    <button className="fade">Step 2</button>
-  </div>
-  <div className="button-row">
-    <button className="fade">Step 3</button>
-    <button className="fade">Step 4</button>
-  </div>
-  <div className="button-row">
-    <button className="fade">Step 5</button>
-    <button className="fade">Step 6</button>
-  </div>
+  <SponsorshipParental />
   <br />
   <div className="cen">
     <button className="fade">Automate Case!</button>
