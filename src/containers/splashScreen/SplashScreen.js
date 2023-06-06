@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import "./SplashScreen.css";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import {greeting, splashScreen} from "../../portfolio";
-import StyleContext from "../../contexts/StyleContext";
+import {splashScreen} from "../../portfolio";
+
 
 export default function SplashScreen() {
   

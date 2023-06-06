@@ -1,18 +1,15 @@
 import React, {useEffect, useState} from "react";
-import Header from "../components/header/Header";
-import Greeting from "./greeting/Greeting";
-import Skills from "./skills/Skills";
-import StackProgress from "./skillProgress/skillProgress";
+import HeaderEn from "../website-sections-En/Header-En/Header-En";
+import Greeting from "../website-sections-En/Sec1-En/Sec1-En";
+import Skills from "../website-sections-En/Sec2-En/Sec2-En";
+import StackProgress from "../website-sections-En/Sec3-En/Sec-En";
 import WorkExperience from "./workExperience/WorkExperience";
 import Projects from "./projects/Projects";
-import StartupProject from "./StartupProjects/StartupProject";
-import Achievement from "./achievement/Achievement";
-import Footer from "../components/footer/Footer";
-import Talks from "./talks/Talks";
-import Podcast from "./podcast/Podcast";
-import Education from "./education/Education";
+import PricingEn from "../website-sections-En/Pricing-En/Pricing-En";
+import Footer from "../website-sections-En/footer-En/Footer-En";
+import Education from "../website-sections-En/Automated-En/Automated-En";
 import ScrollToTopButton from "./topbutton/Top";
-import Twitter from "./twitter-embed/twitter";
+import Twitter from "../website-sections-En/twitter-embed-En/twitter-En";
 import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
 import {splashScreen} from "../portfolio";
@@ -51,18 +48,15 @@ const Main = () => {
           <SplashScreen />
         ) : (
           <>
-            <Header />
+            <HeaderEn />
             <Greeting />
             <Skills />
             <StackProgress />
             <Education />
             <WorkExperience />
             <Projects />
-            <StartupProject />
-            <Achievement />
-            <Talks />
+            <PricingEn />
             <Twitter />
-            <Podcast />
             <Profile />
             <Footer />
             <ScrollToTopButton />

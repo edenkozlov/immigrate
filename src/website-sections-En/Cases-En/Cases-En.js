@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import './locationTest.scss'
-import SponsorshipSpousal from '../../website-sections-En/sponsorship-spousal-En/sponsorship-spousal-En';
-import SponsorshipParental from '../sponsorship-parental/sponsorship-parental';
+import './Cases-En.scss'
+import SponsorshipSpousal from '../sponsorship-spousal-En/sponsorship-spousal-En';
+import SponsorshipParental from '../sponsorship-parental-En/sponsorship-parental-En';
 import SponsorshipChild from '../../components/sponsorship-child/sponsorship-child';
 
 const NewPage = () => {
