@@ -21,7 +21,15 @@ function SponsorshipSpousal() {
   const [input11Value, setInput11Value] = useState('');
   const [input12Value, setInput12Value] = useState('');
   const [input13Value, setInput13Value] = useState('');
-  
+  const [input14Value, setInput14Value] = useState('');
+  const [input15Value, setInput15Value] = useState('');
+  const [input16Value, setInput16Value] = useState('');
+  const [input17Value, setInput17Value] = useState('');
+  const [input18Value, setInput18Value] = useState('');
+  const [input19Value, setInput19Value] = useState('');
+  const [input20Value, setInput20Value] = useState('');
+  const [input21Value, setInput21Value] = useState('');
+
 
   //language details
   const [languageInput1, setLanguageInput1] = useState('');
@@ -71,10 +79,27 @@ function SponsorshipSpousal() {
   };
 
   const handleInputChange4 = (event) => {
-    setInput4Value(event.target.value);
+    const value = event.target.value;
+    setInput4Value(value);
     updateProgress();
+  
+    if (value === 'no') {
+      setInput5Value('skipped');
+      setInput6Value('skipped');
+      setInput7Value('');
+    } else if (value === 'yes') {
+      setInput5Value('');
+      setInput6Value('');
+      setInput7Value('');
+    } else {
+      setInput5Value('');
+      setInput6Value('');
+      setInput7Value('');
+    }
   };
-
+  
+  
+  
   const handleInputChange5 = (event) => {
     setInput5Value(event.target.value);
     updateProgress();
@@ -118,6 +143,47 @@ function SponsorshipSpousal() {
     setInput13Value(event.target.value);
     updateProgress();
   };
+
+  const handleInputChange14 = (event) => {
+    setInput14Value(event.target.value);
+    updateProgress();
+  };
+
+  const handleInputChange15 = (event) => {
+    setInput15Value(event.target.value);
+    updateProgress();
+  };
+
+  const handleInputChange16 = (event) => {
+    setInput16Value(event.target.value);
+    updateProgress();
+  };
+  
+  const handleInputChange17 = (event) => {
+    setInput17Value(event.target.value);
+    updateProgress();
+  };
+
+  const handleInputChange18 = (event) => {
+    setInput18Value(event.target.value);
+    updateProgress();
+  };
+  
+  const handleInputChange19 = (event) => {
+    setInput19Value(event.target.value);
+    updateProgress();
+  };
+
+  const handleInputChange20 = (event) => {
+    setInput20Value(event.target.value);
+    updateProgress();
+  };
+
+  const handleInputChange21 = (event) => {
+    setInput21Value(event.target.value);
+    updateProgress();
+  };
+
 
   const handleLanguageInput1 = (event) => {
     setInput1Value(event.target.value);
@@ -196,8 +262,16 @@ function SponsorshipSpousal() {
       (input10Value ? 1 : 0) +
       (input11Value ? 1 : 0) +
       (input12Value ? 1 : 0) +
-      (input13Value ? 1 : 0);
-    const progressValue = (filledInputs / 13) * 100; // Updated to divide by 12
+      (input13Value ? 1 : 0) +
+      (input14Value ? 1 : 0) +
+      (input15Value ? 1 : 0) +
+      (input16Value ? 1 : 0) +
+      (input17Value ? 1 : 0) +
+      (input18Value ? 1 : 0) +
+      (input19Value ? 1 : 0) +
+      (input20Value ? 1 : 0) +
+      (input21Value ? 1 : 0);
+    const progressValue = (filledInputs / 21) * 100; 
     setProgress(progressValue);
   };
 
@@ -234,8 +308,10 @@ function SponsorshipSpousal() {
 
   
   //personal information
+
+  
   const renderInput = (index, label, value, onChange, maxLength, placeholder) => {
-    if (index <= progress / 7) {
+    if (index <= progress / 4.76) {
       return (
         <Fade bottom delay={index * 100}>
           <label>
@@ -250,12 +326,60 @@ function SponsorshipSpousal() {
           </label>
         </Fade>
       );
+    } else if (input4Value === 'yes') {
+      if (index === 5) {
+        return (
+          <Fade bottom delay={index * 100}>
+            <label>
+              {label}:
+              <input
+                type="text"
+                value={value}
+                onChange={onChange}
+                maxLength={maxLength}
+                placeholder={placeholder}
+              />
+            </label>
+          </Fade>
+        );
+      } else {
+        return null;
+      }
+    } else if (input4Value === 'no') {
+      if (index === 5 || index === 6) {
+        return (
+          <Fade bottom delay={index * 100}>
+            <label>
+              {label}:
+              <input
+                type="text"
+                value={value}
+                onChange={onChange}
+                maxLength={maxLength}
+                placeholder={placeholder}
+              />
+            </label>
+          </Fade>
+        );
+      } else {
+        return null;
+      }
     } else {
       return null;
     }
   };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   const renderDropdown = (index, label, value, onChange, options, placeholder) => {
-    if (index <= progress / 7) {
+    if (index <= progress / 4.76) {
       return (
         <Fade bottom delay={index * 100}>
           <label>
@@ -287,7 +411,24 @@ function SponsorshipSpousal() {
           </label>
         </Fade>
       );
-    } else {
+    } else if (input4Value === 'no') {
+      if (index === 5 || index === 6) {
+        return (
+          <Fade bottom delay={index * 100}>
+            <label>
+              {label}:
+              <input
+                type="text"
+                value={value}
+                onChange={onChange}
+                
+                placeholder={placeholder}
+              />
+            </label>
+          </Fade>
+        );
+      }}
+    else {
       return null;
     }
   };
@@ -321,6 +462,9 @@ function SponsorshipSpousal() {
   };
 
   */
+
+
+
  
 
 return (
@@ -457,15 +601,15 @@ return (
 <div className="myrowfr">
   {renderInput(
     0,
-    'Your Last Name (as shown on passport)',
+    'Your last name(s) (as shown on passport)',
     input1Value,
     handleInputChange1,
     20,
-    'Example: Doe'
+    'Example: Smith'
   )}
   {renderInput(
     1,
-    'Your First Name (as shown on passport)',
+    'Your given name(s) (as shown on passport)',
     input2Value,
     handleInputChange2,
     20,
@@ -473,7 +617,7 @@ return (
   )}
   {renderInput(
     2,
-    'Your Date Of Birth: (YYYY/MM/DD)',
+    'Your date of birth: (YYYY/MM/DD)',
     input3Value,
     handleInputChange3,
     10,
@@ -483,32 +627,156 @@ return (
 <div className="myrowfr">
 {renderInput(
     3,
-    'Have you ever use any other name? (y/n)',
+    'Have you ever used any other name(s)? (yes/no)',
     input4Value,
     handleInputChange4,
-    1,
-    'Example: (y)'
+    3,
+    'Example: (yes)'
   )}
-  {renderInput(4, 'Input 5', input5Value, handleInputChange5)}
-  {renderInput(5, 'Input 6', input6Value, handleInputChange6)}
+  {renderInput(
+    4,
+    'if yes - The family name(s), maiden name, alias, etc.',
+    input5Value,
+    handleInputChange5,
+    20,
+    'Example: smithy'
+  )}
+   {renderInput(
+    5,
+    'if yes - The Given name(s), maiden name, alias, etc.',
+    input6Value,
+    handleInputChange6,
+    20,
+    'Example: johnny'
+  )}
 </div>
 <div className="myrowfr">
-  {renderInput(6, 'Input 7', input7Value, handleInputChange7)}
-  {renderInput(7, 'Input 8', input8Value, handleInputChange8)}
-  {renderInput(8, 'Input 9', input9Value, handleInputChange9)}
+{renderInput(
+    6,
+    'Your UCI number (no UCI num? - type "xx")',
+    input7Value,
+    handleInputChange7,
+    10,
+    'Example: 1234567890'
+  )}
+  {renderDropdown(
+  7,
+  'Sex',
+  input8Value,
+  handleInputChange8,
+  ['Male', 'Female', 'Unknown', 'Another Gender'],
+  'Example: Select an option'
+)}
+  {renderDropdown(
+  8,
+  'Eye colour',
+  input9Value,
+  handleInputChange9,
+  ['Black', 'Blue', 'Brown', 'Green', 'Grey', 'Hazel', 'Other', 'Pink', 'Sea Green'],
+  'Example: Select an option'
+)}
 </div>
 <div className="myrowfr">
-  {renderInput(9, 'Input 10', input10Value, handleInputChange10)}
-  {renderInput(10, 'Input 11', input11Value, handleInputChange11)}
-  {renderInput(11, 'Input 12', input12Value, handleInputChange12)}
+{renderInput(
+    9,
+    'Your height in CM',
+    input10Value,
+    handleInputChange10,
+    4,
+    'Example: 156'
+  )}
+  {renderDropdown(
+  10,
+  'Country of birth?',
+  input11Value,
+  handleInputChange11,
+  ['Iraq', 'Iraq 2', 'Iraq 3', 'Iraq4'],
+  'Example: Select an option'
+)}
+  {renderInput(
+    11,
+    'Place of birth',
+    input12Value,
+    handleInputChange12,
+    10,
+    'Example: The motel'
+  )}
 </div>
 <div className="myrowfr">
 {renderDropdown(
-  13,
-  'where are you planning to live in canada?',
+  12,
+  'Country of citizenship (1)',
   input13Value,
   handleInputChange13,
-  ['quebec', 'ignore this input', 'toronto', 'the moon'],
+  ['one', 'two', 'three', 'four'],
+  'Example: Select an option'
+)}
+{renderDropdown(
+  13,
+  'Country of citizenship (2)',
+  input14Value,
+  handleInputChange14,
+  ['none','one', 'two', 'three', 'four'],
+  'Example: Select an option'
+)}
+{renderDropdown(
+  14,
+  'Country of citizenship (2)',
+  input15Value,
+  handleInputChange15,
+  ['one', 'two', 'three', 'four'],
+  'Example: Select an option'
+)}
+</div>
+<div className="myrowfr">
+{renderDropdown(
+  15,
+  'Status of citizenship',
+  input16Value,
+  handleInputChange16,
+  ['Citizen', 'Permanent Resident', 'Visitor', 'Worker'],
+  'Example: Select an option'
+)}
+{renderDropdown(
+  16,
+  'input',
+  input17Value,
+  handleInputChange17,
+  ['none','one', 'two', 'three', 'four'],
+  'Example: Select an option'
+)}
+{renderDropdown(
+  17,
+  'input',
+  input18Value,
+  handleInputChange18,
+  ['none','one', 'two', 'three', 'four'],
+  'Example: Select an option'
+)}
+</div>
+<div className="myrowfr">
+{renderDropdown(
+  18,
+  'Status of citizenship',
+  input19Value,
+  handleInputChange19,
+  ['Citizen', 'Permanent Resident', 'Visitor', 'Worker'],
+  'Example: Select an option'
+)}
+{renderDropdown(
+  19,
+  'input',
+  input20Value,
+  handleInputChange20,
+  ['none','one', 'two', 'three', 'four'],
+  'Example: Select an option'
+)}
+{renderDropdown(
+  20,
+  'input',
+  input21Value,
+  handleInputChange21,
+  ['none','one', 'two', 'three', 'four'],
   'Example: Select an option'
 )}
 </div>

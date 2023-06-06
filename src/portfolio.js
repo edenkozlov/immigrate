@@ -24,7 +24,7 @@ const greeting = {
   username: "Fillify",
   title: "Fillify",
   subTitle: 
-    "Immigration made easy - the best way to get all your cases done!"
+    "Immigration made easy: The best way to get all your cases done! - Automate Portals, PDFs, Track Client Progress and More! BUY OUR FUCKING PRODUCT"
   ,
   resumeLink:
     "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
@@ -37,6 +37,11 @@ const socialMediaLinks = {
   twitter: "https://twitter.com/fillify_canada",
   gmail: "0xlunastudios@gmail.com",
   instagram: "https://www.instagram.com/0x_luna_studios/",
+
+  stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
+  linkedin: "https://www.linkedin.com/in/saadpasta/",
+  facebook: "https://www.facebook.com/saad.pasta7",
+  medium: "https://medium.com/@saadpasta",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -71,25 +76,32 @@ const skillsSection = {
   ],
   skills2: [
     emoji(
-      "-Step 1: BLABLABLABLABLABLABLABLABLABLABLABLA"
+      "-Step 1: These are words that example steps of the project"
     ),
-    emoji("-Step 2: BLABLABLABLABLABLABLABLABLABLABLABLA"),
+    emoji("-Step 2: This is the second line of steps lol"),
     emoji(
-      "-Step 3: BLABLABLABLABLABLABLABLABLABLABLABLA"
-    ),
-    emoji(
-      "-Step 4: BLABLABLABLABLABLABLABLABLABLABLABLA"
-    ),
-    emoji("-Step 5: BLABLABLABLABLABLABLABLABLABLABLABLA"),
-    emoji(
-      "-Step 6: BLABLABLABLABLABLABLABLABLABLABLABLA"
+      "-Step 3: ron must really hate himself, i would too"
     ),
     emoji(
-      "-Step 7: BLABLABLABLABLABLABLABLABLABLABLABLA"
+      "-Step 4: godaaaamnnnn son, words that mean things"
+    ),
+    emoji("-Step 5: feeling so good right now, wow feeling GGG"),
+    emoji(
+      "-Step 6: oh boy oh boy. my lord, on god"
     ),
     emoji(
-      "-Step 8: BLABLABLABLABLABLABLABLABLABLABLABLA"
-    )
+      "-Step 7: were at the seventh step, this is dope"
+    ),
+    emoji(
+      "-Step 8: final line of writing, feels amazing"
+    ),
+    emoji(
+      "-Step 9: These are words that example steps of the project"
+    ),
+    emoji("-Step 10: This is the second line of steps lol"),
+    emoji(
+      "-Step 11: ron must really hate himself, i would too"
+    ),
   ],
   skillsFr: [
     emoji(
@@ -180,30 +192,30 @@ const educationInfo = {
   schools: [
     {
       schoolName: "Local files",
-      logo: require("./assets/images/local-files.png"),
+      logo: require("./assets/images/fillify-file.png"),
       subHeader: "In english and in french",
       duration: "Update Status: Up To Date",
-      desc: "IMM1344, IMM5532, IMM5475, IMM5476, IMM5748, IMM5768"
+      desc: "IMM1344, IMM5532, IMM5475, IMM5476, IMM5748, IMM5768 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
     },
     {
       schoolName: "Portals (CICC and the other one)",
-      logo: require("./assets/images/portals.png"),
+      logo: require("./assets/images/fillify-portal.png"),
       subHeader: "In english and in french",
       duration: "Update Status: Up To Date",
-      desc: "IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
+      desc: "IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546 IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
     }
   ],
   schoolsFr: [
     {
       schoolName: "Fichiers Locaux",
-      logo: require("./assets/images/local-files.png"),
+      logo: require("./assets/images/fillify-file.png"),
       subHeader: "En anglais et en français",
       duration: "État de la mise à jour: À jour",
       desc: "IMM1344, IMM5532, IMM5475, IMM5476, IMM5748, IMM5768"
     },
     {
       schoolName: "Portails (CICC et l'autre)",
-      logo: require("./assets/images/portals.png"),
+      logo: require("./assets/images/fillify-portal.png"),
       subHeader: "En anglais et en français",
       duration: "État de la mise à jour: À jour",
       desc: "IMM0008, IMM5562, IMM5669, IMM5406, IMM5546"
@@ -330,14 +342,14 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "Rep. Package",
+      title: "1 Time Case",
       subtitle:
-        "Autofill cases, track clients, etc.",
+        "Autofill a case once - to quickly complete a case or if you wish to just test the product.",
       image: require("./assets/images/immigrate.png"),
       imageAlt: "Google Code-In Logo",
       footerLink: [
         {
-          name: "Subscribe",
+          name: "Buy Now",
           url: "http://localhost:3000/Signup"
         }
       ]

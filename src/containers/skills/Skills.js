@@ -28,7 +28,7 @@ export default function Skills() {
             <h1
               className={"skills-heading"}
             >
-              .
+              <br></br>
               <div>{skillsSection.title}{" "}</div>
             </h1>
             <p
@@ -73,7 +73,7 @@ export default function Skills() {
             <h1
               className={"skills-heading"}
             >
-              .
+              <br></br>
               <div>
               Example
               </div>
@@ -110,7 +110,7 @@ export default function Skills() {
             ) : (
               <img 
                 alt="Man Working"
-                src={require("../../assets/images/mygif.gif")}
+                src={require("../../assets/images/example2.gif")}
               ></img>
             )}
           </div>
