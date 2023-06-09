@@ -102,6 +102,9 @@ tr:nth-child(even) {
 
 .button2 {
   transition: all 0.3s ease 0s;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
 }
 
 .button2:hover {
@@ -109,6 +112,7 @@ tr:nth-child(even) {
   color: $buttonColor;
   transform: translateY(-3px);
 }
+
 
 .cen2 {
   display: flex;

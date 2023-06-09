@@ -9,19 +9,26 @@ function MyClients() {
   const [selectedClientName, setSelectedClientName] = useState("");
   const [selectedClientCode, setSelectedClientCode] = useState("");
   const [isHowItWorksModalOpen, setIsHowItWorksModalOpen] = useState(false);
+  const [isClientDetailsModalOpen, setIsClientDetailsModalOpen] = useState(false);
+  const [selectedCaseType, setSelectedCaseType] = useState("");
+  const [firstNameInput, setFirstNameInput] = useState("");
+  const [middleNameInput, setMiddleNameInput] = useState("");
+  const [lastNameInput, setLastNameInput] = useState("");
 
   function handleAddClient() {
-    const firstName = prompt("Enter client's first name:");
-    const middleName = prompt("Enter client's middle name:");
-    const lastName = prompt("Enter client's last name:");
-    if (firstName && lastName) {
-      const caseType = prompt("Enter case type:");
-      const code = generateCode();
-      setClients([
-        ...clients,
-        { firstName, middleName, lastName, code, cases: [{ type: caseType }] },
-      ]);
-    }
+    setIsModalOpen(true);
+  }
+
+  function handleFirstNameChange(event) {
+    setFirstNameInput(event.target.value);
+  }
+
+  function handleMiddleNameChange(event) {
+    setMiddleNameInput(event.target.value);
+  }
+
+  function handleLastNameChange(event) {
+    setLastNameInput(event.target.value);
   }
 
   function generateCode() {
@@ -30,13 +37,13 @@ function MyClients() {
     for (let i = 0; i < 3; i++) {
       code += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
     }
-    return code;
+    setSelectedClientCode(code);
   }
 
   function handleClientClick(client) {
     setSelectedClientName(client.firstName);
     setSelectedClientCode(client.code);
-    setIsModalOpen(true);
+    setIsClientDetailsModalOpen(true);
   }
 
   function handleDeleteClient(index) {
@@ -55,20 +62,72 @@ function MyClients() {
     const newName = prompt(`Enter the new ${nameType} for the client:`);
     if (newName) {
       const newClients = [...clients];
-      newClients[index][nameType] = newName;
+      const nameTypes = nameType.split(".");
+      if (nameTypes.length > 1) {
+        const clientIndex = parseInt(nameTypes[0]);
+        const nestedNameType = nameTypes[1];
+        newClients[clientIndex][nestedNameType] = newName;
+      } else {
+        newClients[index][nameType] = newName;
+      }
       setClients(newClients);
     }
+  }
+
+  function handleSelectCaseType(caseType) {
+    setIsModalOpen(false);
+    const caseCode = generateCaseCode(caseType);
+    const code = `${caseCode}`;
+    setSelectedCaseType(caseType); // Add this line to set the selected case type
+    setClients([
+      ...clients,
+      {
+        firstName: firstNameInput,
+        middleName: middleNameInput,
+        lastName: lastNameInput,
+        code,
+        cases: [{ type: caseType }],
+      },
+    ]);
+    setFirstNameInput("");
+    setMiddleNameInput("");
+    setLastNameInput("");
+  }
+  
+
+  function generateCaseCode(caseType) {
+    let prefix;
+    switch (caseType) {
+      case "Sponsorship Spousal":
+        prefix = "SSP";
+        break;
+      case "Sponsorship Parental":
+        prefix = "SPA";
+        break;
+      case "Sponsorship Child":
+        prefix = "SCH";
+        break;
+      default:
+        prefix = "";
+        break;
+    }
+    const randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let code = "";
+    for (let i = 0; i < 3; i++) {
+      code += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return `${prefix}${code}`;
   }
 
   return (
     <Fade bottom duration={1000} distance="40px">
       <div>
         <div>
-          <button className="button2 myMargin2" onClick={handleAddClient}>
+          <button className=" myMargin2" onClick={handleAddClient}>
             <i className="fas fa-user"></i> Add a client
           </button>
           <button
-            className="myMargin topRight button2"
+            className="myMargin topRight"
             onClick={() => setIsHowItWorksModalOpen(true)}
           >
             How it works <i className="fas fa-question"></i>
@@ -112,15 +171,24 @@ function MyClients() {
                   <tr key={index}>
                     <td>
                       <span>{client.firstName}</span>{" "}
-                      <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "firstName")}></i>
+                      <i
+                        className="fas fa-edit edit-icon"
+                        onClick={() => handleEditName(index, "firstName")}
+                      ></i>
                     </td>
                     <td>
                       <span>{client.middleName}</span>{" "}
-                      <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "middleName")}></i>
+                      <i
+                        className="fas fa-edit edit-icon"
+                        onClick={() => handleEditName(index, "middleName")}
+                      ></i>
                     </td>
                     <td>
                       <span>{client.lastName}</span>{" "}
-                      <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "lastName")}></i>
+                      <i
+                        className="fas fa-edit edit-icon"
+                        onClick={() => handleEditName(index, "lastName")}
+                      ></i>
                     </td>
                     <td>{client.code}</td>
                     <td>{client.cases[0]?.type ?? "-"}</td>
@@ -145,29 +213,90 @@ function MyClients() {
         <Modal
           className="custom-modal-content"
           overlayClassName="custom-modal-overlay"
-          isOpen={isModalOpen}
-          onRequestClose={() => setIsModalOpen(false)}
+          isOpen={isClientDetailsModalOpen}
+          onRequestClose={() => setIsClientDetailsModalOpen(false)}
         >
           <h3>Client Name: {selectedClientName}</h3>
           <h4>Client Referral Code: {selectedClientCode}</h4>
-          <h4>
-            Case Type:{" "}
-            {clients.find((c) => c.firstName === selectedClientName)?.cases[0]?.type ?? "-"}
-          </h4>
+          <h4>Case Type: {selectedCaseType}</h4>
           <h4 className="cen">Check up on {selectedClientName}'s progress:</h4>
-          <iframe src={`http://localhost:3001/Signin/RefCode/new-page/${selectedClientCode}`} width="1400" height="650"></iframe>
-
-          
+          <iframe
+            src={`http://localhost:3001/Signin/RefCode/new-page/${selectedClientCode}`}
+            width="1400"
+            height="650"
+          ></iframe>
 
           <br />
           <div className="cen">
             <button className="fade">Automate Case!</button>
           </div>
           <div className="cen">
-            <button className="fade" onClick={() => setIsModalOpen(false)}>
+            <button className="fade" onClick={() => setIsClientDetailsModalOpen(false)}>
               Close
             </button>
           </div>
+        </Modal>
+
+        <Modal
+          className="custom-modal-content"
+          overlayClassName="custom-modal-overlay"
+          isOpen={isModalOpen}
+          onRequestClose={() => setIsModalOpen(false)}
+          style={{
+            content: {
+              width: "500px", // Specify the desired width
+              height: "300px", // Specify the desired height
+              margin: "auto", // Center the modal horizontally
+            },
+          }}
+        >
+          <h2>Create Your Case</h2>
+          <input
+  type="text"
+  value={firstNameInput}
+  onChange={handleFirstNameChange}
+  style={{ margin: "0 auto 4px", textAlign: "center" }}
+  placeholder="Client's First Name"
+/>
+<input
+  type="text"
+  value={middleNameInput}
+  onChange={handleMiddleNameChange}
+  style={{ margin: "0 auto 4px", textAlign: "center" }}
+  placeholder="Client's Middle Name"
+/>
+<input
+  type="text"
+  value={lastNameInput}
+  onChange={handleLastNameChange}
+  style={{ margin: "0 auto 4px", textAlign: "center" }}
+  placeholder="Client's Last Name"
+/>
+
+          <button
+            className="button2"
+            onClick={() => handleSelectCaseType("Sponsorship Spousal")}
+          >
+            Sponsorship Spousal
+          </button>
+          <button
+            className="button2"
+            onClick={() => handleSelectCaseType("Sponsorship Parental")}
+          >
+            Sponsorship Parental
+          </button>
+          <button
+            className="button2"
+            onClick={() => handleSelectCaseType("Sponsorship Child")}
+          >
+            Sponsorship Child
+          </button>
+          <button
+            className="button2"
+            onClick={() => handleSelectCaseType("Sponsorship Child")}
+          >
+            some BS case
+          </button>
         </Modal>
       </div>
     </Fade>
