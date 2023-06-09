@@ -8,8 +8,8 @@ import Signedin from "./website-sections-En/rep-signedin-En/rep-Signedin-En";
 import Fr from "./containers/fr/Fr";
 import SigninFr from "./components/signin-fr/Signin-fr";
 import BlogsFr from "./components/signedin-fr/Signedin-fr";
-import Review from "./components/review/review";
-import TryItYourself from "./containers/try-it-yourself/try-it-yourself";
+import Review from "./website-sections-En/review/review";
+import TryItYourself from "./website-sections-En/try-it-yourself/try-it-yourself";
 import MyClients from "./website-sections-En/rep-myClients-En/rep-myClients-En";
 import RefCode from "./components/refCode/refCode";
 import Client from "./components/client/client";
@@ -18,7 +18,7 @@ import RepSignIn from "./website-sections-En/repSignIn-En/repSignIn-En";
 import NewPage from "./website-sections-En/Cases-En/Cases-En";
 import SponsorshipSpousal from "./website-sections-En/sponsorship-spousal-En/sponsorship-spousal-En";
 import SponsorshipParental from "./website-sections-En/sponsorship-parental-En/sponsorship-parental-En";
-import SponsorshipChild from "./components/sponsorship-child/sponsorship-child";
+
 
 function App() {
   return (
@@ -34,7 +34,6 @@ function App() {
           <Route path="/signin/signedIn" element={<Signedin />}/>
           <Route path="/signin/signedIn/sponsorshipSpousal" element={<SponsorshipSpousal/>}/>
           <Route path="/signin/signedIn/sponsorshipParental" element={<SponsorshipParental/>}/>
-          <Route path="/signin/signedIn/sponsorshipChild" element={<SponsorshipChild/>}/>
           <Route path="/Signin/RefCode" element={<RefCode />}/>
           <Route path="/Signin/workAlone" element={<WorkAlone />}/>
           <Route path="/Signin/RefCode/Client" element={<Client />}/>

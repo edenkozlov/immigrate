@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import "./rep-myClients-En.scss";
 import { Fade } from "react-reveal";
-import SponsorshipParental from "../sponsorship-parental-En/sponsorship-parental-En";
 
 function MyClients() {
   const [clients, setClients] = useState([]);
@@ -17,12 +16,21 @@ function MyClients() {
     const lastName = prompt("Enter client's last name:");
     if (firstName && lastName) {
       const caseType = prompt("Enter case type:");
-      const code = Math.random().toString(36).substr(2, 6).toUpperCase();
+      const code = generateCode();
       setClients([
         ...clients,
         { firstName, middleName, lastName, code, cases: [{ type: caseType }] },
       ]);
     }
+  }
+
+  function generateCode() {
+    const randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let code = "SSP";
+    for (let i = 0; i < 3; i++) {
+      code += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return code;
   }
 
   function handleClientClick(client) {
@@ -89,81 +97,81 @@ function MyClients() {
             <p>No Current Clients...</p>
           ) : (
             <table>
-            <thead>
-              <tr>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Code</th>
-                <th>Case Type</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-  {clients.map((client, index) => (
-   <tr key={index}>
-   <td>
-     <span>{client.firstName}</span>{" "}
-     <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "firstName")}></i>
-   </td>
-   <td>
-     <span>{client.middleName}</span>{" "}
-     <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "middleName")}></i>
-   </td>
-   <td>
-     <span>{client.lastName}</span>{" "}
-     <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "lastName")}></i>
-   </td>
-   <td>{client.code}</td>
-   <td>{client.cases[0]?.type ?? "-"}</td>
-   <td>
-     <button className="button2 myMargin" onClick={() => handleClientClick(client)}>
-       View Details
-     </button>
-     <button className="button2 myMargin" onClick={() => handleClientClick(client)}>
-       Update Client
-     </button>
-     <button className="button2 myMargin" onClick={() => confirmDeleteClient(index)}>
-       Delete
-     </button>
-   </td>
- </tr>
- 
-  ))}
-</tbody>
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Middle Name</th>
+                  <th>Last Name</th>
+                  <th>Code</th>
+                  <th>Case Type</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {clients.map((client, index) => (
+                  <tr key={index}>
+                    <td>
+                      <span>{client.firstName}</span>{" "}
+                      <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "firstName")}></i>
+                    </td>
+                    <td>
+                      <span>{client.middleName}</span>{" "}
+                      <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "middleName")}></i>
+                    </td>
+                    <td>
+                      <span>{client.lastName}</span>{" "}
+                      <i className="fas fa-edit edit-icon" onClick={() => handleEditName(index, "lastName")}></i>
+                    </td>
+                    <td>{client.code}</td>
+                    <td>{client.cases[0]?.type ?? "-"}</td>
+                    <td>
+                      <button className="button2 myMargin" onClick={() => handleClientClick(client)}>
+                        View Details
+                      </button>
+                      <button className="button2 myMargin" onClick={() => handleClientClick(client)}>
+                        Update Client
+                      </button>
+                      <button className="button2 myMargin" onClick={() => confirmDeleteClient(index)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
 
-          </table>
-        )}
+        <Modal
+          className="custom-modal-content"
+          overlayClassName="custom-modal-overlay"
+          isOpen={isModalOpen}
+          onRequestClose={() => setIsModalOpen(false)}
+        >
+          <h3>Client Name: {selectedClientName}</h3>
+          <h4>Client Referral Code: {selectedClientCode}</h4>
+          <h4>
+            Case Type:{" "}
+            {clients.find((c) => c.firstName === selectedClientName)?.cases[0]?.type ?? "-"}
+          </h4>
+          <h4 className="cen">Check up on {selectedClientName}'s progress:</h4>
+          <iframe src={`http://localhost:3001/Signin/RefCode/new-page/${selectedClientCode}`} width="1400" height="650"></iframe>
+
+          
+
+          <br />
+          <div className="cen">
+            <button className="fade">Automate Case!</button>
+          </div>
+          <div className="cen">
+            <button className="fade" onClick={() => setIsModalOpen(false)}>
+              Close
+            </button>
+          </div>
+        </Modal>
       </div>
-
-      <Modal
-  className="custom-modal-content"
-  overlayClassName="custom-modal-overlay"
-  isOpen={isModalOpen}
-  onRequestClose={() => setIsModalOpen(false)}
->
-  
-  <h3>Client Name: {selectedClientName}</h3>
-  <h4>Client Referral Code: {selectedClientCode}</h4>
-  <h4>
-    Case Type:{" "}
-    {clients.find((c) => c.firstName === selectedClientName)?.cases[0]?.type ?? "-"}
-  </h4>
-  <h4 className="cen">Check up on {selectedClientName}'s progress:</h4>
-  <SponsorshipParental />
-  <br />
-  <div className="cen">
-    <button className="fade">Automate Case!</button>
-  </div>
-  <div className="cen">
-    <button className="fade" onClick={() => setIsModalOpen(false)}>
-      Close
-    </button>
-  </div>
-</Modal>
-</div>
-</Fade>
-);
+    </Fade>
+  );
 }
 
 export default MyClients;
