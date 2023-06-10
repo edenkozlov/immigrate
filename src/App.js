@@ -18,6 +18,7 @@ import RepSignIn from "./website-sections-En/repSignIn-En/repSignIn-En";
 import NewPage from "./website-sections-En/Cases-En/Cases-En";
 import SponsorshipSpousal from "./website-sections-En/sponsorship-spousal-En/sponsorship-spousal-En";
 import SponsorshipParental from "./website-sections-En/sponsorship-parental-En/sponsorship-parental-En";
+import SponsorshipChild from "./website-sections-En/sponsorship-child-En/sponsorship-child-En";
 
 
 function App() {
