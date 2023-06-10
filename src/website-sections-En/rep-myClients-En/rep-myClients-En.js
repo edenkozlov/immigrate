@@ -272,7 +272,7 @@ function MyClients() {
   style={{ margin: "0 auto 4px", textAlign: "center" }}
   placeholder="Client's Last Name"
 />
-
+            
           <button
             className="button2"
             onClick={() => handleSelectCaseType("Sponsorship Spousal")}
@@ -293,7 +293,7 @@ function MyClients() {
           </button>
           <button
             className="button2"
-            onClick={() => handleSelectCaseType("Sponsorship Child")}
+            onClick={() => handleSelectCaseType("")}
           >
             some BS case
           </button>

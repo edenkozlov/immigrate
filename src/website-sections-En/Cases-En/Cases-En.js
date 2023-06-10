@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './Cases-En.scss'
 import SponsorshipSpousal from '../sponsorship-spousal-En/sponsorship-spousal-En';
 import SponsorshipParental from '../sponsorship-parental-En/sponsorship-parental-En';
+import SponsorshipChild from '../sponsorship-child-En/sponsorship-child-En';
 
 
 const NewPage = () => {
@@ -16,10 +17,9 @@ const NewPage = () => {
         return <SponsorshipSpousal />;
       case 'SPA':
         return <SponsorshipParental />;
-        /*
       case 'SCH':
         return <SponsorshipChild />;
-        */
+        
       default:
         return <p>Invalid referral code.</p>;
     }

@@ -137,14 +137,20 @@ function SponsorshipParental() {
  
 
 return (
-  <div>
-  
-  <div>
 
   
+  <div >
+    
+  <div>
+
+  <div class="mycentering"></div>
 
     <ContainIt title="Sponsorship: Parental">
+
+      
   <div className='sideBySide'>
+
+ 
     <Button
       text={
         <>
@@ -173,6 +179,7 @@ return (
       onClick={openModal}
     />
   </div>
+  
 
   <div className='sideBySide'>
     <Button
@@ -195,7 +202,11 @@ return (
       text={<><i className="fas fa-hammer"></i> Occupation Details</>}
       onClick={openModal}
     />
+    
   </div>
+
+  
+  
 </ContainIt>
 
 
