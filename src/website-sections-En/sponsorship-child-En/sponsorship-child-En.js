@@ -2,16 +2,12 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Button from '../../components/button/Button';
 import ContainIt from '../containIt/containIt';
-import MyStyling from '../Cases-En/case-input-styling';
-import DropdownStyle from '../Cases-En/case-dropdown-style';
+import PersonalInfo from '../Cases-En/Personal_info';
 
 function SponsorshipChild() {
-
-    //modal functions
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const openModal = () => { setModalIsOpen(true); };
     const closeModal = () => { setModalIsOpen(false); };
-
     return (
         <div>
             <div class="mycentering"></div>
@@ -63,77 +59,16 @@ function SponsorshipChild() {
                     <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
                         <div className="modal-header">
                             <h2>Personal Information</h2>
-                            <div className="modal-buttons">
+                                <div className="modal-buttons">
                                 <button className="modal-submit" type="submit">
                                     Submit
                                 </button>
                                 <button className="modal-close" onClick={closeModal}>
                                     Close Modal
                                 </button>
-
-                            </div>
-
-
-
+                                </div>
                         </div>
-
-                        <MyStyling />
-                        
-
-                        <div class="myrowfr">
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                        </div>
-                        <div class="myrowfr">
-                            <select style={DropdownStyle}>
-                                <option value="option1">Option 1</option>
-                                <option value="option2">Option 2</option>
-                                <option value="option3">Option 3</option>
-                            </select>
-                            <select style={DropdownStyle}>
-                                <option value="option1">Option 1</option>
-                                <option value="option2">Option 2</option>
-                                <option value="option3">Option 3</option>
-                            </select>
-                            <select style={DropdownStyle}>
-                                <option value="option1">Option 1</option>
-                                <option value="option2">Option 2</option>
-                                <option value="option3">Option 3</option>
-                            </select>
-                            
-                        </div>
-                        <div class="myrowfr">
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                        </div>
-                        <div class="myrowfr">
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                        </div>
-                        <div class="myrowfr">
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                        </div>
-                        <div class="myrowfr">
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                        </div>
-                        <div class="myrowfr">
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                        </div>
-                        <div class="myrowfr">
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                            <input text="hello"></input>
-                        </div>
-
+                        <PersonalInfo />
                     </Modal>
 
                 </div>
