@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Button from '../../components/button/Button';
-import Fade from 'react-reveal/Fade';
 import ContainIt from '../containIt/containIt';
+import MyStyling from '../Cases-En/case-input-styling';
+import DropdownStyle from '../Cases-En/case-dropdown-style';
 
 function SponsorshipChild() {
 
@@ -58,9 +59,7 @@ function SponsorshipChild() {
                         text={<><i className="fas fa-hammer"></i> Occupation Details</>}
                         onClick={openModal}
                     />
-
-
-
+                    
                     <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
                         <div className="modal-header">
                             <h2>Personal Information</h2>
@@ -71,14 +70,74 @@ function SponsorshipChild() {
                                 <button className="modal-close" onClick={closeModal}>
                                     Close Modal
                                 </button>
+
                             </div>
 
+
+
+                        </div>
+
+                        <MyStyling />
+                        
+
+                        <div class="myrowfr">
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                        </div>
+                        <div class="myrowfr">
+                            <select style={DropdownStyle}>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                            <select style={DropdownStyle}>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                            <select style={DropdownStyle}>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                            
+                        </div>
+                        <div class="myrowfr">
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                        </div>
+                        <div class="myrowfr">
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                        </div>
+                        <div class="myrowfr">
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                        </div>
+                        <div class="myrowfr">
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                        </div>
+                        <div class="myrowfr">
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                        </div>
+                        <div class="myrowfr">
+                            <input text="hello"></input>
+                            <input text="hello"></input>
+                            <input text="hello"></input>
                         </div>
 
                     </Modal>
 
                 </div>
-                
+
             </ContainIt>
 
         </div>
