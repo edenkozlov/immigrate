@@ -7,6 +7,9 @@ import TravelInfo from '../Cases-En/Travel_info';
 import FamilyInfo from '../Cases-En/Family_info';
 import PassportInfo from '../Cases-En/Passposrt_info';
 import DocumentUpload from '../Cases-En/Document_Upload';
+import LanguageDetails from '../Cases-En/language_details';
+import ContactInfo from '../Cases-En/contact_info';
+import EducationInfo from '../Cases-En/education_info';
 
 function SponsorshipChild() {
 
@@ -182,6 +185,7 @@ function SponsorshipChild() {
                                 </button>
                             </div>
                         </div>
+                        <LanguageDetails />
                     </Modal>
 
                     {/* Contact Information Modal */}
@@ -194,6 +198,7 @@ function SponsorshipChild() {
                                 </button>
                             </div>
                         </div>
+                        <ContactInfo />
                     </Modal>
 
                     {/* National Identity Modal */}
@@ -218,6 +223,7 @@ function SponsorshipChild() {
                                 </button>
                             </div>
                         </div>
+                        <EducationInfo />
                     </Modal>
 
                     {/* Occupation Details Modal */}

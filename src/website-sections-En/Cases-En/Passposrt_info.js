@@ -86,6 +86,8 @@ function PassportInfo() {
       setIssueDateError("Date must follow the format YYYY/MM/DD");
     } else if (value !== "" && selectedDate > currentDate) {
       setIssueDateError("Issue date cannot be in the future");
+    } else if (value !== "" && !isValidDate(selectedDate)) {
+      setIssueDateError("Not a real date");
     } else {
       setIssueDateError("");
     }
@@ -99,9 +101,15 @@ function PassportInfo() {
       setExpiryDateError("Date must follow the format YYYY/MM/DD");
     } else if (value !== "" && expiryDateObj <= issueDateObj) {
       setExpiryDateError("Expiry date must be later than the issue date");
+    } else if (value !== "" && !isValidDate(expiryDateObj)) {
+      setExpiryDateError("Not a real date");
     } else {
       setExpiryDateError("");
     }
+  };
+
+  const isValidDate = (date) => {
+    return date instanceof Date && !isNaN(date);
   };
 
   const countryOptions = [
@@ -120,56 +128,60 @@ function PassportInfo() {
           0,
           "Do you have a valid passport/travel document?",
           selectedValue,
-          ["Option 1", "Option 2", "Option 3"],
+          ["no", "yes"],
           "Select an option",
           handleSelectedValueChange
         )}
-        {renderInput(
-          1,
-          "Passport document number (exactly as shown on your passport or travel document).",
-          documentNumber,
-          20,
-          "Example: John",
-          handleDocumentNumberChange
+        {selectedValue === "yes" && (
+          <>
+            {renderInput(
+              1,
+              "Passport document number (exactly as shown on your passport or travel document).",
+              documentNumber,
+              20,
+              "Example: John",
+              handleDocumentNumberChange
+            )}
+            {renderDropdown(
+              2,
+              "Select the country of issue of your passport/travel document",
+              countryOfIssue,
+              countryOptions,
+              "Example: Country",
+              handleCountryOfIssueChange
+            )}
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {renderInput(
+                3,
+                "Issue date (YYYY/MM/DD) (required)",
+                issueDate,
+                10,
+                "Example: 2023/06/10",
+                handleIssueDateChange
+              )}
+              {issueDateError && (
+                <span style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>
+                  {issueDateError}
+                </span>
+              )}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {renderInput(
+                4,
+                "Expiry date (YYYY/MM/DD) (required)",
+                expiryDate,
+                10,
+                "Example: 2025/12/31",
+                handleExpiryDateChange
+              )}
+              {expiryDateError && (
+                <span style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>
+                  {expiryDateError}
+                </span>
+              )}
+            </div>
+          </>
         )}
-        {renderDropdown(
-          2,
-          "Select the country of issue of your passport/travel document",
-          countryOfIssue,
-          countryOptions,
-          "Example: Country",
-          handleCountryOfIssueChange
-        )}
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {renderInput(
-            3,
-            "Issue date (YYYY/MM/DD) (required)",
-            issueDate,
-            10,
-            "Example: 2023/06/10",
-            handleIssueDateChange
-          )}
-          {issueDateError && (
-            <span style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>
-              {issueDateError}
-            </span>
-          )}
-        </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {renderInput(
-            4,
-            "Expiry date (YYYY/MM/DD) (required)",
-            expiryDate,
-            10,
-            "Example: 2025/12/31",
-            handleExpiryDateChange
-          )}
-          {expiryDateError && (
-            <span style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>
-              {expiryDateError}
-            </span>
-          )}
-        </div>
       </div>
     </div>
   );
