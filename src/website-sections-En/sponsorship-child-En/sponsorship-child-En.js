@@ -3,72 +3,233 @@ import Modal from 'react-modal';
 import Button from '../../components/button/Button';
 import ContainIt from '../containIt/containIt';
 import PersonalInfo from '../Cases-En/Personal_info';
+import TravelInfo from '../Cases-En/Travel_info';
+import FamilyInfo from '../Cases-En/Family_info';
+import PassportInfo from '../Cases-En/Passposrt_info';
+import DocumentUpload from '../Cases-En/Document_Upload';
 
 function SponsorshipChild() {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const openModal = () => { setModalIsOpen(true); };
-    const closeModal = () => { setModalIsOpen(false); };
+
+    //Peronsal Information
+    const [modalIsOpenPersonal, setModalIsOpenPersonal] = useState(false);
+    const openModalPersonal = () => { setModalIsOpenPersonal(true); };
+    const closeModalPersonal = () => { setModalIsOpenPersonal(false); };
+    //Travel History
+    const [modalIsOpenTravel, setModalIsOpenTravel] = useState(false);
+    const openModalTravel = () => { setModalIsOpenTravel(true); };
+    const closeModalTravel = () => { setModalIsOpenTravel(false); };
+
+    // Family Information
+    const [modalIsOpenFamily, setModalIsOpenFamily] = useState(false);
+    const openModalFamily = () => { setModalIsOpenFamily(true); };
+    const closeModalFamily = () => { setModalIsOpenFamily(false); };
+
+    // Passport Information
+    const [modalIsOpenPassport, setModalIsOpenPassport] = useState(false);
+    const openModalPassport = () => { setModalIsOpenPassport(true); };
+    const closeModalPassport = () => { setModalIsOpenPassport(false); };
+
+    // Document Upload
+    const [modalIsOpenUpload, setModalIsOpenUpload] = useState(false);
+    const openModalUpload = () => { setModalIsOpenUpload(true); };
+    const closeModalUpload = () => { setModalIsOpenUpload(false); };
+
+    // Language Details
+    const [modalIsOpenLanguage, setModalIsOpenLanguage] = useState(false);
+    const openModalLanguage = () => { setModalIsOpenLanguage(true); };
+    const closeModalLanguage = () => { setModalIsOpenLanguage(false); };
+
+    // Contact Information
+    const [modalIsOpenContact, setModalIsOpenContact] = useState(false);
+    const openModalContact = () => { setModalIsOpenContact(true); };
+    const closeModalContact = () => { setModalIsOpenContact(false); };
+
+    // National Identity
+    const [modalIsOpenIdentity, setModalIsOpenIdentity] = useState(false);
+    const openModalIdentity = () => { setModalIsOpenIdentity(true); };
+    const closeModalIdentity = () => { setModalIsOpenIdentity(false); };
+
+    // Education Details
+    const [modalIsOpenEducation, setModalIsOpenEducation] = useState(false);
+    const openModalEducation = () => { setModalIsOpenEducation(true); };
+    const closeModalEducation = () => { setModalIsOpenEducation(false); };
+
+    // Occupation Details
+    const [modalIsOpenOccupation, setModalIsOpenOccupation] = useState(false);
+    const openModalOccupation = () => { setModalIsOpenOccupation(true); };
+    const closeModalOccupation = () => { setModalIsOpenOccupation(false); };
+
+
     return (
         <div>
             <div class="mycentering"></div>
-            <ContainIt title="Sponsorship: Parental">
+            <ContainIt title="Sponsorship: Child">
                 <div className='sideBySide'>
                     <Button
                         text={<><i className="fas fa-user"></i> Personal Information</>}
-                        onClick={openModal}
+                        onClick={openModalPersonal}
                     />
                     <Button
                         text={<><i className="fas fa-plane"></i> Travel History</>}
-                        onClick={openModal}
+                        onClick={openModalTravel}
                     />
                     <Button
                         text={<><i className="fas fa-users"></i> Family Information</>}
-                        onClick={openModal}
+                        onClick={openModalFamily}
                     />
                     <Button
                         text={<><i className="fas fa-passport"></i> Passport Information</>}
-                        onClick={openModal}
+                        onClick={openModalPassport}
                     />
                     <Button
                         text={<><i class="fas fa-upload"></i> Document Upload</>}
-                        onClick={openModal}
+                        onClick={openModalUpload}
                     />
                 </div>
                 <div className='sideBySide'>
                     <Button
                         text={<><i className="fas fa-globe-americas"></i> Language Details</>}
-                        onClick={openModal}
+                        onClick={openModalLanguage}
                     />
                     <Button
                         text={<><i className="fas fa-phone"></i> Contact Information</>}
-                        onClick={openModal}
+                        onClick={openModalContact}
                     />
                     <Button
                         text={<><i className="fas fa-flag"></i> National Identity</>}
-                        onClick={openModal}
+                        onClick={openModalIdentity}
                     />
                     <Button
                         text={<><i className="fas fa-graduation-cap"></i> Education Details</>}
-                        onClick={openModal}
+                        onClick={openModalEducation}
                     />
                     <Button
                         text={<><i className="fas fa-hammer"></i> Occupation Details</>}
-                        onClick={openModal}
+                        onClick={openModalOccupation}
                     />
-                    
-                    <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+                    {/*Peronal Info Modal*/}
+                    <Modal isOpen={modalIsOpenPersonal} onRequestClose={closeModalPersonal}>
                         <div className="modal-header">
                             <h2>Personal Information</h2>
-                                <div className="modal-buttons">
-                                <button className="modal-submit" type="submit">
-                                    Submit
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalPersonal}>
+                                    Save and Close
                                 </button>
-                                <button className="modal-close" onClick={closeModal}>
-                                    Close Modal
-                                </button>
-                                </div>
+                            </div>
                         </div>
                         <PersonalInfo />
+                    </Modal>
+
+                    {/*Travel Info Modal*/}
+                    <Modal isOpen={modalIsOpenTravel} onRequestClose={closeModalTravel}>
+                        <div className="modal-header">
+                            <h2>Travel Information</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalTravel}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                        <TravelInfo />
+                    </Modal>
+
+                    {/* Family Information Modal */}
+                    <Modal isOpen={modalIsOpenFamily} onRequestClose={closeModalFamily}>
+                        <div className="modal-header">
+                            <h2>Family Information</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalFamily}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                        <FamilyInfo />
+                    </Modal>
+
+                    {/* Passport Information Modal */}
+                    <Modal isOpen={modalIsOpenPassport} onRequestClose={closeModalPassport}>
+                        <div className="modal-header">
+                            <h2>Passport Information</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalPassport}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                        <PassportInfo />
+                    </Modal>
+
+                    {/* Document Upload Modal */}
+                    <Modal isOpen={modalIsOpenUpload} onRequestClose={closeModalUpload}>
+                        <div className="modal-header">
+                            <h2>Document Upload</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalUpload}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                        <DocumentUpload />
+                    </Modal>
+
+                    {/* Language Details Modal */}
+                    <Modal isOpen={modalIsOpenLanguage} onRequestClose={closeModalLanguage}>
+                        <div className="modal-header">
+                            <h2>Language Details</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalLanguage}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                    </Modal>
+
+                    {/* Contact Information Modal */}
+                    <Modal isOpen={modalIsOpenContact} onRequestClose={closeModalContact}>
+                        <div className="modal-header">
+                            <h2>Contact Information</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalContact}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                    </Modal>
+
+                    {/* National Identity Modal */}
+                    <Modal isOpen={modalIsOpenIdentity} onRequestClose={closeModalIdentity}>
+                        <div className="modal-header">
+                            <h2>National Identity</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalIdentity}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                    </Modal>
+
+                    {/* Education Details Modal */}
+                    <Modal isOpen={modalIsOpenEducation} onRequestClose={closeModalEducation}>
+                        <div className="modal-header">
+                            <h2>Education Details</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalEducation}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
+                    </Modal>
+
+                    {/* Occupation Details Modal */}
+                    <Modal isOpen={modalIsOpenOccupation} onRequestClose={closeModalOccupation}>
+                        <div className="modal-header">
+                            <h2>Occupation Details</h2>
+                            <div className="modal-buttons">
+                                <button className="modal-close" onClick={closeModalOccupation}>
+                                    Save and Close
+                                </button>
+                            </div>
+                        </div>
                     </Modal>
 
                 </div>
