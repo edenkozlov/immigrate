@@ -42,7 +42,7 @@ function renderDropdown(id, label, value, options, placeholder, handleChange) {
   );
 }
 
-function PassportInfo() {
+function NationalIdentity() {
   const [selectedValue, setSelectedValue] = useState("");
   const [documentNumber, setDocumentNumber] = useState("");
   const [countryOfIssue, setCountryOfIssue] = useState("");
@@ -126,7 +126,7 @@ function PassportInfo() {
       <div className="myrowfr">
         {renderDropdown(
           0,
-          "Do you have a valid passport/travel document?",
+          "Do you have a national identity document? (required)",
           selectedValue,
           ["no", "yes"],
           "Select an option",
@@ -136,7 +136,7 @@ function PassportInfo() {
           <>
             {renderInput(
               1,
-              "Passport document number (exactly as shown on your passport or travel document).",
+              "National identity document number (required)",
               documentNumber,
               20,
               "Example: 1234567890",
@@ -187,4 +187,4 @@ function PassportInfo() {
   );
 }
 
-export default PassportInfo;
+export default NationalIdentity;

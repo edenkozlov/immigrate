@@ -10,6 +10,8 @@ import DocumentUpload from '../Cases-En/Document_Upload';
 import LanguageDetails from '../Cases-En/language_details';
 import ContactInfo from '../Cases-En/contact_info';
 import EducationInfo from '../Cases-En/education_info';
+import NationalIdentity from '../Cases-En/national_identiy';
+import OccupationDetails from '../Cases-En/occupation_details';
 
 function SponsorshipChild() {
 
@@ -211,6 +213,7 @@ function SponsorshipChild() {
                                 </button>
                             </div>
                         </div>
+                        <NationalIdentity />
                     </Modal>
 
                     {/* Education Details Modal */}
@@ -236,6 +239,7 @@ function SponsorshipChild() {
                                 </button>
                             </div>
                         </div>
+                        <OccupationDetails />
                     </Modal>
 
                 </div>

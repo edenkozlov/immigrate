@@ -45,10 +45,6 @@ function Divider() {
   return <hr style={{ borderTop: "2px solid #7D85C7", marginBottom: "20px" }} />;
 }
 
-function ColorlessDivider() {
-  return <hr style={{ borderTop: "2px solid transparent", marginBottom: "20px" }} />;
-}
-
 function TravelInfo() {
   const [familyName, setFamilyName] = useState("");
   const [givenName, setGivenName] = useState("");
