@@ -45,6 +45,10 @@ function Divider() {
   return <hr style={{ borderTop: '2px solid #7D85C7', marginBottom: '20px' }} />;
 }
 
+function DividerGray() {
+  return <hr style={{ borderTop: "1px dotted #808080", marginBottom: "20px" }} />;
+}
+
 function PersonalInfo() {
   const [input1Value, setInput1Value] = React.useState('');
   const [input2Value, setInput2Value] = React.useState('');
@@ -80,7 +84,26 @@ function PersonalInfo() {
   const [input37Value, setInput37Value] = React.useState('');
   const [input38Value, setInput38Value] = React.useState('');
   const [input39Value, setInput39Value] = React.useState('');
-
+  const [input40Value, setInput40Value] = React.useState('');
+  const [input41Value, setInput41Value] = React.useState('');
+  const [input42Value, setInput42Value] = React.useState('');
+  const [input43Value, setInput43Value] = React.useState('');
+  const [input44Value, setInput44Value] = React.useState('');
+  const [input45Value, setInput45Value] = React.useState('');
+  const [input46Value, setInput46Value] = React.useState('');
+  const [input47Value, setInput47Value] = React.useState('');
+  const [input48Value, setInput48Value] = React.useState('');
+  const [input49Value, setInput49Value] = React.useState('');
+  const [input50Value, setInput50Value] = React.useState('');
+  const [input51Value, setInput51Value] = React.useState('');
+  const [input52Value, setInput52Value] = React.useState('');
+  const [input53Value, setInput53Value] = React.useState('');
+  const [input54Value, setInput54Value] = React.useState('');
+  const [input55Value, setInput55Value] = React.useState('');
+  const [input56Value, setInput56Value] = React.useState('');
+  const [input57Value, setInput57Value] = React.useState('');
+  const [inputSets, setInputSets] = React.useState([]);
+  const [governmentPositions, setGovernmentPositions] = React.useState([]);
 
   
   const [hadPreviousCountries, setHadPreviousCountries] = React.useState('');
@@ -106,7 +129,20 @@ function PersonalInfo() {
   const handleInputChange16 = (e) => setInput16Value(e.target.value);
   const handleInputChange17 = (e) => setInput17Value(e.target.value);
 
-  
+  const handleInputChange = (e, id, field) => {
+    const { value } = e.target;
+    setInputSets((prevSets) =>
+      prevSets.map((set) => {
+        if (set.id === id) {
+          return {
+            ...set,
+            [field]: value,
+          };
+        }
+        return set;
+      })
+    );
+  };
 
 
   const handlePreviousCountriesChange = (e) => setHadPreviousCountries(e.target.value);
@@ -219,6 +255,118 @@ function PersonalInfo() {
   const handleInputChange39 = (e) => {
     setInput39Value(e.target.value);
   };
+
+  const handleInputChange40 = (e) => {
+    setInput40Value(e.target.value);
+  };
+
+  const handleInputChange41 = (e) => {
+    setInput41Value(e.target.value);
+  };
+
+  const handleInputChange42 = (e) => {
+    setInput42Value(e.target.value);
+  };
+
+  const handleInputChange43 = (e) => {
+    setInput43Value(e.target.value);
+  };
+
+  const handleInputChange44 = (e) => {
+    setInput44Value(e.target.value);
+  };
+
+  const handleInputChange45 = (e) => {
+    setInput45Value(e.target.value);
+  };
+  const handleInputChange46 = (e) => {
+    setInput46Value(e.target.value);
+  };
+  const handleInputChange47 = (e) => {
+    setInput47Value(e.target.value);
+  };
+  const handleInputChange48 = (e) => {
+    setInput48Value(e.target.value);
+  };
+  const handleInputChange49 = (e) => {
+    setInput49Value(e.target.value);
+  };
+  const handleInputChange50 = (e) => {
+    setInput50Value(e.target.value);
+  };
+  const handleInputChange51 = (e) => {
+    setInput51Value(e.target.value);
+  };
+  const handleInputChange52 = (e) => {
+    setInput52Value(e.target.value);
+  };
+  const handleInputChange53 = (e) => {
+    setInput53Value(e.target.value);
+  };
+  const handleInputChange54 = (e) => {
+    setInput54Value(e.target.value);
+  };
+  const handleInputChange55 = (e) => {
+    setInput55Value(e.target.value);
+  };
+  const handleInputChange56 = (e) => {
+    setInput56Value(e.target.value);
+  };
+  const handleInputChange57 = (e) => {
+    setInput57Value(e.target.value);
+  };
+  
+
+
+  const handleRemoveSet = (setId) => {
+    setInputSets((prevSets) => prevSets.filter((set) => set.id !== setId));
+  };
+  
+  const handleAddAnother = () => {
+    setInputSets((prevSets) => [
+      ...prevSets,
+      {
+        id: Date.now(),
+        from: '',
+        to: '',
+        organization: '',
+        organizationType: '',
+        activities: '',
+        location: '',
+      },
+    ]);
+  };
+
+  const handlePositionChange = (e, index, field) => {
+    const { value } = e.target;
+    setGovernmentPositions((prevPositions) => {
+      const updatedPositions = [...prevPositions];
+      updatedPositions[index][field] = value;
+      return updatedPositions;
+    });
+  };
+  
+  const handleRemovePosition = (index) => {
+    setGovernmentPositions((prevPositions) => {
+      const updatedPositions = [...prevPositions];
+      updatedPositions.splice(index, 1);
+      return updatedPositions;
+    });
+  };
+  
+  const handleAddPosition = () => {
+    setGovernmentPositions((prevPositions) => [
+      ...prevPositions,
+      {
+        from: '',
+        to: '',
+        country: '',
+        department: '',
+        activities: '',
+      },
+    ]);
+  };
+  
 
   return (
     <div>
@@ -388,7 +536,9 @@ function PersonalInfo() {
                   (e) => handleEndDateChange(index, e.target.value)
                 )}
               </div>
+              <div>
               <button onClick={() => handleRemoveCountry(index)}>Remove</button>
+              </div>
             </div>
           ))}
 
@@ -621,6 +771,289 @@ function PersonalInfo() {
           )}
         </div>
       )}
+      <Divider />
+      <div className="myrowfr">
+          {renderDropdown(
+            40,
+            'Where do you plan to live in Canada? (Province/Territory)',
+            input40Value,
+            ['Yes', 'No'],
+            'Example: Select an option',
+            handleInputChange40
+          )}
+          {renderDropdown(
+            41,
+            'Where do you plan to live in Canada? (City/Town)',
+            input41Value,
+            ['Yes', 'No'],
+            'Example: Select an option',
+            handleInputChange41
+          )}
+          {renderDropdown(
+            42,
+            'Have you received your Certificat de Sélection du Québec (CSQ)? (required)',
+            input42Value,
+            ['Yes', 'No'],
+            'Example: Select an option',
+            handleInputChange42
+          )}
+          {input42Value === 'Yes' && (
+            <>
+            {renderInput(
+              43,
+              'If yes, enter the CSQ number below (required)',
+              input43Value,
+              11,
+              'Example: 2020/12/31',
+              handleInputChange43
+            )}
+            </>
+          )}
+          {input42Value === 'No' && (
+            <>
+            {renderDropdown(
+              44,
+              'when did you apply for your CSQ? (YYYY/MM/DD)',
+              input44Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange44
+            )}
+            </>
+          )}
+          </div>
+          <Divider />
+          <h3>Questionnaire: Have you or, any of your family members listed in this application, ever:</h3>
+          <br></br>
+          {renderDropdown(
+              45,
+              'been convicted of a crime or offence in Canada for which a pardon has not been granted under the Criminal Records Act of Canada?',
+              input45Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange45
+            )}
+          {renderDropdown(
+              46,
+              'been convicted of or are currently charged with, on trial for, or party to a crime or offence, or subject of any criminal proceedings in any other country or territory?',
+              input46Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange46
+            )}
+            {renderDropdown(
+              47,
+              'made previous claims for refugee protection in Canada or at a Canadian visa office abroad, in any other country(ies) or territory(ies), or with the United Nations High Commissioner for Refugees (UNHCR)?',
+              input47Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange47
+            )}
+            {renderDropdown(
+              48,
+              'been refused refugee status, an immigrant or permanent resident visa (including a Certificat de Sélection du Québec [CSQ] or application to the Provincial Nominee Program) or a visitor or temporary resident visa, for Canada or any other country or territory?',
+              input48Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange48
+            )}
+            {renderDropdown(
+              49,
+              'been refused admission to, or ordered to leave, Canada or any other country or territory?',
+              input49Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange49
+            )}
+            {renderDropdown(
+              50,
+              'been involved in an act of genocide, in a war crime or in the commission of a crime against humanity?',
+              input50Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange50
+            )}
+            {renderDropdown(
+              51,
+              'used, planned or advocated the use of armed struggle or violence to reach political, religious or social objectives?',
+              input51Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange51
+            )}
+            {renderDropdown(
+              52,
+              'been associated with a group that used, uses, or advocated or advocates the use of armed struggle or violence to reach political, religious or social objectives?',
+              input52Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange52
+            )}
+            {renderDropdown(
+              53,
+              'been a member of an organization that is or was engaged in an activity that is part of a pattern of criminal activity?',
+              input53Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange53
+            )}
+            {renderDropdown(
+              54,
+              'been detained, incarcerated or put in jail?',
+              input54Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange54
+            )}
+            {renderDropdown(
+              55,
+              'had any serious disease or physical or mental disorder?',
+              input55Value,
+              ['Yes', 'No'],
+              'Example: Select an option',
+              handleInputChange55
+            )}
+            {renderInput(
+              56,
+              'If your answer to any of these questions is yes, please provide details below (maximum 679 characters):',
+              input56Value,
+              679,
+              'Example: Bla bla bla',
+              handleInputChange56
+            )}
+            <Divider />
+            <h3>What organizations have you supported, been a member of or been associated with? Include any political, social, youth or student organization, trade unions and professional associations. Do not use abbreviations. Indicate the city and country or territory where you were a member. Write “none” in the first input field if you have not been a member of any association/organization.</h3>
+            {inputSets.map((inputSet) => (
+        <div key={inputSet.id}>
+          <div className="myrowfr">
+            {renderInput(
+              `${inputSet.id}-from`,
+              'From (YYYY/MM)',
+              inputSet.from,
+              10,
+              'Example: 2021/01',
+              (e) => handleInputChange(e, inputSet.id, 'from')
+            )}
+            {renderInput(
+              `${inputSet.id}-to`,
+              'To (YYYY/MM)',
+              inputSet.to,
+              10,
+              'Example: 2022/12',
+              (e) => handleInputChange(e, inputSet.id, 'to')
+            )}
+            {renderInput(
+              `${inputSet.id}-organization`,
+              'Name of organization',
+              inputSet.organization,
+              100,
+              'Example: ABC Corporation',
+              (e) => handleInputChange(e, inputSet.id, 'organization')
+            )}
+            {renderInput(
+              `${inputSet.id}-organizationType`,
+              'Type of organization',
+              inputSet.organizationType,
+              100,
+              'Example: Technology Company',
+              (e) => handleInputChange(e, inputSet.id, 'organizationType')
+            )}
+            {renderInput(
+              `${inputSet.id}-activities`,
+              'Activities and/or positions held within organization',
+              inputSet.activities,
+              100,
+              'Example: Software Developer',
+              (e) => handleInputChange(e, inputSet.id, 'activities')
+            )}
+            {renderInput(
+              `${inputSet.id}-location`,
+              'City and country/territory',
+              inputSet.location,
+              100,
+              'Example: New York, USA',
+              (e) => handleInputChange(e, inputSet.id, 'location')
+            )}
+            <div class="myrowfr">
+            <button onClick={() => handleRemoveSet(inputSet.id)}>Remove</button>
+            </div>
+          </div>
+          {inputSets.length > 1 && <DividerGray />}
+        </div>
+      ))}
+      {/* Existing sections */}
+      <div >
+        <button onClick={handleAddAnother}>Add</button>
+      </div>
+
+      <Divider />
+      <h3>List any government positions (such as civil servant, judge, police officer, employee in a security organization) you have held. Include positions you have held before or after your retirement. Do not use abbreviations. Write “none” in the first input field if you have not held any government positions.</h3>
+
+      {governmentPositions.map((position, index) => (
+  <div key={index} className="myrowfr">
+    {renderInput(
+      `from-${index}`,
+      'From (YYYY/MM)',
+      position.from,
+      10,
+      'Example: 2021/01',
+      (e) => handlePositionChange(e, index, 'from')
+    )}
+
+    {renderInput(
+      `to-${index}`,
+      'To (YYYY/MM)',
+      position.to,
+      10,
+      'Example: 2022/12',
+      (e) => handlePositionChange(e, index, 'to')
+    )}
+
+    {renderInput(
+      `country-${index}`,
+      'Country/territory and level of jurisdiction',
+      position.country,
+      100,
+      'Example: USA, National',
+      (e) => handlePositionChange(e, index, 'country')
+    )}
+
+    {renderInput(
+      `department-${index}`,
+      'Department/branch',
+      position.department,
+      100,
+      'Example: Ministry of Finance',
+      (e) => handlePositionChange(e, index, 'department')
+    )}
+
+    {renderInput(
+      `activities-${index}`,
+      'Activity and/or positions held',
+      position.activities,
+      100,
+      'Example: Policy Development',
+      (e) => handlePositionChange(e, index, 'activities')
+    )}
+   
+
+<div >
+      <button onClick={() => handleRemovePosition(index)}>Remove</button>
+      
+      </div>
+      <div>
+          {inputSets.length > 1 && <DividerGray />}
+        </div>
+   
+     
+  </div>
+  
+))}
+
+
+<button onClick={handleAddPosition}>Add Position</button>
+
+    
     </div>
   );
 }

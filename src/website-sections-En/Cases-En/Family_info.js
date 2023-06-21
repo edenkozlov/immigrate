@@ -1,6 +1,6 @@
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
-import React from "react";
+import React, { useState } from "react";
 
 function renderInput(id, label, value, maxLength, placeholder, handleChange) {
   return (
@@ -22,7 +22,12 @@ function renderDropdown(id, label, value, options, placeholder, handleChange) {
   return (
     <div>
       <label htmlFor={`dropdown-${id}`}>{label}</label>
-      <select id={`dropdown-${id}`} value={value} style={DropdownStyle} onChange={handleChange}>
+      <select
+        id={`dropdown-${id}`}
+        value={value}
+        style={DropdownStyle}
+        onChange={handleChange}
+      >
         <option value="" disabled>
           {placeholder}
         </option>
@@ -37,318 +42,525 @@ function renderDropdown(id, label, value, options, placeholder, handleChange) {
 }
 
 function FamilyInfo() {
-  const [maritalStatusValue, setMaritalStatusValue] = React.useState('');
-  const [previouslyMarriedValue, setPreviouslyMarriedValue] = React.useState('');
-  const [input24Value, setInput24Value] = React.useState('');
-  const [input25Value, setInput25Value] = React.useState('');
-  const [input26Value, setInput26Value] = React.useState('');
-  const [input27Value, setInput27Value] = React.useState('');
-  const [input28Value, setInput28Value] = React.useState('');
-  const [input29Value, setInput29Value] = React.useState('');
-  const [input30Value, setInput30Value] = React.useState('');
-  const [input31Value, setInput31Value] = React.useState('');
-  const [input32Value, setInput32Value] = React.useState('');
-  const [input34Value, setInput34Value] = React.useState('');
-  const [input35Value, setInput35Value] = React.useState('');
-  const [input36Value, setInput36Value] = React.useState('');
-  const [input37Value, setInput37Value] = React.useState('');
-  const [input38Value, setInput38Value] = React.useState('');
-  const [input39Value, setInput39Value] = React.useState('');
+  const [showInputs, setShowInputs] = useState(false);
+  const [familyMembers, setFamilyMembers] = useState([]);
 
-  const handleMaritalStatusChange = (e) => {
-    setMaritalStatusValue(e.target.value);
+  const handleHelloButtonClick = () => {
+    setShowInputs(true);
+    setFamilyMembers((prevMembers) => {
+      const newMember = {
+        id: prevMembers.length + 1,
+        WhosFIllingForm: "",
+        addressApp: "",
+        fullNameRel: "",
+        DOBRel: "",
+        COBRel: "",
+        maritalStatusRel: "",
+        emailRel: "",
+        addyRel: "",
+        fullNameMother: "",
+        DOBMother: "",
+        COBMother: "",
+        maritalStatusMother: "",
+        emailMother: "",
+        addyMother: "",
+        fullNameFather: "",
+        DOBFather: "",
+        COBFather: "",
+        maritalStatusFather: "",
+        emailFather: "",
+        addyFather: "",
+        children: [],
+        siblings: [],
+      };
+      return [...prevMembers, newMember];
+    });
   };
 
-  const handlePreviouslyMarriedChange = (e) => {
-    setPreviouslyMarriedValue(e.target.value);
+  const handleRemoveAllInputs = () => {
+    setFamilyMembers([]);
+    setShowInputs(false);
   };
 
-  const handleInputChange24 = (e) => {
-    setInput24Value(e.target.value);
+  const handleInputChange = (e, memberId, key, childIndex = null, siblingIndex = null) => {
+    const updatedMembers = familyMembers.map((member) => {
+      if (member.id === memberId) {
+        if (childIndex !== null) {
+          const updatedChildren = member.children.map((child, index) => {
+            if (index === childIndex) {
+              return {
+                ...child,
+                [key]: e.target.value,
+              };
+            }
+            return child;
+          });
+          return {
+            ...member,
+            children: updatedChildren,
+          };
+        }
+        if (siblingIndex !== null) {
+          const updatedSiblings = member.siblings.map((sibling, index) => {
+            if (index === siblingIndex) {
+              return {
+                ...sibling,
+                [key]: e.target.value,
+              };
+            }
+            return sibling;
+          });
+          return {
+            ...member,
+            siblings: updatedSiblings,
+          };
+        }
+        return {
+          ...member,
+          [key]: e.target.value,
+        };
+      }
+      return member;
+    });
+
+    setFamilyMembers(updatedMembers);
   };
 
-  const handleInputChange25 = (e) => {
-    setInput25Value(e.target.value);
+  const handleRemoveFamilyMember = (memberId) => {
+    const updatedMembers = familyMembers.filter((member) => member.id !== memberId);
+    setFamilyMembers(updatedMembers);
   };
 
-  const handleInputChange26 = (e) => {
-    setInput26Value(e.target.value);
+  const handleAddChild = (memberId) => {
+    const updatedMembers = familyMembers.map((member) => {
+      if (member.id === memberId) {
+        const newChildIndex = member.children.length + 1;
+        const newChild = {
+          id: newChildIndex,
+          relationshipChildren: "",
+          fullNameChildren: "",
+          DOBChildren: "",
+          COBChildren: "",
+          maritalStatusChildren: "",
+          emailChildren: "",
+          addyChildren: "",
+        };
+        return {
+          ...member,
+          children: [...member.children, newChild],
+        };
+      }
+      return member;
+    });
+    setFamilyMembers(updatedMembers);
   };
 
-  const handleInputChange27 = (e) => {
-    setInput27Value(e.target.value);
+  const handleRemoveChild = (memberId, childId) => {
+    const updatedMembers = familyMembers.map((member) => {
+      if (member.id === memberId) {
+        const updatedChildren = member.children.filter((child) => child.id !== childId);
+        return {
+          ...member,
+          children: updatedChildren,
+        };
+      }
+      return member;
+    });
+    setFamilyMembers(updatedMembers);
   };
 
-  const handleInputChange28 = (e) => {
-    setInput28Value(e.target.value);
+  const handleAddSibling = (memberId) => {
+    const updatedMembers = familyMembers.map((member) => {
+      if (member.id === memberId) {
+        const newSiblingIndex = member.siblings.length + 1;
+        const newSibling = {
+          id: newSiblingIndex,
+          relationshipSiblings: "",
+          fullNameSiblings: "",
+          DOBSiblings: "",
+          COBSiblings: "",
+          maritalStatusSiblings: "",
+          emailSiblings: "",
+          addySiblings: "",
+        };
+        return {
+          ...member,
+          siblings: [...member.siblings, newSibling],
+        };
+      }
+      return member;
+    });
+    setFamilyMembers(updatedMembers);
   };
 
-  const handleInputChange29 = (e) => {
-    setInput29Value(e.target.value);
+  const handleRemoveSibling = (memberId, siblingId) => {
+    const updatedMembers = familyMembers.map((member) => {
+      if (member.id === memberId) {
+        const updatedSiblings = member.siblings.filter((sibling) => sibling.id !== siblingId);
+        return {
+          ...member,
+          siblings: updatedSiblings,
+        };
+      }
+      return member;
+    });
+    setFamilyMembers(updatedMembers);
   };
 
-  const handleInputChange30 = (e) => {
-    setInput30Value(e.target.value);
-  };
+  function Divider() {
+    return <hr style={{ borderTop: "2px solid #7D85C7", marginBottom: "20px" }} />;
+  }
 
-  const handleInputChange31 = (e) => {
-    setInput31Value(e.target.value);
-  };
 
-  const handleInputChange32 = (e) => {
-    setInput32Value(e.target.value);
-  };
-
-  const handleInputChange34 = (e) => {
-    setInput34Value(e.target.value);
-  };
-
-  const handleInputChange35 = (e) => {
-    setInput35Value(e.target.value);
-  };
-
-  const handleInputChange36 = (e) => {
-    setInput36Value(e.target.value);
-  };
-
-  const handleInputChange37 = (e) => {
-    setInput37Value(e.target.value);
-  };
-
-  const handleInputChange38 = (e) => {
-    setInput38Value(e.target.value);
-  };
-
-  const handleInputChange39 = (e) => {
-    setInput39Value(e.target.value);
-  };
+  function DividerGray() {
+    return <hr style={{ borderTop: "1px dotted #808080", marginBottom: "20px" }} />;
+  }
 
   return (
     <div>
       <MyStyling />
-      <div className="myrowfr">
-        {renderDropdown(
-          22,
-          'Current marital status (required)',
-          maritalStatusValue,
-          ['Annulled Marriage', 'Common-Law', 'Divorced', 'Married', 'Separated', 'Single', 'Unknown', 'Widowed'],
-          'Example: Select an option',
-          handleMaritalStatusChange
-        )}
-      </div>
-      {['Annulled Marriage', 'Divorced', 'Separated', 'Widowed'].includes(maritalStatusValue.trim()) && (
-        <div className="myrowfr">
-          {renderDropdown(
-            23,
-            'Have you previously been married or in a common-law relationship? (required)',
-            previouslyMarriedValue,
-            ['Yes'],
-            'Example: Select an option',
-            handlePreviouslyMarriedChange
-          )}
-          {renderInput(
-            24,
-            'Enter your family or name(s) below (required field)',
-            input24Value,
-            20,
-            'Example: Smith',
-            handleInputChange24
-          )}
-          {renderInput(
-            25,
-            'Enter your given or name(s) below (required field)',
-            input25Value,
-            20,
-            'Example: John',
-            handleInputChange25
-          )}
-          {renderInput(
-            26,
-            'Date of birth (YYYY/MM/DD) (required)',
-            input26Value,
-            10,
-            'Example: 1985/01/01',
-            handleInputChange26
-          )}
-          {renderInput(
-            27,
-            'Type of relationship (required)',
-            input27Value,
-            20,
-            'Example: Spouse',
-            handleInputChange27
-          )}
-          {renderInput(
-            28,
-            'rel. start date(YYYY/MM/DD) (required)',
-            input28Value,
-            10,
-            'Example: 2010/01/01',
-            handleInputChange28
-          )}
-          {renderInput(
-            29,
-            'End date of relationship (YYYY/MM/DD) (required)',
-            input29Value,
-            10,
-            'Example: 2020/12/31',
-            handleInputChange29
-          )}
-        </div>
-      )}
-      {['Married', 'Common-Law'].includes(maritalStatusValue.trim()) && (
+      <div>
         <div>
-          <h5>(If you are married or in a common-law relationship) Provide the date on which you were married or entered into the common-law relationship. In addition, please provide the name of your current/spouse/common-law partner.</h5>
-          <div className="myrowfr">
-            {renderInput(
-              30,
-              'Date (YYYY/MM/DD) (required)',
-              input30Value,
-              10,
-              'Example: 2022/01/01',
-              handleInputChange30
-            )}
-            {renderInput(
-              31,
-              'Family name(s) (required)',
-              input31Value,
-              20,
-              'Example: Smith',
-              handleInputChange31
-            )}
-            {renderInput(
-              32,
-              'Given name(s)',
-              input32Value,
-              20,
-              'Example: John',
-              handleInputChange32
-            )}
-            {renderDropdown(
-            33,
-            'Have you previously been married or in a common-law relationship? (required)',
-            previouslyMarriedValue,
-            ['Yes', 'No'],
-            'Example: Select an option',
-            handlePreviouslyMarriedChange
-          )}
-          {previouslyMarriedValue === 'Yes' && (
-            <>
-              {renderInput(
-                34,
-                'Enter your family or name(s) below (required field)',
-                input34Value,
-                20,
-                'Example: Smith',
-                handleInputChange34
-              )}
-              {renderInput(
-                35,
-                'Enter your given or name(s) below (required field)',
-                input35Value,
-                20,
-                'Example: John',
-                handleInputChange35
-              )}
-              {renderInput(
-                36,
-                'Date of birth (YYYY/MM/DD) (required)',
-                input36Value,
-                10,
-                'Example: 1985/01/01',
-                handleInputChange36
-              )}
-              {renderInput(
-                37,
-                'Type of relationship (required)',
-                input37Value,
-                20,
-                'Example: Spouse',
-                handleInputChange37
-              )}
-              {renderInput(
-                38,
-                'rel. start date(YYYY/MM/DD) (required)',
-                input38Value,
-                10,
-                'Example: 2010/01/01',
-                handleInputChange38
-              )}
-              {renderInput(
-                39,
-                'End date of relationship (YYYY/MM/DD) (required)',
-                input39Value,
-                10,
-                'Example: 2020/12/31',
-                handleInputChange39
-              )}
-            </>
-          )}
-          </div>
+          <button onClick={handleHelloButtonClick}>Add Family Member</button>
         </div>
-      )}
-      {['Single', 'Unknown'].includes(maritalStatusValue.trim()) && (
-        <div className="myrowfr">
-          {renderDropdown(
-            33,
-            'Have you previously been married or in a common-law relationship? (required)',
-            previouslyMarriedValue,
-            ['Yes', 'No'],
-            'Example: Select an option',
-            handlePreviouslyMarriedChange
-          )}
-          {previouslyMarriedValue === 'Yes' && (
-            <>
-              {renderInput(
-                34,
-                'Enter your family or name(s) below (required field)',
-                input34Value,
-                20,
-                'Example: Smith',
-                handleInputChange34
-              )}
-              {renderInput(
-                35,
-                'Enter your given or name(s) below (required field)',
-                input35Value,
-                20,
-                'Example: John',
-                handleInputChange35
-              )}
-              {renderInput(
-                36,
-                'Date of birth (YYYY/MM/DD) (required)',
-                input36Value,
-                10,
-                'Example: 1985/01/01',
-                handleInputChange36
-              )}
-              {renderInput(
-                37,
-                'Type of relationship (required)',
-                input37Value,
-                20,
-                'Example: Spouse',
-                handleInputChange37
-              )}
-              {renderInput(
-                38,
-                'rel. start date(YYYY/MM/DD) (required)',
-                input38Value,
-                10,
-                'Example: 2010/01/01',
-                handleInputChange38
-              )}
-              {renderInput(
-                39,
-                'End date of relationship (YYYY/MM/DD) (required)',
-                input39Value,
-                10,
-                'Example: 2020/12/31',
-                handleInputChange39
-              )}
-            </>
-          )}
+        <br></br>
+      </div>
+      {showInputs && (
+        <div>
+          {familyMembers.map((member) => (
+            <div key={member.id}>
+              <div className="myrowfr">
+                {renderDropdown(
+                  `${member.id}-0`,
+                  "Indicate whether you are filling out this form for:",
+                  member.WhosFIllingForm,
+                  [
+                    "yourself (principal applicant)",
+                    "on behalf of your family members 18 years of age or older",
+                  ],
+                  "Select an option",
+                  (e) => handleInputChange(e, member.id, "WhosFIllingForm")
+                )}
+              </div>
+              <h3>Applicant Information</h3>
+              <div className="myrowfr">
+                {renderInput(
+                  `${member.id}-1`,
+                  "Address",
+                  member.addressApp,
+                  20,
+                  "1234 ave",
+                  (e) => handleInputChange(e, member.id, "addressApp")
+                )}
+              </div>
+              <h3>Relationship - Spouse, common-law partner or conjugal partner</h3>
+              <div className="myrowfr">
+                {renderInput(
+                  `${member.id}-5`,
+                  "Full Name",
+                  member.fullNameRel,
+                  20,
+                  "insert full name here",
+                  (e) => handleInputChange(e, member.id, "fullNameRel")
+                )}
+                {renderInput(
+                  `${member.id}-6`,
+                  "Date of Birth",
+                  member.DOBRel,
+                  7,
+                  "Example: 2022/01/01",
+                  (e) => handleInputChange(e, member.id, "DOBRel")
+                )}
+                {renderInput(
+                  `${member.id}-7`,
+                  "Country or territory of birth",
+                  member.COBRel,
+                  7,
+                  "Example: 2022/01/01",
+                  (e) => handleInputChange(e, member.id, "COBRel")
+                )}
+                {renderDropdown(
+                  `${member.id}-8`,
+                  "Marital Status",
+                  member.maritalStatusRel,
+                  ['Annulled Marriage', 'Common-Law', 'Divorced', 'Married', 'Separated', 'Single', 'Unknown', 'Widowed'],
+                  "Select an option",
+                  (e) => handleInputChange(e, member.id, "maritalStatusRel")
+                )}
+                {renderInput(
+                  `${member.id}-9`,
+                  "Email",
+                  member.emailRel,
+                  7,
+                  "example@abc.com",
+                  (e) => handleInputChange(e, member.id, "emailRel")
+                )}
+                {renderInput(
+                  `${member.id}-10`,
+                  "Provide address below. If deceased, give city or town, country or territory and date",
+                  member.addyRel,
+                  7,
+                  "1234 ave",
+                  (e) => handleInputChange(e, member.id, "addyRel")
+                )}
+              </div>
+              <h3>Relationship - Mother</h3>
+              <div className="myrowfr">
+                {renderInput(
+                  `${member.id}-11`,
+                  "Full Name",
+                  member.fullNameMother,
+                   20,
+                  "insert full name here",
+                  (e) => handleInputChange(e, member.id, "fullNameMother")
+                )}
+                {renderInput(
+                  `${member.id}-12`,
+                  "Date of Birth",
+                  member.DOBMother,
+                  7,
+                  "Example: 2022/01/01",
+                  (e) => handleInputChange(e, member.id, "DOBMother")
+                )}
+                {renderInput(
+                  `${member.id}-13`,
+                  "Country or territory of birth",
+                  member.COBMother,
+                  7,
+                  "Example: 2022/01/01",
+                  (e) => handleInputChange(e, member.id, "COBMother")
+                )}
+                {renderDropdown(
+                  `${member.id}-14`,
+                  "Marital Status",
+                  member.maritalStatusMother,
+                  ['Annulled Marriage', 'Common-Law', 'Divorced', 'Married', 'Separated', 'Single', 'Unknown', 'Widowed'],
+                  "Select an option",
+                  (e) => handleInputChange(e, member.id, "maritalStatusMother")
+                )}
+                {renderInput(
+                  `${member.id}-15`,
+                  "Email",
+                  member.emailMother,
+                  7,
+                  "example@abc.com",
+                  (e) => handleInputChange(e, member.id, "emailMother")
+                )}
+                {renderInput(
+                  `${member.id}-16`,
+                  "Provide address below. If deceased, give city or town, country or territory and date",
+                  member.addyMother,
+                  7,
+                  "1234 ave",
+                  (e) => handleInputChange(e, member.id, "addyMother")
+                )}
+              </div>
+              <h3>Relationship - Father</h3>
+              <div className="myrowfr">
+                {renderInput(
+                  `${member.id}-17`,
+                  "Full Name",
+                  member.fullNameFather,
+                  20,
+                  "insert full name here",
+                  (e) => handleInputChange(e, member.id, "fullNameFather")
+                )}
+                {renderInput(
+                  `${member.id}-18`,
+                  "Date of Birth",
+                  member.DOBFather,
+                  7,
+                  "Example: 2022/01/01",
+                  (e) => handleInputChange(e, member.id, "DOBFather")
+                )}
+                {renderInput(
+                  `${member.id}-19`,
+                  "Country or territory of birth",
+                  member.COBFather,
+                  7,
+                  "Example: 2022/01/01",
+                  (e) => handleInputChange(e, member.id, "COBFather")
+                )}
+                {renderDropdown(
+                  `${member.id}-20`,
+                  "Marital Status",
+                  member.maritalStatusFather,
+                  ['Annulled Marriage', 'Common-Law', 'Divorced', 'Married', 'Separated', 'Single', 'Unknown', 'Widowed'],
+                  "Select an option",
+                  (e) => handleInputChange(e, member.id, "maritalStatusFather")
+                )}
+                {renderInput(
+                  `${member.id}-21`,
+                  "Email",
+                  member.emailFather,
+                  7,
+                  "example@abc.com",
+                  (e) => handleInputChange(e, member.id, "emailFather")
+                )}
+                {renderInput(
+                  `${member.id}-22`,
+                  "Provide address below. If deceased, give city or town, country or territory and date",
+                  member.addyFather,
+                  7,
+                  "1234 ave",
+                  (e) => handleInputChange(e, member.id, "addyFather")
+                )}
+              </div>
+              <h3>Children</h3>
+              {member.children.map((child, childIndex) => (
+                <div key={child.id}>
+                  <div className="myrowfr">
+                    {renderInput(
+                      `${member.id}-${childIndex}-23`,
+                      "Relationship",
+                      child.relationshipChildren,
+                      20,
+                      'example: "step son"',
+                      (e) =>
+                        handleInputChange(e, member.id, "relationshipChildren", childIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${childIndex}-24`,
+                      "Full Name",
+                      child.fullNameChildren,
+                      20,
+                      "insert full name here",
+                      (e) => handleInputChange(e, member.id, "fullNameChildren", childIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${childIndex}-25`,
+                      "Date of Birth",
+                      child.DOBChildren,
+                      7,
+                      "Example: 2022/01/01",
+                      (e) => handleInputChange(e, member.id, "DOBChildren", childIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${childIndex}-26`,
+                      "Country or territory of birth",
+                      child.COBChildren,
+                      7,
+                      "Example: 2022/01/01",
+                      (e) => handleInputChange(e, member.id, "COBChildren", childIndex)
+                    )}
+                    {renderDropdown(
+                      `${member.id}-${childIndex}-27`,
+                      "Marital Status",
+                      child.maritalStatusChildren,
+                      ['Annulled Marriage', 'Common-Law', 'Divorced', 'Married', 'Separated', 'Single', 'Unknown', 'Widowed'],
+                      "Select an option",
+                      (e) =>
+                        handleInputChange(e, member.id, "maritalStatusChildren", childIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${childIndex}-28`,
+                      "Email",
+                      child.emailChildren,
+                      7,
+                      "example@abc.com",
+                      (e) => handleInputChange(e, member.id, "emailChildren", childIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${childIndex}-29`,
+                      "Provide address below. If deceased, give city or town, country or territory and date",
+                      child.addyChildren,
+                      7,
+                      "1234 ave",
+                      (e) => handleInputChange(e, member.id, "addyChildren", childIndex)
+                    )}
+                  </div>
+                  <button onClick={() => handleRemoveChild(member.id, child.id)}>
+                    Remove Child
+                  </button>
+                  <DividerGray />
+                </div>
+              ))}
+              <button onClick={() => handleAddChild(member.id)}>Add Child</button>
+              <h3>Siblings</h3>
+              {member.siblings.map((sibling, siblingIndex) => (
+                <div key={sibling.id}>
+                  <div className="myrowfr">
+                    {renderInput(
+                      `${member.id}-${siblingIndex}-30`,
+                      "Relationship",
+                      sibling.relationshipSiblings,
+                      20,
+                      'example: step brother',
+                      (e) =>
+                        handleInputChange(e, member.id, "relationshipSiblings", null, siblingIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${siblingIndex}-31`,
+                      "Full Name",
+                      sibling.fullNameSiblings,
+                      20,
+                      "insert full name here",
+                      (e) => handleInputChange(e, member.id, "fullNameSiblings", null, siblingIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${siblingIndex}-32`,
+                      "Date of Birth",
+                      sibling.DOBSiblings,
+                      7,
+                      "Example: 2022/01/01",
+                      (e) => handleInputChange(e, member.id, "DOBSiblings", null, siblingIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${siblingIndex}-33`,
+                      "Country or territory of birth",
+                      sibling.COBSiblings,
+                      7,
+                      "Example: 2022/01/01",
+                      (e) => handleInputChange(e, member.id, "COBSiblings", null, siblingIndex)
+                    )}
+                    {renderDropdown(
+                      `${member.id}-${siblingIndex}-34`,
+                      "'Annulled Marriage', 'Common-Law', 'Divorced', 'Married', 'Separated', 'Single', 'Unknown', 'Widowed'",
+                      sibling.maritalStatusSiblings,
+                      ["answer 1", "answer 2"],
+                      "Select an option",
+                      (e) =>
+                        handleInputChange(e, member.id, "maritalStatusSiblings", null, siblingIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${siblingIndex}-35`,
+                      "Email",
+                      sibling.emailSiblings,
+                      7,
+                      "example@abc.com",
+                      (e) => handleInputChange(e, member.id, "emailSiblings", null, siblingIndex)
+                    )}
+                    {renderInput(
+                      `${member.id}-${siblingIndex}-36`,
+                      "Provide address below. If deceased, give city or town, country or territory and date",
+                      sibling.addySiblings,
+                      7,
+                      "1234 ave",
+                      (e) => handleInputChange(e, member.id, "addySiblings", null, siblingIndex)
+                    )}
+                  </div>
+                    
+                  <button onClick={() => handleRemoveSibling(member.id, sibling.id)}>
+                    Remove Sibling
+                  </button>
+                  <DividerGray />
+                </div>
+                
+              ))}
+              <button onClick={() => handleAddSibling(member.id)}>Add Sibling</button>
+              
+              <div >
+              <Divider />
+              <button onClick={() => handleRemoveFamilyMember(member.id)}>
+                Remove previously added family member
+              </button>
+              
+              <div>
+          <button onClick={handleHelloButtonClick}>Add family member</button>
+        </div>
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

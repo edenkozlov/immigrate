@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import "./myClients.scss";
 import { Fade } from "react-reveal";
-import SponsorshipParental from "../sponsorship-parental-En/sponsorship-parental-En";
 
 function MyClients() {
   const [clients, setClients] = useState([]);
@@ -150,10 +149,6 @@ function MyClients() {
     {clients.find((c) => c.firstName === selectedClientName)?.cases[0]?.type ?? "-"}
   </h4>
   <h4 className="cen">Check up on {selectedClientName}'s progress:</h4>
-  
-  {/*
-  <SponsorshipParental />
-  */}
   
   <iframe src="http://localhost:3001/"></iframe>
 

@@ -202,6 +202,9 @@ function MyClients() {
                       <button className="button2 myMargin" onClick={() => confirmDeleteClient(index)}>
                         Delete
                       </button>
+                      <button className="button2 myMargin" onClick={() => confirmDeleteClient(index)}>
+                        New Case (Use Previous Inputs)
+                      </button>
                     </td>
                   </tr>
                 ))}
