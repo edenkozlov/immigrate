@@ -104,7 +104,8 @@ function PersonalInfo() {
   const [input57Value, setInput57Value] = React.useState('');
   const [inputSets, setInputSets] = React.useState([]);
   const [governmentPositions, setGovernmentPositions] = React.useState([]);
-
+  const [serviceHistory, setServiceHistory] = React.useState([]);
+  const [addressSets, setAddressSets] = React.useState([]);
   
   const [hadPreviousCountries, setHadPreviousCountries] = React.useState('');
   const [previousCountries, setPreviousCountries] = React.useState([]);
@@ -367,6 +368,71 @@ function PersonalInfo() {
     ]);
   };
   
+  const handleServiceChange = (e, index, field) => {
+    const { value } = e.target;
+    setServiceHistory((prevHistory) => {
+      const updatedHistory = [...prevHistory];
+      updatedHistory[index][field] = value;
+      return updatedHistory;
+    });
+  };
+  
+  const handleRemoveService = (index) => {
+    setServiceHistory((prevHistory) => {
+      const updatedHistory = [...prevHistory];
+      updatedHistory.splice(index, 1);
+      return updatedHistory;
+    });
+  };
+  
+  const handleAddService = () => {
+    setServiceHistory((prevHistory) => [
+      ...prevHistory,
+      {
+        country: '',
+        branch: '',
+        from: '',
+        to: '',
+        rank: '',
+        reason: '',
+        combatDates: '',
+      },
+    ]);
+  };
+
+  const handleAddressChange = (e, index, field) => {
+    const { value } = e.target;
+    setAddressSets((prevSets) =>
+      prevSets.map((set, i) => {
+        if (i === index) {
+          return {
+            ...set,
+            [field]: value,
+          };
+        }
+        return set;
+      })
+    );
+  };
+  
+  const handleRemoveAddress = (index) => {
+    setAddressSets((prevSets) => prevSets.filter((set, i) => i !== index));
+  };
+  
+  const handleAddAddress = () => {
+    setAddressSets((prevSets) => [
+      ...prevSets,
+      {
+        from: '',
+        to: '',
+        street: '',
+        city: '',
+        province: '',
+        country: '',
+        postalCode: '',
+      },
+    ]);
+  };
 
   return (
     <div>
@@ -823,7 +889,7 @@ function PersonalInfo() {
           )}
           </div>
           <Divider />
-          <h3>Questionnaire: Have you or, any of your family members listed in this application, ever:</h3>
+          <h3>Questionnaire: Have you ever:</h3>
           <br></br>
           {renderDropdown(
               45,
@@ -1053,7 +1119,157 @@ function PersonalInfo() {
 
 <button onClick={handleAddPosition}>Add Position</button>
 
-    
+<Divider />
+<h3>Provide complete details of military and paramilitary service for each of the countries in whose armed forces you served. Write “none” in the first input field if you have not undertaken military and/or paramilitary service. Note: Please ensure that you do not leave any gaps in time.</h3>
+{serviceHistory.map((service, index) => (
+  <div key={index}>
+    <div className="myrowfr">
+      {renderInput(
+        `country-${index}`,
+        'Name of country or territory',
+        service.country,
+        100,
+        'Example: USA',
+        (e) => handleServiceChange(e, index, 'country')
+      )}
+
+      {renderInput(
+        `branch-${index}`,
+        'Branch of service, unit numbers and names of commanding officers',
+        service.branch,
+        100,
+        'Example: Army, 1st Infantry Division',
+        (e) => handleServiceChange(e, index, 'branch')
+      )}
+
+      {renderInput(
+        `from-${index}`,
+        'From (YYYY/MM)',
+        service.from,
+        10,
+        'Example: 2021/01',
+        (e) => handleServiceChange(e, index, 'from')
+      )}
+
+      {renderInput(
+        `to-${index}`,
+        'To (YYYY/MM)',
+        service.to,
+        10,
+        'Example: 2022/12',
+        (e) => handleServiceChange(e, index, 'to')
+      )}
+
+      {renderInput(
+        `rank-${index}`,
+        'Rank(s)',
+        service.rank,
+        50,
+        'Example: Captain',
+        (e) => handleServiceChange(e, index, 'rank')
+      )}
+
+      {renderInput(
+        `reason-${index}`,
+        'Reason for end of service',
+        service.reason,
+        100,
+        'Example: Honorable discharge',
+        (e) => handleServiceChange(e, index, 'reason')
+      )}
+
+      {renderInput(
+        `combatDates-${index}`,
+        'Dates and places of any active combat',
+        service.combatDates,
+        100,
+        'Example: 2010-2012, Iraq',
+        (e) => handleServiceChange(e, index, 'combatDates')
+      )}
+
+      <div>
+        <button onClick={() => handleRemoveService(index)}>Remove</button>
+      </div>
+    </div>
+    {index !== serviceHistory.length - 1 && <DividerGray />}
+  </div>
+))}
+
+<button onClick={handleAddService}>Add Service</button>
+
+<Divider />
+<h3>List all addresses where you have lived in the past 10 years or since your 18th birthday if it was less than 10 years ago. Do not use P.O. box addresses.</h3>
+
+{addressSets.map((addressSet, index) => (
+  <div key={index}>
+    <div className="myrowfr">
+      {renderInput(
+        `from-${index}`,
+        'From (YYYY/MM)',
+        addressSet.from,
+        10,
+        'Example: 2021/01',
+        (e) => handleAddressChange(e, index, 'from')
+      )}
+      {renderInput(
+        `to-${index}`,
+        'To (YYYY/MM)',
+        addressSet.to,
+        10,
+        'Example: 2022/12',
+        (e) => handleAddressChange(e, index, 'to')
+      )}
+      {renderInput(
+        `street-${index}`,
+        'Street and number',
+        addressSet.street,
+        100,
+        'Example: 123 Main St',
+        (e) => handleAddressChange(e, index, 'street')
+      )}
+      {renderInput(
+        `city-${index}`,
+        'City or town',
+        addressSet.city,
+        100,
+        'Example: New York',
+        (e) => handleAddressChange(e, index, 'city')
+      )}
+      {renderInput(
+        `province-${index}`,
+        'Province, state or district',
+        addressSet.province,
+        100,
+        'Example: New York',
+        (e) => handleAddressChange(e, index, 'province')
+      )}
+      {renderInput(
+        `country-${index}`,
+        'Country or territory',
+        addressSet.country,
+        100,
+        'Example: USA',
+        (e) => handleAddressChange(e, index, 'country')
+      )}
+      {renderInput(
+        `postalCode-${index}`,
+        'Postal code or zip code',
+        addressSet.postalCode,
+        10,
+        'Example: 12345',
+        (e) => handleAddressChange(e, index, 'postalCode')
+      )}
+      <div>
+        <button onClick={() => handleRemoveAddress(index)}>Remove</button>
+      </div>
+    </div>
+    {index !== addressSets.length - 1 && <DividerGray />}
+    {/* Add the gray divider after every set except the last one */}
+  </div>
+))}
+{addressSets.length > 0 && <div><DividerGray /></div>}
+{/* Add the gray divider if there is at least one address set */}
+<button onClick={handleAddAddress}>Add Address</button>
     </div>
   );
 }
