@@ -118,7 +118,7 @@ function SponsorshipChild() {
                             <h2>Personal Information</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalPersonal}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ function SponsorshipChild() {
                             <h2>Travel Information</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalTravel}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -144,7 +144,7 @@ function SponsorshipChild() {
                             <h2>Family Information</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalFamily}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -157,7 +157,7 @@ function SponsorshipChild() {
                             <h2>Passport Information</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalPassport}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ function SponsorshipChild() {
                             <h2>Document Upload</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalUpload}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -183,7 +183,7 @@ function SponsorshipChild() {
                             <h2>Language Details</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalLanguage}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -196,7 +196,7 @@ function SponsorshipChild() {
                             <h2>Contact Information</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalContact}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -209,7 +209,7 @@ function SponsorshipChild() {
                             <h2>National Identity</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalIdentity}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -222,7 +222,7 @@ function SponsorshipChild() {
                             <h2>Education Details</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalEducation}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>
@@ -235,7 +235,7 @@ function SponsorshipChild() {
                             <h2>Occupation Details</h2>
                             <div className="modal-buttons">
                                 <button className="modal-close" onClick={closeModalOccupation}>
-                                    Save and Close
+                                    Close
                                 </button>
                             </div>
                         </div>

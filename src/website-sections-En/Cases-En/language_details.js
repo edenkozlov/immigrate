@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
+import SaveButton from "./save-button";
+
 
 function renderDropdown(id, label, value, options, placeholder, handleChange) {
   return (
@@ -71,6 +73,8 @@ function LanguageDetails() {
 
   return (
     <div>
+      <br></br>
+      <SaveButton />
       <MyStyling />
       <div className="myrowfr">
         {renderDropdown(
