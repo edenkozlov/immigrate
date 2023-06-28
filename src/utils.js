@@ -4,3 +4,9 @@ export const formatFileSizeDisplay = value => {
   }
   return `${parseFloat((value / 1024).toFixed(1))} MB`;
 };
+
+/*export constCreateDataInJsonForm() {
+  for wtv in list {
+    create Json
+  }
+} */

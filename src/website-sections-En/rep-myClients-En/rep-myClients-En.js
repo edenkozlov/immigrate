@@ -31,15 +31,6 @@ function MyClients() {
     setLastNameInput(event.target.value);
   }
 
-  function generateCode() {
-    const randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let code = "SSP";
-    for (let i = 0; i < 3; i++) {
-      code += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
-    }
-    setSelectedClientCode(code);
-  }
-
   function handleClientClick(client) {
     setSelectedClientName(client.firstName);
     setSelectedClientCode(client.code);
@@ -79,6 +70,7 @@ function MyClients() {
     const caseCode = generateCaseCode(caseType);
     const code = `${caseCode}`;
     setSelectedCaseType(caseType); // Add this line to set the selected case type
+    
     setClients([
       ...clients,
       {

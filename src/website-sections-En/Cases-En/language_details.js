@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
 import SaveButton from "./save-button";
-
+import { createUser } from "./apiClient/apiClient"
 
 function renderDropdown(id, label, value, options, placeholder, handleChange) {
   return (
@@ -47,6 +47,15 @@ function LanguageDetails() {
   const [interviewLanguage, setInterviewLanguage] = useState("");
   const [interpreterRequested, setInterpreterRequested] = useState("");
 
+  function saveData() {
+    const data =  {
+      "nativeLanguage": nativeLanguage,
+      "communicationAbility": communicationAbility
+    }
+    createUser(data)
+    
+  }
+
   const handleNativeLanguageChange = (e) => {
     setNativeLanguage(e.target.value);
   };
@@ -75,6 +84,7 @@ function LanguageDetails() {
     <div>
       <br></br>
       <SaveButton />
+       
       <MyStyling />
       <div className="myrowfr">
         {renderDropdown(
