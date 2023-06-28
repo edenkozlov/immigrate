@@ -1,6 +1,7 @@
 import React from 'react';
 import MyStyling from './case-input-styling';
 import DropdownStyle from './case-dropdown-style';
+import SaveButton from './save-button';
 
 function renderInput(id, label, value, maxLength, placeholder, handleChange) {
   return (
@@ -96,6 +97,7 @@ function PersonalInfo() {
 
   return (
     <div>
+      <SaveButton />
       <MyStyling />
       <div className="myrowfr"></div>
       {/* Existing sections */}

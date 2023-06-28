@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
+import SaveButton from "./save-button";
 
 function renderInput(id, label, value, maxLength, placeholder, handleChange) {
   return (
@@ -122,6 +123,7 @@ function PassportInfo() {
 
   return (
     <div>
+      <SaveButton />
       <MyStyling />
       <div className="myrowfr">
         {renderDropdown(

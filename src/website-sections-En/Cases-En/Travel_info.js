@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
+import SaveButton from "./save-button";
 
 function renderInput(id, label, maxLength, placeholder, value, handleChange) {
   return (
@@ -126,6 +127,7 @@ function TravelInfo() {
 
   return (
     <div>
+      <SaveButton />
       <MyStyling />
       <h4>
         List all trips you have taken outside of your country of origin or of

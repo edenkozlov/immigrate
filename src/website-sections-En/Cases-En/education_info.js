@@ -1,6 +1,7 @@
 import React from "react";
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
+import SaveButton from "./save-button";
 
 function renderInput(id, label, value, maxLength, placeholder, handleChange) {
   return (
@@ -133,6 +134,7 @@ function EducationInfo() {
 
   return (
     <div>
+      <SaveButton />
       <MyStyling />
       <h3>Education Information</h3>
       <div className="myrowfr">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
+import SaveButton from "./save-button";
 
 function renderInput(id, label, value, maxLength, placeholder, handleChange) {
   return (
@@ -168,6 +169,7 @@ function ContactInfo() {
 
   return (
     <div>
+      <SaveButton />
       <MyStyling />
       <h3>Primary Telephone Number (required)</h3>
       <div className="myrowfr">

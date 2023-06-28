@@ -1,6 +1,7 @@
 import MyStyling from "./case-input-styling";
 import DropdownStyle from "./case-dropdown-style";
 import React, { useState } from "react";
+import SaveButton from "./save-button";
 
 function renderInput(id, label, value, maxLength, placeholder, handleChange) {
   return (
@@ -685,6 +686,7 @@ const educationOptions = [
     
   return (
     <div>
+      <SaveButton />
       <MyStyling />
       <div>
         <div>
