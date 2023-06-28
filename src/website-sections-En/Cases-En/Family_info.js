@@ -184,9 +184,11 @@ function FamilyInfo() {
   //org involvement 
 
   const [inputSets, setInputSets] = React.useState([]);
+  
   const handleRemoveSet = (setId) => {
     setInputSets((prevSets) => prevSets.filter((set) => set.id !== setId));
   };
+
   
   const handleAddAnother = () => {
     setInputSets((prevSets) => [
@@ -202,6 +204,45 @@ function FamilyInfo() {
       },
     ]);
   };
+
+  const handleInputChangeCH = (e, setId, childIndex, fieldName) => {
+    const { value } = e.target;
+    setInputSets((prevSets) => {
+      const updatedSets = prevSets.map((set) => {
+        if (set.id === setId) {
+          const updatedChild = { ...set[childIndex], [fieldName]: value };
+          return { ...set, [childIndex]: updatedChild };
+        }
+        return set;
+      });
+      return updatedSets;
+    });
+  };
+  
+const handleRemoveSetCH = (setId, childIndex) => {
+  setInputSets((prevSets) => {
+    const updatedSets = prevSets.filter((set) => set.id !== setId);
+    return updatedSets;
+  });
+};
+
+const handleAddAnotherCH = (childIndex) => {
+  setInputSets((prevSets) => [
+    ...prevSets,
+    {
+      id: Date.now(),
+      [childIndex]: {
+        fromCH: "",
+        toCH: "",
+        organizationCH: "",
+        organizationTypeCH: "",
+        activitiesCH: "",
+        locationCH: "",
+      },
+    },
+  ]);
+};
+  
 
   //gov pos.
   const [governmentPositions, setGovernmentPositions] = React.useState([]);
@@ -593,9 +634,8 @@ const educationOptions = [
       });
     };
     
-    //child's yes/no
     const [isChildImmigrating, setIsChildImmigrating] = React.useState([]);
-    
+
     const handleChildImmigrating = (e, childIndex) => {
       const value = e.target.value === "Yes";
       setIsChildImmigrating((prevValues) => {
@@ -642,9 +682,6 @@ const educationOptions = [
       });
       setFamilyMembers(updatedMembers);
     };
-
-    
-
     
   return (
     <div>
@@ -1663,114 +1700,186 @@ const educationOptions = [
         <>
       <h3>Questionnaire: Have any of your family members listed in this application, ever:</h3>
     {renderDropdown(
-      `${member.id}-crimeConvicted`,
+      `${member.id}-${child.id}-crimeConvictedCH`,
       "Been convicted of a crime or offence in Canada for which a pardon has not been granted under the Criminal Records Act of Canada?",
-      member.crimeConvicted,
+      member.crimeConvictedCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "crimeConvicted")
+      (e) => handleInputChange(e, member.id, child.id, "crimeConvictedCH")
     )}
 
     {renderDropdown(
-      `${member.id}-crimeConvictedOtherCountry`,
+      `${member.id}-${child.id}-crimeConvictedOtherCountryCH`,
       "Been convicted of or are currently charged with, on trial for, or party to a crime or offence, or subject of any criminal proceedings in any other country or territory?",
-      member.crimeConvictedOtherCountry,
+      member.crimeConvictedOtherCountryCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "crimeConvictedOtherCountry")
+      (e) => handleInputChange(e, member.id, child.id, "crimeConvictedOtherCountryCH")
     )}
 
     {renderDropdown(
-      `${member.id}-previousClaims`,
+      `${member.id}-${child.id}-previousClaimsCH`,
       "Made previous claims for refugee protection in Canada or at a Canadian visa office abroad, in any other country(ies) or territory(ies), or with the United Nations High Commissioner for Refugees (UNHCR)?",
-      member.previousClaims,
+      member.previousClaimsCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "previousClaims")
+      (e) => handleInputChange(e, member.id, child.id, "previousClaimsCH")
     )}
 
     {renderDropdown(
-      `${member.id}-refusedStatus`,
+      `${member.id}-${child.id}-refusedStatusCH`,
       "Been refused refugee status, an immigrant or permanent resident visa (including a Certificat de Sélection du Québec [CSQ] or application to the Provincial Nominee Program) or a visitor or temporary resident visa, for Canada or any other country or territory?",
-      member.refusedStatus,
+      member.refusedStatusCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "refusedStatus")
+      (e) => handleInputChange(e, member.id, child.id, "refusedStatusCH")
     )}
 
     {renderDropdown(
-      `${member.id}-refusedAdmission`,
+      `${member.id}-${child.id}-refusedAdmissionCH`,
       "Been refused admission to, or ordered to leave, Canada or any other country or territory?",
-      member.refusedAdmission,
+      member.refusedAdmissionCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "refusedAdmission")
+      (e) => handleInputChange(e, member.id, child.id, "refusedAdmissionCH")
     )}
 
     {renderDropdown(
-      `${member.id}-actOfGenocide`,
+      `${member.id}-${child.id}-actOfGenocideCH`,
       "Been involved in an act of genocide, in a war crime or in the commission of a crime against humanity?",
-      member.actOfGenocide,
+      member.actOfGenocideCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "actOfGenocide")
+      (e) => handleInputChange(e, member.id, child.id, "actOfGenocideCH")
     )}
 
     {renderDropdown(
-      `${member.id}-armedStruggle`,
+      `${member.id}-${child.id}-armedStruggleCH`,
       "Ued, planned or advocated the use of armed struggle or violence to reach political, religious or social objectives?",
-      member.armedStruggle,
+      member.armedStruggleCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "armedStruggle")
+      (e) => handleInputChange(e, member.id, child.id, "armedStruggleCH")
     )}
 
     {renderDropdown(
-      `${member.id}-associatedWithGroup`,
+      `${member.id}-${child.id}-associatedWithGroupCH`,
       "Been associated with a group that used, uses, or advocated or advocates the use of armed struggle or violence to reach political, religious or social objectives?",
-      member.associatedWithGroup,
+      member.associatedWithGroupCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "associatedWithGroup")
+      (e) => handleInputChange(e, member.id, child.id, "associatedWithGroupCH")
     )}
 
     {renderDropdown(
-      `${member.id}-criminalActivity`,
+      `${member.id}-${child.id}-criminalActivityCH`,
       "Been a member of an organization that is or was engaged in an activity that is part of a pattern of criminal activity?",
-      member.criminalActivity,
+      member.criminalActivityCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "criminalActivity")
+      (e) => handleInputChange(e, member.id, child.id, "criminalActivityCH")
     )}
     
     {renderDropdown(
-      `${member.id}-detained`,
+      `${member.id}-${child.id}-detainedCH`,
       "Have been detained, incarcerated or put in jail?",
-      member.detained,
+      member.detainedCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "detained")
+      (e) => handleInputChange(e, member.id, child.id, "detainedCH")
     )}
 
     {renderDropdown(
-      `${member.id}-seriousDisease`,
+      `${member.id}-${child.id}-seriousDiseaseCH`,
       "Have had any serious disease or physical or mental disorder?",
-      member.seriousDisease,
+      member.seriousDiseaseCH,
       ["No", "yes"],
       "Select an option",
-      (e) => handleInputChange(e, member.id, "seriousDisease")
+      (e) => handleInputChange(e, member.id, child.id, "seriousDiseaseCH")
     )}
 
     {renderInput(
-      `${member.id}-additionalDetails`,
+      `${member.id}-${child.id}-additionalDetailsCH`,
       "If the answer to any of these questions is yes, please provide details below (maximum 679 characters):",
-      member.additionalDetails,
+      member.additionalDetailsCH,
       679,
       "Enter details here",
-      (e) => handleInputChange(e, member.id, "additionalDetails")
+      (e) => handleInputChange(e, member.id, child.id, "additionalDetailsCHa")
     )}
     </>
       )}
+{isChildImmigrating[childIndex] && (
+  <>
+    <h3>
+      What organizations have you supported, been a member of, or been associated with? Include any political, social, youth, or student organization, trade unions, and professional associations. Do not use abbreviations. Indicate the city and country or territory where you were a member. Write "none" in the first input field if you have not been a member of any association/organization.
+    </h3>
+    {inputSets.map((inputSet) => (
+      <div key={inputSet.id}>
+        <div className="myrowfr">
+          {renderInput(
+            `${inputSet.id}-${childIndex}-fromCH`,
+            'From (YYYY/MM)',
+            inputSet[childIndex]?.fromCH || '',
+            10,
+            'Example: 2021/01',
+            (e) => handleInputChangeCH(e, inputSet.id, childIndex, 'fromCH')
+          )}
+          {renderInput(
+            `${inputSet.id}-${childIndex}-toCH`,
+            'To (YYYY/MM)',
+            inputSet[childIndex]?.toCH || '',
+            10,
+            'Example: 2022/12',
+            (e) => handleInputChangeCH(e, inputSet.id, childIndex, 'toCH')
+          )}
+          {renderInput(
+            `${inputSet.id}-${childIndex}-organizationCH`,
+            'Name of organization',
+            inputSet[childIndex]?.organizationCH || '',
+            100,
+            'Example: ABC Corporation',
+            (e) => handleInputChangeCH(e, inputSet.id, childIndex, 'organizationCH')
+          )}
+          {renderInput(
+            `${inputSet.id}-${childIndex}-organizationTypeCH`,
+            'Type of organization',
+            inputSet[childIndex]?.organizationTypeCH || '',
+            100,
+            'Example: Technology Company',
+            (e) => handleInputChangeCH(e, inputSet.id, childIndex, 'organizationTypeCH')
+          )}
+          {renderInput(
+            `${inputSet.id}-${childIndex}-activitiesCH`,
+            'Activities and/or positions held within organization',
+            inputSet[childIndex]?.activitiesCH || '',
+            100,
+            'Example: Software Developer',
+            (e) => handleInputChangeCH(e, inputSet.id, childIndex, 'activitiesCH')
+          )}
+          {renderInput(
+            `${inputSet.id}-${childIndex}-locationCH`,
+            'City and country/territory',
+            inputSet[childIndex]?.locationCH || '',
+            100,
+            'Example: New York, USA',
+            (e) => handleInputChangeCH(e, inputSet.id, childIndex, 'locationCH')
+          )}
+          <div className="myrowfr">
+            <button onClick={() => handleRemoveSetCH(inputSet.id, childIndex)}>Remove</button>
+          </div>
+        </div>
+        {inputSets.length > 1 && <DividerGray />}
+      </div>
+    ))}
+    {/* Existing sections */}
+    <div>
+      <button onClick={() => handleAddAnotherCH(childIndex)}>Add</button>
+    </div>
+  </>
+)}
+
+
+
       </div>
       
     </div>
